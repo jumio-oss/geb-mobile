@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<hierarchy rotation="0">
+    <android.widget.FrameLayout index="0" text="" class="android.widget.FrameLayout" package="io.selendroid.testapp"
+                                content-desc="" checkable="false" checked="false" clickable="false" enabled="true"
+                                focusable="false" focused="false" scrollable="false" long-clickable="false"
+                                password="false" selected="false" bounds="[0,0][640,864]" instance="0">
+        <android.widget.LinearLayout index="0" text="" class="android.widget.LinearLayout"
+                                     package="io.selendroid.testapp" content-desc="" checkable="false" checked="false"
+                                     clickable="false" enabled="true" focusable="false" focused="false"
+                                     scrollable="false" long-clickable="false" password="false" selected="false"
+                                     bounds="[0,0][640,864]" instance="0">
+            <android.widget.FrameLayout index="0" text="" class="android.widget.FrameLayout"
+                                        package="io.selendroid.testapp" content-desc="" checkable="false"
+                                        checked="false" clickable="false" enabled="true" focusable="false"
+                                        focused="false" scrollable="false" long-clickable="false" password="false"
+                                        selected="false" bounds="[0,50][640,100]" instance="1">
+                <android.widget.TextView index="0" text="selendroid-test-app" class="android.widget.TextView"
+                                         package="io.selendroid.testapp" content-desc="" checkable="false"
+                                         checked="false" clickable="false" enabled="true" focusable="false"
+                                         focused="false" scrollable="false" long-clickable="false" password="false"
+                                         selected="false" bounds="[8,51][632,97]" instance="0"/>
+            </android.widget.FrameLayout>
+            <android.widget.FrameLayout index="1" text="" class="android.widget.FrameLayout"
+                                        package="io.selendroid.testapp" content-desc="" checkable="false"
+                                        checked="false" clickable="false" enabled="true" focusable="false"
+                                        focused="false" scrollable="false" long-clickable="false" password="false"
+                                        selected="false" bounds="[0,100][640,864]" instance="2">
+                <android.widget.LinearLayout index="0" text="" class="android.widget.LinearLayout"
+                                             package="io.selendroid.testapp" content-desc="" checkable="false"
+                                             checked="false" clickable="false" enabled="true" focusable="false"
+                                             focused="false" scrollable="false" long-clickable="false" password="false"
+                                             selected="false" bounds="[0,100][640,864]" instance="1">
+                    <android.widget.TextView index="0" text="Hello Default Locale, Selendroid-test-app!"
+                                             class="android.widget.TextView" package="io.selendroid.testapp"
+                                             content-desc="" checkable="false" checked="false" clickable="false"
+                                             enabled="true" focusable="false" focused="false" scrollable="false"
+                                             long-clickable="false" password="false" selected="false"
+                                             bounds="[0,100][640,138]" instance="1"/>
+                    <android.widget.LinearLayout index="1" text="" class="android.widget.LinearLayout"
+                                                 package="io.selendroid.testapp" content-desc="l10nCD" checkable="false"
+                                                 checked="false" clickable="false" enabled="true" focusable="false"
+                                                 focused="false" scrollable="false" long-clickable="false"
+                                                 password="false" selected="false" bounds="[0,138][640,234]"
+                                                 instance="2">
+                        <android.widget.TextView index="0" text="Localization (L10n) locator test"
+                                                 class="android.widget.TextView" package="io.selendroid.testapp"
+                                                 content-desc="" checkable="false" checked="false" clickable="false"
+                                                 enabled="true" focusable="false" focused="false" scrollable="false"
+                                                 long-clickable="false" password="false" selected="false"
+                                                 bounds="[0,162][390,200]" instance="2"/>
+                        <android.widget.Button index="1" text="EN Button" class="android.widget.Button"
+                                               package="io.selendroid.testapp" content-desc="buttonTestCD"
+                                               checkable="false" checked="false" clickable="true" enabled="true"
+                                               focusable="true" focused="false" scrollable="false" long-clickable="true"
+                                               password="false" selected="false" bounds="[390,138][560,234]"
+                                               instance="0"/>
+                    </android.widget.LinearLayout>
+                    <android.widget.LinearLayout index="2" text="" class="android.widget.LinearLayout"
+                                                 package="io.selendroid.testapp" content-desc="imageViewCD"
+                                                 checkable="false" checked="false" clickable="false" enabled="true"
+                                                 focusable="false" focused="false" scrollable="false"
+                                                 long-clickable="false" password="false" selected="false"
+                                                 bounds="[0,234][640,355]" instance="3">
+                        <android.widget.ImageButton index="0" text="" class="android.widget.ImageButton"
+                                                    package="io.selendroid.testapp" content-desc="buttonStartWebviewCD"
+                                                    checkable="false" checked="false" clickable="true" enabled="true"
+                                                    focusable="true" focused="false" scrollable="false"
+                                                    long-clickable="false" password="false" selected="false"
+                                                    bounds="[0,234][320,355]" instance="0"/>
+                        <android.widget.ImageButton index="1" text="" class="android.widget.ImageButton"
+                                                    package="io.selendroid.testapp"
+                                                    content-desc="startUserRegistrationCD" checkable="false"
+                                                    checked="false" clickable="true" enabled="true" focusable="true"
+                                                    focused="false" scrollable="false" long-clickable="false"
+                                                    password="false" selected="false" bounds="[320,234][640,355]"
+                                                    instance="1"/>
+                    </android.widget.LinearLayout>
+                    <android.widget.EditText index="3" text="" class="android.widget.EditText"
+                                             package="io.selendroid.testapp" content-desc="my_text_fieldCD"
+                                             checkable="false" checked="false" clickable="true" enabled="true"
+                                             focusable="true" focused="true" scrollable="false" long-clickable="true"
+                                             password="false" selected="false" bounds="[0,355][640,451]" instance="0"/>
+                    <android.widget.LinearLayout index="4" text="" class="android.widget.LinearLayout"
+                                                 package="io.selendroid.testapp" content-desc="imageViewCD"
+                                                 checkable="false" checked="false" clickable="false" enabled="true"
+                                                 focusable="false" focused="false" scrollable="false"
+                                                 long-clickable="false" password="false" selected="false"
+                                                 bounds="[0,451][640,547]" instance="4">
+                        <android.widget.Button index="0" text="Show Progress Bar for a while"
+                                               class="android.widget.Button" package="io.selendroid.testapp"
+                                               content-desc="waitingButtonTestCD" checkable="false" checked="false"
+                                               clickable="true" enabled="true" focusable="true" focused="false"
+                                               scrollable="false" long-clickable="false" password="false"
+                                               selected="false" bounds="[0,451][421,547]" instance="1"/>
+                        <android.widget.CheckBox index="1" text="I accept adds" class="android.widget.CheckBox"
+                                                 package="io.selendroid.testapp" content-desc="" checkable="true"
+                                                 checked="true" clickable="true" enabled="true" focusable="true"
+                                                 focused="false" scrollable="false" long-clickable="false"
+                                                 password="false" selected="false" bounds="[421,464][640,560]"
+                                                 instance="0"/>
+                    </android.widget.LinearLayout>
+                    <android.widget.LinearLayout index="5" text="" class="android.widget.LinearLayout"
+                                                 package="io.selendroid.testapp" content-desc="visibleTestAreaCD"
+                                                 checkable="false" checked="false" clickable="false" enabled="true"
+                                                 focusable="false" focused="false" scrollable="false"
+                                                 long-clickable="false" password="false" selected="false"
+                                                 bounds="[0,547][640,643]" instance="5">
+                        <android.widget.Button index="0" text="Display text view" class="android.widget.Button"
+                                               package="io.selendroid.testapp" content-desc="visibleButtonTestCD"
+                                               checkable="false" checked="false" clickable="true" enabled="true"
+                                               focusable="true" focused="false" scrollable="false"
+                                               long-clickable="false" password="false" selected="false"
+                                               bounds="[0,547][255,643]" instance="2"/>
+                    </android.widget.LinearLayout>
+                    <android.widget.LinearLayout index="6" text="" class="android.widget.LinearLayout"
+                                                 package="io.selendroid.testapp" content-desc="visibleTestAreaCD"
+                                                 checkable="false" checked="false" clickable="false" enabled="true"
+                                                 focusable="false" focused="false" scrollable="false"
+                                                 long-clickable="false" password="false" selected="false"
+                                                 bounds="[0,643][640,816]" instance="6">
+                        <android.widget.Button index="0" text="Displays a Toast" class="android.widget.Button"
+                                               package="io.selendroid.testapp" content-desc="showToastButtonCD"
+                                               checkable="false" checked="false" clickable="true" enabled="true"
+                                               focusable="true" focused="false" scrollable="false"
+                                               long-clickable="false" password="false" selected="false"
+                                               bounds="[0,643][214,816]" instance="3"/>
+                        <android.widget.Button index="1" text="Display Popup Window" class="android.widget.Button"
+                                               package="io.selendroid.testapp" content-desc="showPopupWindowButtonCD"
+                                               checkable="false" checked="false" clickable="true" enabled="true"
+                                               focusable="true" focused="false" scrollable="false"
+                                               long-clickable="false" password="false" selected="false"
+                                               bounds="[214,643][427,816]" instance="4"/>
+                        <android.widget.Button index="2" text="Press to throw unhandled exception"
+                                               class="android.widget.Button" package="io.selendroid.testapp"
+                                               content-desc="exceptionTestButtonCD" checkable="false" checked="false"
+                                               clickable="true" enabled="true" focusable="true" focused="false"
+                                               scrollable="false" long-clickable="false" password="false"
+                                               selected="false" bounds="[427,643][640,816]" instance="5"/>
+                    </android.widget.LinearLayout>
+                    <android.widget.EditText index="7" text="Type to throw unhandled exception"
+                                             class="android.widget.EditText" package="io.selendroid.testapp"
+                                             content-desc="" checkable="false" checked="false" clickable="true"
+                                             enabled="true" focusable="true" focused="false" scrollable="false"
+                                             long-clickable="true" password="false" selected="false"
+                                             bounds="[0,816][640,864]" instance="1"/>
+                </android.widget.LinearLayout>
+            </android.widget.FrameLayout>
+        </android.widget.LinearLayout>
+    </android.widget.FrameLayout>
+</hierarchy>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views>
+    <DecorView name="" label="" value="" ref="25ffed8a-5e34-0e72-183b-c64988d0d84d" id="" shown="true">
+        <LinearLayout name="" label="" value="" ref="1bb9cef6-e4f8-6660-0cf0-f3716cc04aa7" id="" shown="true">
+            <ViewStub name="" label="" value="" ref="f0dd8344-ec1a-2d4e-8d99-87444a159fdf" id="action_mode_bar_stub"
+                      shown="false"/>
+            <FrameLayout name="" label="" value="" ref="e73bc69a-ea72-3fbd-c303-6198bfc61b13" id="" shown="true">
+                <TextView name="" label="" value="selendroid-test-app" ref="eec16621-ac59-5aca-26b5-9764fd76cbed"
+                          id="title" shown="true"/>
+            </FrameLayout>
+            <FrameLayout name="" label="" value="" ref="e3bf69f1-cf07-26b6-8853-233383f758bb" id="content" shown="true">
+                <LinearLayout name="" label="" value="" ref="d5588ccc-c2cc-ab1d-01a3-64c99a56ffe2" id="" shown="true">
+                    <TextView name="" label="" value="Hello Default Locale, Selendroid-test-app!"
+                              ref="23c6b1a2-abb6-5e28-2a20-e0a5dc0314a8" id="" shown="true"/>
+                    <LinearLayout name="l10nCD" label="" value="" ref="17aae907-b842-5812-af1a-fa6fd65d4923" id="l10n"
+                                  shown="true">
+                        <TextView name="" label="" value="Localization (L10n) locator test"
+                                  ref="09440be1-ac07-dc79-286b-3c04ecbcf04a" id="" shown="true"/>
+                        <Button name="buttonTestCD" label="" value="EN Button"
+                                ref="fe13184a-f5b0-0565-e542-df7ddbe1c3b5" id="buttonTest" shown="true"/>
+                    </LinearLayout>
+                    <LinearLayout name="imageViewCD" label="" value="" ref="0654956f-1bad-ac74-dc0c-b6a377015a1b"
+                                  id="imageView" shown="true">
+                        <ImageButton name="buttonStartWebviewCD" label="" value=""
+                                     ref="5a2c3ca9-86bd-a808-0158-786ba9bf4bc8" id="buttonStartWebview" shown="true"/>
+                        <ImageButton name="startUserRegistrationCD" label="" value=""
+                                     ref="4d549672-2f33-15f2-f33a-f0de46aa9ab8" id="startUserRegistration"
+                                     shown="true"/>
+                    </LinearLayout>
+                    <EditText name="my_text_fieldCD" label="" value="" ref="4196bca4-edca-55dd-c1c0-db546fbc41fa"
+                              id="my_text_field" shown="true"/>
+                    <LinearLayout name="imageViewCD" label="" value="" ref="325c862e-90f6-7cc2-5596-87665cff26e4"
+                                  id="lastElementRow" shown="true">
+                        <Button name="waitingButtonTestCD" label="" value="Show Progress Bar for a while"
+                                ref="84eb6998-0cdf-0354-f978-eed46c3b06dd" id="waitingButtonTest" shown="true"/>
+                        <CheckBox name="" label="" value="I accept adds" ref="7564e11a-2f62-0159-c18d-0159c388de85"
+                                  id="input_adds_check_box" shown="true"/>
+                    </LinearLayout>
+                    <LinearLayout name="visibleTestAreaCD" label="" value="" ref="6a91dc52-2b15-7045-c7f0-757fe16524b6"
+                                  id="visibleTestArea" shown="true">
+                        <Button name="visibleButtonTestCD" label="" value="Display text view"
+                                ref="5a9bc83f-6a2b-0b29-c8ae-803971392413" id="visibleButtonTest" shown="true"/>
+                        <TextView name="" label="" value="Text is sometimes displayed"
+                                  ref="365a470f-f617-be23-752b-c02797748b37" id="visibleTextView" shown="false"/>
+                    </LinearLayout>
+                    <LinearLayout name="visibleTestAreaCD" label="" value="" ref="3ddfe696-b7fe-d930-d8dd-f5f3d5253c11"
+                                  id="visibleTestArea" shown="true">
+                        <Button name="showToastButtonCD" label="" value="Displays a Toast"
+                                ref="34849d08-7bdf-6020-0570-accaaddf4d59" id="showToastButton" shown="true"/>
+                        <Button name="showPopupWindowButtonCD" label="" value="Display Popup Window"
+                                ref="2374bc8a-a4d3-2901-298b-457eb18cf465" id="showPopupWindowButton" shown="true"/>
+                        <Button name="exceptionTestButtonCD" label="" value="Press to throw unhandled exception"
+                                ref="1a1972fb-68b3-aff1-561d-fc558a4705ad" id="exceptionTestButton" shown="true"/>
+                    </LinearLayout>
+                    <EditText name="" label="" value="" ref="6ad2ac5c-6a63-d880-8a45-5066afeda7c9"
+                              id="exceptionTestField" shown="true"/>
+                    <TextView name="" label="" value="パソコン版にする" ref="61d5519a-e04f-a570-0063-d7e8b75f2bd7"
+                              id="encodingTextview" shown="true"/>
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </DecorView>
+</views>
