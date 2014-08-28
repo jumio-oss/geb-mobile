@@ -1,8 +1,9 @@
 apply plugin: 'groovy'
 apply plugin: 'maven'
+apply plugin: 'idea'
 
-group   = 'geb-mobile'
-version = '1.0-SNAPSHOT'
+group   = 'mueke'
+version = '0.1-SNAPSHOT'
 
 ext.gebVersion = '0.9.1'
 ext.seleniumVersion = '2.41.0'
@@ -51,5 +52,43 @@ dependencies {
        // exclude module: "selenium-java"
     }
 }
+
+task startSelendroid << {
+   "java -jar ${projectDir}"
+}
+
+task startAppium << {
+    "appium --command-timeout 90000 &".execute()
+}
+
+task startIosdriver << {
+    "java -jar ios-driver".execute()
+}
+
+
+task runSelendroidTests(type:Test,dependsOn:[startSelendroid]) {
+    systemProperty "appUT_absolutePath", "${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk"
+    systemProperty "appUT.package","io.selendroid.testapp"
+    systemProperty "appUT.version","0.10.0"
+    systemProperty "appUT_cap_Emulator","false"
+    systemProperty "framework","selendroid"
+    include ''
+
+}
+
+task runAppiumTests( type: Test, dependsOn:[startAppium]){
+    systemProperty "appUT.package","io.selendroid.testapp"
+    systemProperty "appium_app", "${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk"
+    //To run the test on a specific device
+    //System.setProperty("appium_udid","192.168.56.10:5555")
+    //System.setProperty("appium_automationName","selendroid")
+
+    //Use Appium
+    systemProperty "framework","appium"
+
+}
+
+
+
 
 

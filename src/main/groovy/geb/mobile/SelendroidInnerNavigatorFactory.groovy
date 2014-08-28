@@ -24,7 +24,6 @@ class SelendroidInnerNavigatorFactory implements InnerNavigatorFactory {
 
     /**
      * If {@code elements != null && elements.size() > 0} a {@link geb.navigator.NonEmptyNavigator is returned, otherwise {@link EmptyNavigator}.
-
      * @param browser The browse to associate with the navigator
      * @param elements The elements to back the navigator
      * @return The newly created navigator

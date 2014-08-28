@@ -17,6 +17,7 @@ class GebMobileNavigatorFactory extends AbstractNavigatorFactory{
 
     @Override
     Navigator getBase() {
+        //xpath works with all selenium implementations...
         List<WebElement> list = browser.driver.findElementsByXPath("//*") as List
         createFromWebElements(list)
     }
