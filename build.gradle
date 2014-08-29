@@ -95,22 +95,22 @@ def stopServer = { server ->
     }
 }
 
-task startSelendroid << {
+task startSelendroid(group:'Server') << {
     startServer( "SELENDROID" , "java -cp ${configurations.selendroid.files.toList().join(":")} io.selendroid.SelendroidLauncher -port 4444 -aut ${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk")
 }
-task stopSelendroid << {
+task stopSelendroid(group:'Server') << {
     stopServer( "SELENDROID" )
 }
-task startAppium << {
+task startAppium(group:'Server') << {
     startServer("APPIUM", "appium --command-timeout 90000")
 }
-task stopAppium << {
+task stopAppium(group:'Server') << {
     stopServer("APPIUM")
 }
-task startIosdriver << {
+task startIosdriver(group:'Server') << {
     startServer( "IOSDRIVER", "java -cp ${configurations.iosdriver.files.toList().join(":")} org.uiautomation.ios.IOSServer" )
 }
-task stopIosdriver << {
+task stopIosdriver(group:'Server') << {
     stopServer("IOSDRIVER")
 }
 
@@ -120,7 +120,7 @@ task stopServers << {
     }
 }
 
-task runSelendroidTests(type: Test, dependsOn: [startSelendroid]) {
+task runSelendroidTests(group:'Selendroid',type: Test, dependsOn: [startSelendroid]) {
     systemProperty "framework", "selendroid"
     systemProperty "appUT_absolutePath", "${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk"
     systemProperty "appUT.package", "io.selendroid.testapp"
@@ -129,7 +129,7 @@ task runSelendroidTests(type: Test, dependsOn: [startSelendroid]) {
     include '**/GebMobileAutomationTestWithPagesSpec.*'
 }
 
-task runAppiumTests(type: Test, dependsOn: [startAppium]) {
+task runAppiumTests(group:'Appium',type: Test, dependsOn: [startAppium]) {
     systemProperty "framework", "appium"
 
     systemProperty "appUT.package", "io.selendroid.testapp"
@@ -142,7 +142,7 @@ task runAppiumTests(type: Test, dependsOn: [startAppium]) {
     include '**/GebMobileAutomationTestWithPagesSpec.*'
 }
 
-task runAppiumTestsWithSelendroidDriver(type: Test, dependsOn: [startAppium]) {
+task runAppiumTestsWithSelendroidDriver(group:'Appium', type: Test, dependsOn: [startAppium]) {
     systemProperty "framework", "appium"
 
     systemProperty "appUT.package", "io.selendroid.testapp"

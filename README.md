@@ -32,6 +32,12 @@
 
 ## Actual supported stuff
 
+## TODO 
++ Different Dependency Managment for Appium and Selendroid, cause latest Appium Client needs a selenium version that breaks the selendroid server
++ Test the iosdriver on mac with the UIMountain or UICatalog app
++ Improve performance, when checking the attributes or property of a WebElement 
+ 
+
 ## Hints 
  + Don't wait for the Android Emulator , use a real device 
  + for easy dev: put break-point on desired method,
@@ -39,7 +45,7 @@
  + AppiumPageSourceConverter.writeActivityContent(driver)
 
 
-# Info zu AppiumDriver
+## Info zu AppiumDriver
 `getAppiumDriver().findElementsByXPath(".//*").collect{ return "$it.id : $it.tagName: $it.text : ${it.getAttribute("name")} : ${it.getAttribute("className")}"}`
 
 
