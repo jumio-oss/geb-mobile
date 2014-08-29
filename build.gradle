@@ -2,7 +2,7 @@ apply plugin: 'groovy'
 apply plugin: 'maven'
 apply plugin: 'idea'
 
-group   = 'mueke'
+group = 'dr.legacy'
 version = '0.1-SNAPSHOT'
 
 ext.gebVersion = '0.9.1'
@@ -12,7 +12,12 @@ ext.groovyVersion = '2.3.4'
 ext.selendroidVersion = '0.10.0'
 
 repositories {
-   mavenCentral()
+    mavenCentral()
+}
+
+configurations {
+    selendroid
+    iosdriver
 }
 
 dependencies {
@@ -48,44 +53,94 @@ dependencies {
     compile "io.selendroid:selendroid-standalone:$selendroidVersion"
     compile "io.selendroid:selendroid-client:$selendroidVersion"
     compile "org.uiautomation:ios-client:0.6+"
-    compile('io.appium:java-client:1.6.1'){
-       // exclude module: "selenium-java"
+    compile('io.appium:java-client:1.6.1') {
+        //exclude module: "selenium-java"
+    }
+
+    selendroid "io.selendroid:selendroid-standalone:${selendroidVersion}"
+
+    iosdriver "org.uiautomation:ios-server:0.6+"
+
+}
+
+def startServer = { server, command ->
+    println "Starting $server with $command"
+    ProcessBuilder builder = new ProcessBuilder(command.split(' '))
+    builder.redirectErrorStream(true)
+    builder.directory(buildDir)
+    Process process = builder.start()
+    ext[server] = process
+    println "$server started : $process"
+    Thread.start("logging-$server") {
+        FileOutputStream fout = new FileOutputStream(new File(buildDir, "${server}.log"))
+        int bb
+        while ((bb = process.getInputStream().read()) > 0) {
+            fout.write(bb)
+        }
+    }
+}
+
+def stopServer = { server ->
+    if (ext.has(server)) {
+        def process = ext.get(server)
+        println "send CTRL-C to server"
+        process.getOutputStream().write(3)
+        process.getOutputStream().flush()
+        process.destroy()
+    } else {
+        println "No Server $server found in process list"
     }
 }
 
 task startSelendroid << {
-   "java -jar ${projectDir}"
+    startServer( "SELENDROID" , "java -cp ${configurations.selendroid.files.toList().join(":")} io.selendroid.SelendroidLauncher -port 4444 -aut ${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk")
 }
-
+task stopSelendroid << {
+    stopServer( "SELENDROID" )
+}
 task startAppium << {
-    "appium --command-timeout 90000 &".execute()
+    //startServer("APPIUM", "appium --command-timeout 90000")
 }
-
+task stopAppium << {
+    stopServer("APPIUM")
+}
 task startIosdriver << {
-    "java -jar ios-driver".execute()
+    startServer( "IOSDRIVER", "java -cp ${configurations.iosdriver.files.toList().join(":")} org.uiautomation.ios.IOSServer" )
+}
+task stopIosdriver << {
+    stopServer("IOSDRIVER")
 }
 
+task stopServers << {
+    ["SELENDROID","APPIUM","IOSDRIVER"].each{
+        if( ext.has(it) ) stopServer(it)
+    }
+}
 
-task runSelendroidTests(type:Test,dependsOn:[startSelendroid]) {
+task runSelendroidTests(type: Test, dependsOn: [startSelendroid]) {
     systemProperty "appUT_absolutePath", "${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk"
-    systemProperty "appUT.package","io.selendroid.testapp"
-    systemProperty "appUT.version","0.10.0"
-    systemProperty "appUT_cap_Emulator","false"
-    systemProperty "framework","selendroid"
-    include ''
-
+    systemProperty "appUT.package", "io.selendroid.testapp"
+    systemProperty "appUT.version", "0.10.0"
+    systemProperty "appUT_cap_Emulator", "false"
+    systemProperty "framework", "selendroid"
+    include '**/GebMobileAutomationTestWithPagesSpec.*'
 }
 
-task runAppiumTests( type: Test, dependsOn:[startAppium]){
-    systemProperty "appUT.package","io.selendroid.testapp"
+task runAppiumTests(type: Test) {
+    systemProperty "appUT.package", "io.selendroid.testapp"
     systemProperty "appium_app", "${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk"
     //To run the test on a specific device
     //System.setProperty("appium_udid","192.168.56.10:5555")
     //System.setProperty("appium_automationName","selendroid")
 
     //Use Appium
-    systemProperty "framework","appium"
+    systemProperty "framework", "appium"
+    include '**/GebMobileAutomationTestWithPagesSpec.*'
+}
 
+tasks.withType(Test){ task->
+    stopServers.mustRunAfter(task)
+    ignoreFailures = true
 }
 
 

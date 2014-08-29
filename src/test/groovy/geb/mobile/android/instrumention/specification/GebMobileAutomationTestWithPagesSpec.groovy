@@ -1,5 +1,6 @@
-package geb.mobile.android.instrumention.specification.appium
+package geb.mobile.android.instrumention.specification
 
+import geb.mobile.GebMobileBaseSpec
 import geb.mobile.android.instrumention.activities.HomeScreenActivity
 import geb.mobile.android.instrumention.activities.WebViewActivity
 import spock.lang.Stepwise
@@ -8,7 +9,7 @@ import spock.lang.Stepwise
  * Created by gmueksch on 23.06.14.
  */
 @Stepwise
-class AppiumWithGebMobileAutomationTestWithPagesSpec extends AppiumWithGebMobileAutomationTestBase {
+class GebMobileAutomationTestWithPagesSpec extends GebMobileBaseSpec {
 
     def "open test-app and enter text "() {
         given:

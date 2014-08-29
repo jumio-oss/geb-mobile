@@ -68,7 +68,9 @@ class GebMobileDriverFactory {
                 log.error("eXC: $e.message", e)
                 if( e.message =~ /Android devices must be of API level 17 or higher/ ){
                     capa.setCapability("automationName","selendroid")
-                    driver = new SelendroidDriver(getURL("http://localhost:4723/wd/hub"), capa)
+                    try {
+                        driver = new SelendroidDriver(getURL("http://localhost:4723/wd/hub"), capa)
+                    }catch(ex){ log.error("Error:",ex)}
                 }
             }
             if (!driver) throw new RuntimeException("Appiumdriver could not be started")

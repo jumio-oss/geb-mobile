@@ -1,0 +1,5 @@
+.idea/
+.gradle/
+geb-mobile-extension.iml
+build/
+src/test/resources/testapk/resigned-selendroid-test-app-0.9.0.apk

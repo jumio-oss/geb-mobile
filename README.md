@@ -1,9 +1,9 @@
 
 ## Geb Mobile Extension for appium ( UIAutomator ) and selendroid ( InstrumentationFramework )  ##
 
-# for easy dev: put break-point on desired method,
-# open evalute window: (CTRL-U) , run
-# AppiumPageSourceConverter.writeActivityContent(driver)
+* for easy dev: put break-point on desired method,
+* open evalute window: (CTRL-U) , run
+* AppiumPageSourceConverter.writeActivityContent(driver)
 
 
 # Info zu AppiumDriver
