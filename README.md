@@ -1,16 +1,49 @@
 
-## Geb Mobile Extension for appium ( UIAutomator ) and selendroid ( InstrumentationFramework )  ##
+# Geb Mobile Extension for Appium, Selendroid and IosDriver
+---
 
-* for easy dev: put break-point on desired method,
-* open evalute window: (CTRL-U) , run
-* AppiumPageSourceConverter.writeActivityContent(driver)
+## Motivation
++ Geb is cool [See here](http://www.gebish.org/)
++ Spock is awesome [See here](http://docs.spockframework.org/en/latest/)
++ Geb/Spock both together is super cool and awesome [See here](http://www.gebish.org/manual/current/testing.html#spock_junit__testng)
++ Mobile Test Automation sucks, cause of so many frameworks
++ Write BDT Style [See here](http://de.slideshare.net/vodqanite/behavior-driven-testing-bdt) 
+
+## Used Stuff
++ Android Debug Bridge 
++ Xcode stuff 
++ Geb
++ Spock
++ Gradle
++ Appium
++ Appium Java Client
++ Selendroid
++ IosDriver
+
+
+## Preconditions
+1. install adb for android
+2. install xcode for ios
+
+## Get Started
+1. Plugin a mobile device
+2. check with 'adb devices', that your device or emulator is registered
+3. 
+
+## Actual supported stuff
+
+## Hints 
+ + Don't wait for the Android Emulator , use a real device 
+ + for easy dev: put break-point on desired method,
+ + open evalute window: (CTRL-U) , run
+ + AppiumPageSourceConverter.writeActivityContent(driver)
 
 
 # Info zu AppiumDriver
-
-getAppiumDriver().findElementsByXPath(".//*").collect{ return "$it.id : $it.tagName: $it.text : ${it.getAttribute("name")} : ${it.getAttribute("className")}"}
+`getAppiumDriver().findElementsByXPath(".//*").collect{ return "$it.id : $it.tagName: $it.text : ${it.getAttribute("name")} : ${it.getAttribute("className")}"}`
 
 
 ## IOSDriver
-driver.execute("getPageSource").tree
+`driver.execute("getPageSource").tree`
+
 
