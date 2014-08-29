@@ -69,7 +69,7 @@ def startServer = { server, command ->
     builder.redirectErrorStream(true)
     builder.directory(buildDir)
     Process process = builder.start()
-    ext[server] = process
+    project.ext[server] = process
     println "$server started : $process"
     Thread.start("logging-$server") {
         FileOutputStream fout = new FileOutputStream(new File(buildDir, "${server}.log"))
@@ -81,11 +81,14 @@ def startServer = { server, command ->
 }
 
 def stopServer = { server ->
-    if (ext.has(server)) {
-        def process = ext.get(server)
+    println "Stopping $server"
+    if (project.ext.has(server)) {
+        Process process = ext.get(server)
         println "send CTRL-C to server"
-        process.getOutputStream().write(3)
-        process.getOutputStream().flush()
+        try {
+            process.getOutputStream().write(3)
+            process.getOutputStream().flush()
+        }catch(e){ }
         process.destroy()
     } else {
         println "No Server $server found in process list"
@@ -99,7 +102,7 @@ task stopSelendroid << {
     stopServer( "SELENDROID" )
 }
 task startAppium << {
-    //startServer("APPIUM", "appium --command-timeout 90000")
+    startServer("APPIUM", "appium --command-timeout 90000")
 }
 task stopAppium << {
     stopServer("APPIUM")
@@ -113,20 +116,22 @@ task stopIosdriver << {
 
 task stopServers << {
     ["SELENDROID","APPIUM","IOSDRIVER"].each{
-        if( ext.has(it) ) stopServer(it)
+        if( project.ext.has(it) ) stopServer(it)
     }
 }
 
 task runSelendroidTests(type: Test, dependsOn: [startSelendroid]) {
+    systemProperty "framework", "selendroid"
     systemProperty "appUT_absolutePath", "${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk"
     systemProperty "appUT.package", "io.selendroid.testapp"
     systemProperty "appUT.version", "0.10.0"
     systemProperty "appUT_cap_Emulator", "false"
-    systemProperty "framework", "selendroid"
     include '**/GebMobileAutomationTestWithPagesSpec.*'
 }
 
-task runAppiumTests(type: Test) {
+task runAppiumTests(type: Test, dependsOn: [startAppium]) {
+    systemProperty "framework", "appium"
+
     systemProperty "appUT.package", "io.selendroid.testapp"
     systemProperty "appium_app", "${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk"
     //To run the test on a specific device
@@ -134,7 +139,20 @@ task runAppiumTests(type: Test) {
     //System.setProperty("appium_automationName","selendroid")
 
     //Use Appium
+    include '**/GebMobileAutomationTestWithPagesSpec.*'
+}
+
+task runAppiumTestsWithSelendroidDriver(type: Test, dependsOn: [startAppium]) {
     systemProperty "framework", "appium"
+
+    systemProperty "appUT.package", "io.selendroid.testapp"
+    systemProperty "appium_app", "${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk"
+    systemProperty "appium_automationName", "selendroid"
+    //To run the test on a specific device
+    //System.setProperty("appium_udid","192.168.56.10:5555")
+    //System.setProperty("appium_automationName","selendroid")
+
+    //Use Appium
     include '**/GebMobileAutomationTestWithPagesSpec.*'
 }
 

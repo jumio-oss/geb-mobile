@@ -57,6 +57,10 @@ class GebMobileDriverFactory {
                     capa.setCapability(m[0][1], v)
                 }
             }
+            if( capa.getCapability("automationName") == "selendroid" ){
+                log.info("Create SelendroidDriver for Appium, cause AutomationName is set to selendroid")
+                return new SelendroidDriver(getURL("http://localhost:4723/wd/hub"), capa)
+            }
             log.info("Create AppiumDriver ")
             def driver
             try {
