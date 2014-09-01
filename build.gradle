@@ -54,7 +54,7 @@ dependencies {
     compile "io.selendroid:selendroid-client:$selendroidVersion"
     compile "org.uiautomation:ios-client:0.6+"
     compile('io.appium:java-client:1.6.1') {
-        //exclude module: "selenium-java"
+        exclude module: "selenium-java"
     }
 
     selendroid "io.selendroid:selendroid-standalone:${selendroidVersion}"
@@ -71,12 +71,16 @@ def startServer = { server, command ->
     Process process = builder.start()
     project.ext[server] = process
     println "$server started : $process"
-    Thread.start("logging-$server") {
+    def loggingThread = Thread.start("logging-$server") {
         FileOutputStream fout = new FileOutputStream(new File(buildDir, "${server}.log"))
         int bb
         while ((bb = process.getInputStream().read()) > 0) {
             fout.write(bb)
         }
+    }
+    if(System.getProperty("waitForServer")){
+        println "Joining Server Logging Thread"
+        loggingThread.join()
     }
 }
 
@@ -98,6 +102,11 @@ def stopServer = { server ->
 task startSelendroid(group:'Server') << {
     startServer( "SELENDROID" , "java -cp ${configurations.selendroid.files.toList().join(":")} io.selendroid.SelendroidLauncher -port 4444 -aut ${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk")
 }
+
+task startSelendroidForWeb(group:'Server') << {
+    startServer( "SELENDROID_WEB" , "java -cp ${configurations.selendroid.files.toList().join(":")} io.selendroid.SelendroidLauncher -port 4444")
+}
+
 task stopSelendroid(group:'Server') << {
     stopServer( "SELENDROID" )
 }
@@ -114,8 +123,8 @@ task stopIosdriver(group:'Server') << {
     stopServer("IOSDRIVER")
 }
 
-task stopServers << {
-    ["SELENDROID","APPIUM","IOSDRIVER"].each{
+task stopServers(group:'Server') << {
+    ["SELENDROID_WEB","SELENDROID","APPIUM","IOSDRIVER"].each{
         if( project.ext.has(it) ) stopServer(it)
     }
 }
@@ -159,6 +168,7 @@ task runAppiumTestsWithSelendroidDriver(group:'Appium', type: Test, dependsOn: [
 tasks.withType(Test){ task->
     stopServers.mustRunAfter(task)
     ignoreFailures = true
+    systemProperty = System.properties
 }
 
 

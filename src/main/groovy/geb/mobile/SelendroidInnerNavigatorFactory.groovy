@@ -6,6 +6,7 @@ import geb.mobile.ios.IosInstrumentationNonEmptyNavigator
 import geb.Browser
 import geb.navigator.EmptyNavigator
 import geb.navigator.Navigator
+import geb.navigator.NonEmptyNavigator
 import geb.navigator.factory.InnerNavigatorFactory
 import io.appium.java_client.AppiumDriver
 import io.selendroid.SelendroidDriver
@@ -30,17 +31,20 @@ class SelendroidInnerNavigatorFactory implements InnerNavigatorFactory {
      */
     Navigator createNavigator(Browser browser, List<WebElement> elements) {
         if (!elements) return new EmptyNavigator(browser)
+        String browserName = browser.driver.capabilities.getCapability("browserName")
+
         //if SelendroidDriver we return always the Instrumentation Impl
-        if (browser.driver instanceof SelendroidDriver) return new AndroidInstrumentationNonEmptyNavigator(browser, elements)
+        if (browser.driver instanceof SelendroidDriver) {
+            if( browserName == "android" ) return new NonEmptyNavigator( browser,elements )
+            else return new AndroidInstrumentationNonEmptyNavigator(browser, elements)
+        }
         else if(browser.driver instanceof AppiumDriver) return new AndroidUIAutomatorNonEmptyNavigator(browser,elements)
         else {
-            Capabilities capabilities = ((RemoteWebDriver) browser.driver).getCapabilities()
-            String browserName = capabilities.getCapability("browserName")
             switch (browserName.toLowerCase()) {
                 case "selendroid": return new AndroidInstrumentationNonEmptyNavigator(browser, elements)
                 case "android": return new AndroidUIAutomatorNonEmptyNavigator(browser, elements)
                 default:
-                    if( capabilities.getCapability("platformName") == "IOS" ){
+                    if( browser.driver.capabilities.getCapability("platformName") == "IOS" ){
                         return new IosInstrumentationNonEmptyNavigator(browser,elements)
                     }
                     throw new NotImplementedException("IOS not implemented yet")

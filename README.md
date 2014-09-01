@@ -8,7 +8,7 @@
 + Geb/Spock both together is super cool and awesome [See here](http://www.gebish.org/manual/current/testing.html#spock_junit__testng)
 + Mobile Test Automation sucks, cause of so many frameworks
 + Write BDT Style [See here](http://de.slideshare.net/vodqanite/behavior-driven-testing-bdt) 
-
++ 
 ## Used Stuff
 + Android Debug Bridge 
 + Xcode stuff 

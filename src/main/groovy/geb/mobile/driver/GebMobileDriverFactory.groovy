@@ -28,7 +28,12 @@ class GebMobileDriverFactory {
 
     public static RemoteWebDriver createMobileDriverInstance() {
         if (useSelendroid()) {
-            SelendroidCapabilities capa = new SelendroidCapabilities("${appPackage()}:${appVersion()}")
+            DesiredCapabilities capa
+            if (appPackage() && appVersion())
+                capa = new SelendroidCapabilities("${appPackage()}:${appVersion()}")
+            else
+                capa = DesiredCapabilities.android()
+
             def p = ~/^appUT_cap_(\w+)$/
             System.properties.each { k, v ->
                 def m = p.matcher(k)
@@ -57,7 +62,7 @@ class GebMobileDriverFactory {
                     capa.setCapability(m[0][1], v)
                 }
             }
-            if( capa.getCapability("automationName") == "selendroid" ){
+            if (capa.getCapability("automationName") == "selendroid") {
                 log.info("Create SelendroidDriver for Appium, cause AutomationName is set to selendroid")
                 return new SelendroidDriver(getURL("http://localhost:4723/wd/hub"), capa)
             }
@@ -70,20 +75,22 @@ class GebMobileDriverFactory {
                 return driver
             } catch (e) {
                 log.error("eXC: $e.message", e)
-                if( e.message =~ /Android devices must be of API level 17 or higher/ ){
-                    capa.setCapability("automationName","selendroid")
+                if (e.message =~ /Android devices must be of API level 17 or higher/) {
+                    capa.setCapability("automationName", "selendroid")
                     try {
                         driver = new SelendroidDriver(getURL("http://localhost:4723/wd/hub"), capa)
-                    }catch(ex){ log.error("Error:",ex)}
+                    } catch (ex) {
+                        log.error("Error:", ex)
+                    }
                 }
             }
             if (!driver) throw new RuntimeException("Appiumdriver could not be started")
-        } else if( useIosDriver() ) {
+        } else if (useIosDriver()) {
             DesiredCapabilities capa = new DesiredCapabilities()
             capa.setCapability(IOSCapabilities.BUNDLE_NAME, appPackage())
-            if( appVersion() )
-                capa.setCapability(IOSCapabilities.BUNDLE_VERSION, appVersion() )
-            capa.setCapability(IOSCapabilities.DEVICE,DeviceType.iphone)
+            if (appVersion())
+                capa.setCapability(IOSCapabilities.BUNDLE_VERSION, appVersion())
+            capa.setCapability(IOSCapabilities.DEVICE, DeviceType.iphone)
 
             System.properties.each { String k, v ->
                 def m = k =~ /^iosdriver_(.*)$/
@@ -109,7 +116,7 @@ class GebMobileDriverFactory {
         System.properties.framework == FRAMEWORK_SELENDRIOD
     }
 
-    public static boolean useIosDriver(){
+    public static boolean useIosDriver() {
         System.properties.framework == FRAMEWORK_IOSDRIVER
     }
 
