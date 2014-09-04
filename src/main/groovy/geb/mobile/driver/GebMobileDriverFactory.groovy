@@ -8,6 +8,7 @@ import org.openqa.selenium.Platform
 import org.openqa.selenium.remote.DesiredCapabilities
 import org.openqa.selenium.remote.RemoteWebDriver
 import org.uiautomation.ios.IOSCapabilities
+import org.uiautomation.ios.client.uiamodels.impl.RemoteIOSDriver
 import org.uiautomation.ios.communication.device.DeviceType
 
 /**
@@ -34,7 +35,7 @@ class GebMobileDriverFactory {
             else
                 capa = DesiredCapabilities.android()
 
-            def p = ~/^appUT_cap_(\w+)$/
+            def p = ~/^selendroid_(\w+)$/
             System.properties.each { k, v ->
                 def m = p.matcher(k)
                 if (m.matches()) {
@@ -49,11 +50,9 @@ class GebMobileDriverFactory {
             return new SelendroidDriver(getURL("http://localhost:4444/wd/hub"), capa)
         } else if (useAppium()) {
             DesiredCapabilities capa = new DesiredCapabilities()
-            capa.setCapability("appPackage", appPackage())
             capa.setCapability("platformName", "Android");
-            capa.setCapability("platform", Platform.ANDROID)
-            capa.setCapability("deviceName", "Android");
-            capa.setCapability("browserName", "Android")
+            //capa.setCapability("deviceName", "Android");
+            //capa.setCapability("browserName", "Android")
 
             System.properties.each { String k, v ->
                 def m = k =~ /^appium_(.*)$/
@@ -62,6 +61,12 @@ class GebMobileDriverFactory {
                     capa.setCapability(m[0][1], v)
                 }
             }
+            if( capa.getCapability("platformName") == "Android" ){
+                capa.setCapability("appPackage", appPackage())
+                capa.setCapability("platform", Platform.ANDROID)
+            }
+
+
             if (capa.getCapability("automationName") == "selendroid") {
                 log.info("Create SelendroidDriver for Appium, cause AutomationName is set to selendroid")
                 return new SelendroidDriver(getURL("http://localhost:4723/wd/hub"), capa)
@@ -127,4 +132,56 @@ class GebMobileDriverFactory {
     public static String appVersion() {
         System.properties.'appUT.version'
     }
+
+    /*  Test Helper Methods */
+    /**
+     *
+     * @param framework
+     * @param map the capabilities to add
+     */
+    public static void setFrameWork(String framework, def map=null){
+        System.setProperty("framework", framework )
+        map?.each{k,v->
+            if( k in  ['appUT.package', 'appUT.version'] ) System.setProperty(k,v)
+            else System.setProperty("${framework}_${k}",v)
+        }
+    }
+
+    /**
+     * Convinient Method to set Framework and Capabilities for ...
+     * @param map
+     */
+    public static void setIosDriver(def map){
+        setFrameWork(FRAMEWORK_IOSDRIVER,map)
+    }
+
+    /**
+     * Convinient Method to set Framework and Capabilities for ...
+     * @param map
+     */
+    public static void setAppium(def map){
+        setFrameWork(FRAMEWORK_APPIUM,map)
+    }
+
+    /**
+     * Convinient Method to set Framework and Capabilities for ...
+     * @param map
+     */
+    public static void setAppiumIos(def map){
+        if( !map ) map = []
+        map.platformName = 'iOS'
+        setFrameWork(FRAMEWORK_APPIUM,map)
+    }
+
+
+    /**
+     * Convinient Method to set Framework and Capabilities for ...
+     * @param map
+     */
+    public static void setSelendroid(def map){
+        setFrameWork(FRAMEWORK_SELENDRIOD,map)
+    }
+
+
+
 }

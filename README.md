@@ -28,7 +28,8 @@
 ## Get Started
 1. Plugin a mobile device
 2. check with 'adb devices', that your device or emulator is registered
-3. 
+3. problems with appium and startup 
+4.  
 
 ## Actual supported stuff
 
