@@ -18,6 +18,7 @@ repositories {
 configurations {
     selendroid
     iosdriver
+    appium = compile
 }
 
 dependencies {
@@ -53,8 +54,8 @@ dependencies {
     compile "io.selendroid:selendroid-standalone:$selendroidVersion"
     compile "io.selendroid:selendroid-client:$selendroidVersion"
     compile "org.uiautomation:ios-client:0.6+"
-    compile('io.appium:java-client:1.6.1') {
-        //exclude module: "selenium-java"
+    appium ('io.appium:java-client:1.6.1') {
+        exclude module: "selenium-java"
     }
 
     selendroid "io.selendroid:selendroid-standalone:${selendroidVersion}"
@@ -101,31 +102,24 @@ def stopServer = { server ->
 }
 
 task startSelendroid(group:'Server') << {
-    startServer( "SELENDROID" , "java -cp ${configurations.selendroid.files.toList().join(":")} io.selendroid.SelendroidLauncher -port 4444")
+    startServer( "SERVER_SELENDROID" , "java -cp ${configurations.selendroid.files.toList().join(":")} io.selendroid.SelendroidLauncher -port 4444 -aut ${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk")
 }
 
-task stopSelendroid(group:'Server') << {
-    stopServer( "SELENDROID" )
+task startSelendroidForWeb(group:'Server') << {
+    startServer( "SERVER_SELENDROID_WEB" , "java -cp ${configurations.selendroid.files.toList().join(":")} io.selendroid.SelendroidLauncher -port 4444")
 }
+
 task startAppium(group:'Server') << {
-    startServer("APPIUM", "appium --command-timeout 90000")
+    startServer("SERVER_APPIUM", "appium --command-timeout 90000")
 }
-task stopAppium(group:'Server') << {
-    stopServer("APPIUM")
-}
+
 task startIosdriverReal(group:'Server') << {
-    startServer( "IOSDRIVER_REAL", "java -Djava.util.logging.config.file=${projectDir}/config/iosdriver_logging.properties -cp ${configurations.iosdriver.files.toList().join(":")} org.uiautomation.ios.server.IOSServer -beta" )
-}
-task startIosdriverSimulator(group:'Server') << {
-    startServer( "IOSDRIVER_SIM", "java -Djava.util.logging.config.file=${projectDir}/config/iosdriver_logging.properties -cp ${configurations.iosdriver.files.toList().join(":")} org.uiautomation.ios.server.IOSServer -simulators" )
-}
-task stopIosdriver(group:'Server') << {
-    stopServer("IOSDRIVER")
+    startServer( "SERVER_IOSDRIVER", "java -Djava.util.logging.config.file=${projectDir}/config/iosdriver_logging.properties -cp ${configurations.iosdriver.files.toList().join(":")} org.uiautomation.ios.server.IOSServer -beta -simulators" )
 }
 
 task stopServers(group:'Server') << {
-    ["SELENDROID_WEB","SELENDROID","APPIUM","IOSDRIVER_REAL","IOSDRIVER_SIM"].each{
-        if( project.ext.has(it) ) stopServer(it)
+    project.ext.properties.each{k,v ->
+        if( k=~/^SERVER_/ && project.ext.has(k) ) stopServer(k)
     }
 }
 
