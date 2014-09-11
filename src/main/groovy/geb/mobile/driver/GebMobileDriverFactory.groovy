@@ -28,6 +28,7 @@ class GebMobileDriverFactory {
     }
 
     public static RemoteWebDriver createMobileDriverInstance() {
+        log.info("Create Mobile Driver Instance with ${System.properties.framework} ... ")
         if (useSelendroid()) {
             DesiredCapabilities capa
             if (appPackage() && appVersion())
@@ -169,7 +170,8 @@ class GebMobileDriverFactory {
      */
     public static void setAppiumIos(def map){
         if( !map ) map = []
-        map.platformName = 'iOS'
+        map.platformName = map.platformName ?: 'iOS'
+        map.deviceName = map.deviceName ?: 'iPhone'
         setFrameWork(FRAMEWORK_APPIUM,map)
     }
 

@@ -11,9 +11,9 @@ ext.spockVersion = '0.7-groovy-2.0'
 ext.groovyVersion = '2.3.4'
 ext.selendroidVersion = '0.10.0'
 
-//repositories {
-//    mavenCentral()
-//}
+repositories {
+    mavenCentral()
+}
 
 configurations {
     selendroid

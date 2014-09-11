@@ -49,6 +49,13 @@
 ## Info zu AppiumDriver
 `getAppiumDriver().findElementsByXPath(".//*").collect{ return "$it.id : $it.tagName: $it.text : ${it.getAttribute("name")} : ${it.getAttribute("className")}"}`
 
+# IOS - Appium - Real Device TODO's:
+- on version 1.2.2 the deviceconsole is not compiled ...
+- cd /usr/local/lib/node_modules/appium/build/deviceconsole/
+- make
+- clone SafariLauncher from github, build it with your dev licence and put it into .../node_module/appium/build/SafariLauncher/ 
+- brew install ios-webkit-debug-proxy
+- run: ios_webkit_debug_proxy -c <your-udid-from-your-device>:27753
 
 ## IOSDriver
 `driver.execute("getPageSource").tree`

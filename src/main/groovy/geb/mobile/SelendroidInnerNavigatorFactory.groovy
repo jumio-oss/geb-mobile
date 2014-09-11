@@ -38,7 +38,14 @@ class SelendroidInnerNavigatorFactory implements InnerNavigatorFactory {
             if( browserName == "android" ) return new NonEmptyNavigator( browser,elements )
             else return new AndroidInstrumentationNonEmptyNavigator(browser, elements)
         }
-        else if(browser.driver instanceof AppiumDriver) return new AndroidUIAutomatorNonEmptyNavigator(browser,elements)
+        else if(browser.driver instanceof AppiumDriver) {
+            if (browser.driver.capabilities.getCapability("platformName") == "Android")
+                return new AndroidUIAutomatorNonEmptyNavigator(browser, elements)
+            //else if(browser.driver.capabilities.getCapability("browserName") == "safari" )
+            //    return new NonEmptyNavigator( browser, elements )
+            else
+                return new IosInstrumentationNonEmptyNavigator(browser, elements )
+        }
         else {
             switch (browserName.toLowerCase()) {
                 case "selendroid": return new AndroidInstrumentationNonEmptyNavigator(browser, elements)
