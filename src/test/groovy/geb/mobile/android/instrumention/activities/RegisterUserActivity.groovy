@@ -7,4 +7,5 @@ import geb.mobile.android.AndroidBaseActivity
  */
 class RegisterUserActivity extends AndroidBaseActivity{
 
+
 }
