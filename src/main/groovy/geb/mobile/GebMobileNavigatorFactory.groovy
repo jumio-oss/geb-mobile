@@ -12,7 +12,7 @@ class GebMobileNavigatorFactory extends AbstractNavigatorFactory{
 
 
     GebMobileNavigatorFactory(Browser browser) {
-        super(browser, new SelendroidInnerNavigatorFactory())
+        super(browser, new GebMobileInnerNavigatorFactory())
     }
 
     @Override

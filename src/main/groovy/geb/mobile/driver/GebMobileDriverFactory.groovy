@@ -65,6 +65,7 @@ class GebMobileDriverFactory {
             if( capa.getCapability("platformName") == "Android" ){
                 capa.setCapability("appPackage", appPackage())
                 capa.setCapability("platform", Platform.ANDROID)
+                if( !capa.getCapability("deviceName") ) capa.setCapability("deviceName", "Android");
             }
 
 

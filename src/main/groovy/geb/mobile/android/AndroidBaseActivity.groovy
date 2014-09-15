@@ -1,7 +1,9 @@
 package geb.mobile.android
 
 import geb.Page
+import io.appium.java_client.AndroidKeyCode
 import io.appium.java_client.AppiumDriver
+import io.selendroid.SelendroidDriver
 import io.selendroid.SelendroidKeys
 import org.openqa.selenium.interactions.Actions
 
@@ -17,10 +19,19 @@ abstract class AndroidBaseActivity extends Page {
         }
     }
 
-    static content = {
-        back { new Actions(driver).sendKeys(SelendroidKeys.BACK) }
-        menu { new Actions(driver).sendKeys(SelendroidKeys.MENU) }
-        home { new Actions(driver).sendKeys(SelendroidKeys.ANDROID_HOME) }
+    void back() {
+        if (driver instanceof AppiumDriver) driver.sendKeyEvent(AndroidKeyCode.BACK)
+        else new Actions(driver).sendKeys(SelendroidKeys.BACK).perform()
+    }
+    void menu() {
+        if( driver instanceof AppiumDriver ) driver.sendKeyEvent(AndroidKeyCode.MENU)
+        else new Actions(driver).sendKeys(SelendroidKeys.MENU).perform()
+
+    }
+    void home() {
+        if( driver instanceof AppiumDriver ) driver.sendKeyEvent(AndroidKeyCode.HOME)
+        else new Actions(driver).sendKeys(SelendroidKeys.ANDROID_HOME).perform()
+
     }
 
     /**
@@ -43,8 +54,6 @@ abstract class AndroidBaseActivity extends Page {
             return currUrl.startsWith("and-") ? currUrl.split(/\/\//)[1] : currUrl
         }
     }
-
-
 
 
 }

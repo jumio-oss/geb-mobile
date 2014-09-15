@@ -151,7 +151,7 @@ task runAppiumTests(group:'Appium',type: Test, dependsOn: [startAppium]) {
     //System.setProperty("appium_automationName","selendroid")
 
     //Use Appium
-    include '**/GebMobileAutomationTestWithPagesSpec.*'
+    include '**/UIAutomatorNavigatorTestWithPagesSpec.*'
 }
 
 stopServers.mustRunAfter runAppiumTests
@@ -162,13 +162,20 @@ task runAppiumTestsWithSelendroidDriver(group:'Appium', type: Test, dependsOn: [
     systemProperty "appUT.package", "io.selendroid.testapp"
     systemProperty "appium_app", "${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk"
     systemProperty "appium_automationName", "selendroid"
-    //To run the test on a specific device
-    //System.setProperty("appium_udid","192.168.56.10:5555")
-    //System.setProperty("appium_automationName","selendroid")
-
-    //Use Appium
     include '**/GebMobileAutomationTestWithPagesSpec.*'
 }
+
+stopServers.mustRunAfter runAppiumTestsWithSelendroidDriver
+
+task runAppiumTestsWithOldDevice(group:'Appium', type: Test, dependsOn: [startAppium]) {
+    systemProperty "framework", "appium"
+    systemProperty "appUT.package", "io.selendroid.testapp"
+    systemProperty "appium_app", "${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk"
+
+    include '**/GebMobileAutomationTestWithPagesSpec.*'
+}
+
+stopServers.mustRunAfter runAppiumTestsWithOldDevice
 
 task runIosdriverTests(group: 'IosDriver', type: Test, dependsOn: [startIosdriver] ) {
     systemProperty "appUT.package", "UICatalog"

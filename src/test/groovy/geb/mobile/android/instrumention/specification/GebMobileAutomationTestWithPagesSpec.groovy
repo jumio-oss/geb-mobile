@@ -11,6 +11,15 @@ import spock.lang.Stepwise
 @Stepwise
 class GebMobileAutomationTestWithPagesSpec extends GebMobileBaseSpec {
 
+//   Remove comments, when you want to run from inside an IDE or set the SystemProperties with -D on the Run-Configuration
+//    static {
+//        System.setProperty("framework", "selendroid")
+//        System.setProperty("appUT_absolutePath", new File(ClassLoader.getSystemResource("testapk/selendroid-test-app-0.9.0.apk").toURI()).absolutePath)
+//        System.setProperty("appUT.package", "io.selendroid.testapp")
+//        System.setProperty("appUT.version", "0.10.0")
+//        System.setProperty("appUT_cap_Emulator", "false")
+//    }
+
     def "open test-app and enter text "() {
         given:
         at HomeScreenActivity
@@ -47,7 +56,7 @@ class GebMobileAutomationTestWithPagesSpec extends GebMobileBaseSpec {
             at WebViewActivity
         }
         when:
-        back.perform()
+        back()
         then:
         waitFor {
             at HomeScreenActivity

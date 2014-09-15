@@ -10,7 +10,7 @@ class HomeScreenActivity extends AndroidBaseActivity {
     static content = {
         pageTitle { $("#title").text() }
         buttonTest { $("#buttonTest") }
-        startWebviewButton { $("#buttonStartWebview')") }
+        startWebviewButton { $("#buttonStartWebview") }
         startUserRegistrationButton { $("#startUserRegistration") }
         waitingButton { $("#waitingButtonTestCD") }
         inputAddsCheckbox { $("#input_adds_check_box") }

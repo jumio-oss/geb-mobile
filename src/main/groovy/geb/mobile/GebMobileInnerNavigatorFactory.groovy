@@ -21,7 +21,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException
  * Created by gmueksch on 23.06.14.
  *
  */
-class SelendroidInnerNavigatorFactory implements InnerNavigatorFactory {
+class GebMobileInnerNavigatorFactory implements InnerNavigatorFactory {
 
     /**
      * If {@code elements != null && elements.size() > 0} a {@link geb.navigator.NonEmptyNavigator is returned, otherwise {@link EmptyNavigator}.
