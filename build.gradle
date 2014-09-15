@@ -196,6 +196,9 @@ tasks.withType(Test){ task->
     ignoreFailures = true
     systemProperty = System.properties
     outputs.upToDateWhen{ false }
+    doLast{
+        stopServers.execute()
+    }
 }
 
 

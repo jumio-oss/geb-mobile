@@ -7,29 +7,34 @@
 + Spock is awesome [See here](http://docs.spockframework.org/en/latest/)
 + Geb/Spock both together is super cool and awesome [See here](http://www.gebish.org/manual/current/testing.html#spock_junit__testng)
 + Mobile Test Automation sucks, cause of so many frameworks
-+ Write BDT Style [See here](http://de.slideshare.net/vodqanite/behavior-driven-testing-bdt) 
-+ 
++ Write BDT Style [See here](http://de.slideshare.net/vodqanite/behavior-driven-testing-bdt)
+
+
 ## Used Stuff
 + Android Debug Bridge 
 + Xcode stuff 
-+ Geb
++ Geb v0.9.3
 + Spock
 + Gradle
-+ Appium
-+ Appium Java Client
-+ Selendroid
++ Appium >= v1.2.1
++ Appium Java Client v1.6.2
++ Selendroid 
 + IosDriver
 
 
 ## Preconditions
 1. install adb for android
 2. install xcode for ios
+3. for appium you need the nodejs appium installed
+4. if you start your servers yourself, the append a '-DskipServer=true' to the commandline 
+5. Appium on Mac is tricky, see notes at the end
 
 ## Get Started
-1. Plugin a mobile device
+1. Plugin a mobile device or start a virtual device 
 2. check with 'adb devices', that your device or emulator is registered
-3. problems with appium and startup 
-4.  
+3. start with './gradlew -i runSeleniumTests' if you have an android devices with API-Level < 17 
+4. for API-Level > 17 you can also try './gradlew -i runAppiumTests' 
+5. The selendroid or appium server 
 
 ## Actual supported stuff
 
