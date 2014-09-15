@@ -5,11 +5,13 @@ apply plugin: 'idea'
 group = 'org.mueke'
 version = '0.1-SNAPSHOT'
 
-ext.gebVersion = '0.9.1'
-ext.seleniumVersion = '2.41.0'
+ext.gebVersion = '0.9.3'
+ext.seleniumVersion = '2.42.2'
 ext.spockVersion = '0.7-groovy-2.0'
 ext.groovyVersion = '2.3.4'
-ext.selendroidVersion = '0.10.0'
+ext.selendroidVersion = '0.11.0'
+ext.appiumClientVersion = '1.6.2'
+ext.iosClientVersion =  '0.6+'
 
 repositories {
     mavenCentral()
@@ -18,7 +20,6 @@ repositories {
 configurations {
     selendroid
     iosdriver
-    appium = compile
 }
 
 dependencies {
@@ -53,19 +54,23 @@ dependencies {
 
     compile "io.selendroid:selendroid-standalone:$selendroidVersion"
     compile "io.selendroid:selendroid-client:$selendroidVersion"
-    compile "org.uiautomation:ios-client:0.6+"
-    appium ('io.appium:java-client:1.6.1') {
-        exclude module: "selenium-java"
-    }
+    compile "org.uiautomation:ios-client:$iosClientVersion"
+    compile ("io.appium:java-client:$appiumClientVersion")
 
     selendroid "io.selendroid:selendroid-standalone:${selendroidVersion}"
 
     iosdriver "org.uiautomation:ios-server:0.6+"
     //compile "org.uiautomation:ios-server:0.6+"
 
+//    appium ("io.appium:java-client:$appiumClientVersion") {
+//        exclude module: "selenium-java"
+//    }
 }
 
+
+
 def startServer = { server, command ->
+    if( System.properties.'skipServer')  { println "Skipping Server $server "; return }
     println "Starting $server with $command"
     ProcessBuilder builder = new ProcessBuilder(command.split(' '))
     builder.redirectErrorStream(true)
@@ -113,7 +118,7 @@ task startAppium(group:'Server') << {
     startServer("SERVER_APPIUM", "appium --command-timeout 90000")
 }
 
-task startIosdriverReal(group:'Server') << {
+task startIosdriver(group:'Server') << {
     startServer( "SERVER_IOSDRIVER", "java -Djava.util.logging.config.file=${projectDir}/config/iosdriver_logging.properties -cp ${configurations.iosdriver.files.toList().join(":")} org.uiautomation.ios.server.IOSServer -beta -simulators" )
 }
 
@@ -124,6 +129,7 @@ task stopServers(group:'Server') << {
 }
 
 task runSelendroidTests(group:'Selendroid',type: Test, dependsOn: [startSelendroid]) {
+
     systemProperty "framework", "selendroid"
     systemProperty "appUT_absolutePath", "${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk"
     systemProperty "appUT.package", "io.selendroid.testapp"
@@ -132,11 +138,14 @@ task runSelendroidTests(group:'Selendroid',type: Test, dependsOn: [startSelendro
     include '**/GebMobileAutomationTestWithPagesSpec.*'
 }
 
+stopServers.mustRunAfter runSelendroidTests
+
 task runAppiumTests(group:'Appium',type: Test, dependsOn: [startAppium]) {
     systemProperty "framework", "appium"
 
     systemProperty "appUT.package", "io.selendroid.testapp"
     systemProperty "appium_app", "${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk"
+    systemProperty "appium_deviceName" , "Android"
     //To run the test on a specific device
     //System.setProperty("appium_udid","192.168.56.10:5555")
     //System.setProperty("appium_automationName","selendroid")
@@ -144,6 +153,8 @@ task runAppiumTests(group:'Appium',type: Test, dependsOn: [startAppium]) {
     //Use Appium
     include '**/GebMobileAutomationTestWithPagesSpec.*'
 }
+
+stopServers.mustRunAfter runAppiumTests
 
 task runAppiumTestsWithSelendroidDriver(group:'Appium', type: Test, dependsOn: [startAppium]) {
     systemProperty "framework", "appium"
@@ -159,23 +170,22 @@ task runAppiumTestsWithSelendroidDriver(group:'Appium', type: Test, dependsOn: [
     include '**/GebMobileAutomationTestWithPagesSpec.*'
 }
 
-task runIosdriverTests(group: 'IosDriver', type: Test, dependsOn: [startIosdriverReal] ) {
+task runIosdriverTests(group: 'IosDriver', type: Test, dependsOn: [startIosdriver] ) {
     systemProperty "appUT.package", "UICatalog"
-    systemProperty "iosdri_app" , ""
+    systemProperty "iosdriver_app" , ""
     include '**/UICatalogAppSpec.*'
 }
 
-task runIosdriverInitTests(group:'IosDriver', type:Test, dependsOn: [startIosdriverSimulator]){
+task runIosdriverInitTests(group:'IosDriver', type:Test, dependsOn: [startIosdriver]){
     include '**/SimpleIosMobileTest.*'
 }
 
-task runIosdriverInitTestsReal(group:'IosDriver', type:Test, dependsOn: [startIosdriverReal]){
+task runIosdriverInitTestsReal(group:'IosDriver', type:Test, dependsOn: [startIosdriver]){
     include '**/SimpleIosMobileTest.*'
 }
 
 
 tasks.withType(Test){ task->
-    stopServers.mustRunAfter(task)
     ignoreFailures = true
     systemProperty = System.properties
     outputs.upToDateWhen{ false }

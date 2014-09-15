@@ -708,4 +708,24 @@ class IosInstrumentationNonEmptyNavigator extends AbstractNavigator {
         index == -1 ? elements : elements[0..<index]
     }
 
+    @Override
+    boolean isDisabled() {
+        return firstElement().getAttribute("disabled")
+    }
+
+    @Override
+    boolean isEnabled() {
+        return !isDisabled()
+    }
+
+    @Override
+    boolean isReadOnly() {
+        return false
+    }
+
+    @Override
+    boolean isEditable() {
+        return true
+    }
+
 }
