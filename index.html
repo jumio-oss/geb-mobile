@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>Geb-mobile by jumio-oss</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Geb-mobile</h1>
+        <h2>A geb navigator factory for mobile support for Appium, Selendroid and IosDriver</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/jumio-oss/geb-mobile/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/jumio-oss/geb-mobile/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/jumio-oss/geb-mobile" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a name="geb-mobile-extension-for-appium-selendroid-and-iosdriver" class="anchor" href="#geb-mobile-extension-for-appium-selendroid-and-iosdriver"><span class="octicon octicon-link"></span></a>Geb Mobile Extension for Appium, Selendroid and IosDriver</h1>
+
+<hr><h2>
+<a name="motivation" class="anchor" href="#motivation"><span class="octicon octicon-link"></span></a>Motivation</h2>
+
+<ul>
+<li>Geb is cool <a href="http://www.gebish.org/">See here</a>
+</li>
+<li>Spock is awesome <a href="http://docs.spockframework.org/en/latest/">See here</a>
+</li>
+<li>Geb/Spock both together is super cool and awesome <a href="http://www.gebish.org/manual/current/testing.html#spock_junit__testng">See here</a>
+</li>
+<li>Mobile Test Automation sucks, cause of so many frameworks</li>
+<li>Write BDT Style <a href="http://de.slideshare.net/vodqanite/behavior-driven-testing-bdt">See here</a>
+</li>
+</ul><h2>
+<a name="used-stuff" class="anchor" href="#used-stuff"><span class="octicon octicon-link"></span></a>Used Stuff</h2>
+
+<ul>
+<li>Android Debug Bridge </li>
+<li>Xcode stuff </li>
+<li>Geb v0.9.3</li>
+<li>Spock</li>
+<li>Gradle</li>
+<li>Appium &gt;= v1.2.1</li>
+<li>Appium Java Client v1.6.2</li>
+<li>Selendroid </li>
+<li>IosDriver</li>
+</ul><h2>
+<a name="preconditions" class="anchor" href="#preconditions"><span class="octicon octicon-link"></span></a>Preconditions</h2>
+
+<ol>
+<li>install adb for android</li>
+<li>install xcode for ios</li>
+<li>for appium you need the nodejs appium installed</li>
+<li>if you start your servers yourself, the append a '-DskipServer=true' to the commandline </li>
+<li>Appium on Mac is tricky, see notes at the end</li>
+</ol><h2>
+<a name="get-started" class="anchor" href="#get-started"><span class="octicon octicon-link"></span></a>Get Started</h2>
+
+<ol>
+<li>Plugin a mobile device or start a virtual device </li>
+<li>check with 'adb devices', that your device or emulator is registered</li>
+<li>start with './gradlew -i runSeleniumTests' if you have an android devices with API-Level &lt; 17 </li>
+<li>for API-Level &gt; 17 you can also try './gradlew -i runAppiumTests' </li>
+<li>The selendroid or appium server </li>
+</ol><h2>
+<a name="actual-supported-stuff" class="anchor" href="#actual-supported-stuff"><span class="octicon octicon-link"></span></a>Actual supported stuff</h2>
+
+<h2>
+<a name="todo" class="anchor" href="#todo"><span class="octicon octicon-link"></span></a>TODO</h2>
+
+<ul>
+<li>Different Dependency Managment for Appium and Selendroid, cause latest Appium Client needs a selenium version that breaks the selendroid server</li>
+<li>Test the iosdriver on mac with the UIMountain or UICatalog app</li>
+<li>Improve performance, when checking the attributes or property of a WebElement </li>
+</ul><h2>
+<a name="hints" class="anchor" href="#hints"><span class="octicon octicon-link"></span></a>Hints</h2>
+
+<ul>
+<li>Don't wait for the Android Emulator , use a real device </li>
+<li>for easy dev: put break-point on desired method,</li>
+<li>open evalute window: (CTRL-U) , run</li>
+<li>AppiumPageSourceConverter.writeActivityContent(driver)</li>
+</ul><h2>
+<a name="info-zu-appiumdriver" class="anchor" href="#info-zu-appiumdriver"><span class="octicon octicon-link"></span></a>Info zu AppiumDriver</h2>
+
+<p><code>getAppiumDriver().findElementsByXPath(".//*").collect{ return "$it.id : $it.tagName: $it.text : ${it.getAttribute("name")} : ${it.getAttribute("className")}"}</code></p>
+
+<h1>
+<a name="ios---appium---real-device-todos" class="anchor" href="#ios---appium---real-device-todos"><span class="octicon octicon-link"></span></a>IOS - Appium - Real Device TODO's:</h1>
+
+<ul>
+<li>on version 1.2.2 the deviceconsole is not compiled ...</li>
+<li>cd /usr/local/lib/node_modules/appium/build/deviceconsole/</li>
+<li>make</li>
+<li>clone SafariLauncher from github, build it with your dev licence and put it into .../node_module/appium/build/SafariLauncher/ </li>
+<li>brew install ios-webkit-debug-proxy</li>
+<li>run: ios_webkit_debug_proxy -c :27753</li>
+</ul><h2>
+<a name="iosdriver" class="anchor" href="#iosdriver"><span class="octicon octicon-link"></span></a>IOSDriver</h2>
+
+<p><code>driver.execute("getPageSource").tree</code></p>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
