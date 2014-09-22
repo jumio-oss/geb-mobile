@@ -193,6 +193,7 @@ task runIosdriverInitTestsReal(group:'IosDriver', type:Test, dependsOn: [startIo
 
 
 tasks.withType(Test){ task->
+    onlyIf { !Boolean.getBoolean('skip.tests') }
     ignoreFailures = true
     systemProperty = System.properties
     outputs.upToDateWhen{ false }
