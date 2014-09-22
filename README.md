@@ -6,13 +6,18 @@
 ---
 
 ## Goal 
++ Write mobile selenium based tests with all the features of Geb/Spock
++ Reuse Test for Mobile and normal Web
 + Support Geb for Android over Appium and Selendroid
 + Support Geb for Ios over Appium and Iosdriver
 + Support Geb for MobileSafari over Appium
- 
+
 ## Actual working
 +  Android over Appium and Selendroid
-
++  native iOS apps with Appium 
++  Safari on iOS-Emulator
++  Safari on Real Device
++  Mobile Safari over Appium works with Saucelabs
 
 ## Motivation
 + Geb is cool [See here](http://www.gebish.org/)
@@ -25,20 +30,20 @@
 ## Used Stuff
 + Android Debug Bridge 
 + Xcode stuff 
-+ Geb v0.9.3
-+ Spock
-+ Gradle
++ Geb/Spock v0.9.3
++ Groovy v2.3.4
++ Gradle v1.9
 + Appium >= v1.2.1
 + Appium Java Client v1.6.2
-+ Selendroid 
-+ IosDriver
++ Selendroid v0.11 
++ IosDriver v0.6+
++ 
 
 
 ## Preconditions
 1. install adb for android
 2. install xcode for ios
 3. for appium you need the nodejs appium installed
-4. if you start your servers yourself, the append a '-DskipServer=true' to the commandline 
 5. Appium on Mac is tricky, see notes at the end
 
 
@@ -47,23 +52,18 @@
 2. check with 'adb devices', that your device or emulator is registered
 3. start with './gradlew -i runSeleniumTests' if you have an android devices with API-Level < 17 
 4. for API-Level > 17 you can also try './gradlew -i runAppiumTests' 
-5. The selendroid or appium server starts for you, if everything works as designed
+5. The selendroid or appium server starts for you , if everything works as designed
 
 
 ## TODO 
 + Test the iosdriver on mac with the UIMountain or UICatalog app
++ Merge the NavigatorFactories, a lot common stuff
 + Improve performance, when checking the attributes or property of a WebElement 
- 
++ Refactoring
++ more Refactoring
++ Write more tests 
++ Find a public jenkins / repository
 
-## Hints 
- + Don't wait for the Android Emulator , use a real device 
- + for easy dev: put break-point on desired method,
- + open evalute window: (CTRL-U) , run
- + AppiumPageSourceConverter.writeActivityContent(driver)
-
-
-## Info zu AppiumDriver
-`getAppiumDriver().findElementsByXPath(".//*").collect{ return "$it.id : $it.tagName: $it.text : ${it.getAttribute("name")} : ${it.getAttribute("className")}"}`
 
 # IOS - Appium - Real Device TODO's:
 - on version 1.2.2 the deviceconsole is not compiled ...
@@ -73,7 +73,5 @@
 - brew install ios-webkit-debug-proxy
 - run: ios_webkit_debug_proxy -c <your-udid-from-your-device>:27753
 
-## IOSDriver
-`driver.execute("getPageSource").tree`
 
 
