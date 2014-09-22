@@ -5,7 +5,9 @@ import io.appium.java_client.AppiumDriver
 import io.selendroid.SelendroidCapabilities
 import io.selendroid.SelendroidDriver
 import org.openqa.selenium.Platform
+import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.remote.DesiredCapabilities
+import org.openqa.selenium.remote.LocalFileDetector
 import org.openqa.selenium.remote.RemoteWebDriver
 import org.uiautomation.ios.IOSCapabilities
 import org.uiautomation.ios.client.uiamodels.impl.RemoteIOSDriver
@@ -28,7 +30,7 @@ class GebMobileDriverFactory {
     }
 
     public static RemoteWebDriver createMobileDriverInstance() {
-        log.info("Create Mobile Driver Instance with ${System.properties.framework} ... ")
+        log.info("Create Mobile Driver Instance for Framework ${System.properties.framework} ... ")
         if (useSelendroid()) {
             DesiredCapabilities capa
             if (appPackage() && appVersion())
@@ -52,8 +54,6 @@ class GebMobileDriverFactory {
         } else if (useAppium()) {
             DesiredCapabilities capa = new DesiredCapabilities()
             capa.setCapability("platformName", "Android");
-            //capa.setCapability("deviceName", "Android");
-            //capa.setCapability("browserName", "Android")
 
             System.properties.each { String k, v ->
                 def m = k =~ /^appium_(.*)$/
@@ -62,21 +62,23 @@ class GebMobileDriverFactory {
                     capa.setCapability(m[0][1], v)
                 }
             }
-            if( capa.getCapability("platformName") == "Android" ){
-                capa.setCapability("appPackage", appPackage())
+            if (capa.getCapability("platformName") == "Android") {
                 capa.setCapability("platform", Platform.ANDROID)
-                if( !capa.getCapability("deviceName") ) capa.setCapability("deviceName", "Android");
+                if( appPackage() ) capa.setCapability("appPackage", appPackage())
+                if (!capa.getCapability("deviceName")) capa.setCapability("deviceName", "Android");
             }
 
-
+            def driver
             if (capa.getCapability("automationName") == "selendroid") {
                 log.info("Create SelendroidDriver for Appium, cause AutomationName is set to selendroid")
-                return new SelendroidDriver(getURL("http://localhost:4723/wd/hub"), capa)
+                driver = new SelendroidDriver(getURL("http://localhost:4723/wd/hub"), capa)
+                driver.setFileDetector(new LocalFileDetector())
+                return driver
             }
             log.info("Create AppiumDriver ")
-            def driver
             try {
                 driver = new AppiumDriver(getURL("http://localhost:4723/wd/hub"), capa)
+                driver.setFileDetector(new LocalFileDetector())
                 sleep(1000)
                 log.info("Driver created: $driver.capabilities")
                 return driver
@@ -86,6 +88,7 @@ class GebMobileDriverFactory {
                     capa.setCapability("automationName", "selendroid")
                     try {
                         driver = new SelendroidDriver(getURL("http://localhost:4723/wd/hub"), capa)
+                        driver.setFileDetector(new LocalFileDetector())
                     } catch (ex) {
                         log.error("Error:", ex)
                     }
@@ -109,6 +112,18 @@ class GebMobileDriverFactory {
 
             new RemoteWebDriver(getURL("http://localhost:5555/wd/hub/"), capa)
 
+        } else if (System.properties.framework == "firefox") {
+            DesiredCapabilities capa = DesiredCapabilities.firefox()
+            System.properties.each { String k, v ->
+                def m = k =~ /^firefox_(.*)$/
+                if (m.matches()) {
+                    log.info "setting ios property: $k , $v"
+                    capa.setCapability(m[0][1], v)
+                }
+            }
+            def firefox = new RemoteWebDriver(capa)
+            firefox.setFileDetector(new LocalFileDetector())
+            return firefox
         } else {
             throw new Exception("Set Systemproperty 'framework' to selendroid or appium")
         }
@@ -141,11 +156,11 @@ class GebMobileDriverFactory {
      * @param framework
      * @param map the capabilities to add
      */
-    public static void setFrameWork(String framework, def map=null){
-        System.setProperty("framework", framework )
-        map?.each{k,v->
-            if( k in  ['appUT.package', 'appUT.version'] ) System.setProperty(k,v)
-            else System.setProperty("${framework}_${k}",v)
+    public static void setFrameWork(String framework, def map = null) {
+        System.setProperty("framework", framework)
+        map?.each { k, v ->
+            if (k in ['appUT.package', 'appUT.version']) System.setProperty(k, v)
+            else System.setProperty("${framework}_${k}", v)
         }
     }
 
@@ -153,38 +168,36 @@ class GebMobileDriverFactory {
      * Convinient Method to set Framework and Capabilities for ...
      * @param map
      */
-    public static void setIosDriver(def map){
-        setFrameWork(FRAMEWORK_IOSDRIVER,map)
+    public static void setIosDriver(def map) {
+        setFrameWork(FRAMEWORK_IOSDRIVER, map)
     }
 
     /**
      * Convinient Method to set Framework and Capabilities for ...
      * @param map
      */
-    public static void setAppium(def map){
-        setFrameWork(FRAMEWORK_APPIUM,map)
+    public static void setAppium(def map) {
+        setFrameWork(FRAMEWORK_APPIUM, map)
     }
 
     /**
      * Convinient Method to set Framework and Capabilities for ...
      * @param map
      */
-    public static void setAppiumIos(def map){
-        if( !map ) map = []
+    public static void setAppiumIos(def map) {
+        if (!map) map = []
         map.platformName = map.platformName ?: 'iOS'
         map.deviceName = map.deviceName ?: 'iPhone'
-        setFrameWork(FRAMEWORK_APPIUM,map)
+        setFrameWork(FRAMEWORK_APPIUM, map)
     }
-
 
     /**
      * Convinient Method to set Framework and Capabilities for ...
      * @param map
      */
-    public static void setSelendroid(def map){
-        setFrameWork(FRAMEWORK_SELENDRIOD,map)
+    public static void setSelendroid(def map) {
+        setFrameWork(FRAMEWORK_SELENDRIOD, map)
     }
-
 
 
 }

@@ -736,7 +736,11 @@ class AndroidInstrumentationNonEmptyNavigator extends AbstractNavigator {
 
     @Override
     boolean isDisabled() {
-        return firstElement().getAttribute("disabled")
+        def dis = firstElement().getAttribute("disabled")
+        if( dis == null ){
+            dis = firstElement().properties.disabled
+        }
+        return dis
     }
 
     @Override

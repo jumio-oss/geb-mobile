@@ -11,6 +11,7 @@ import geb.navigator.factory.InnerNavigatorFactory
 import io.appium.java_client.AppiumDriver
 import io.selendroid.SelendroidDriver
 import org.openqa.selenium.Capabilities
+import org.openqa.selenium.Platform
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.remote.RemoteWebDriver
 import sun.reflect.generics.reflectiveObjects.NotImplementedException
@@ -39,8 +40,12 @@ class GebMobileInnerNavigatorFactory implements InnerNavigatorFactory {
             else return new AndroidInstrumentationNonEmptyNavigator(browser, elements)
         }
         else if(browser.driver instanceof AppiumDriver) {
-            if (browser.driver.capabilities.getCapability("platformName") == "Android")
-                return new AndroidUIAutomatorNonEmptyNavigator(browser, elements)
+            if (browser.driver.capabilities.getCapability("platformName") == "Android" || browser.driver.capabilities.getCapability("platform") == Platform.ANDROID ) {
+                if( browserName == 'Browser' || browserName == 'Chromium' || browserName == 'chrome' )
+                    return new AndroidInstrumentationNonEmptyNavigator(browser,elements)
+                else
+                    return new AndroidUIAutomatorNonEmptyNavigator(browser, elements)
+            }
             //else if(browser.driver.capabilities.getCapability("browserName") == "safari" )
             //    return new NonEmptyNavigator( browser, elements )
             else
@@ -50,10 +55,12 @@ class GebMobileInnerNavigatorFactory implements InnerNavigatorFactory {
             switch (browserName.toLowerCase()) {
                 case "selendroid": return new AndroidInstrumentationNonEmptyNavigator(browser, elements)
                 case "android": return new AndroidUIAutomatorNonEmptyNavigator(browser, elements)
+                case "firefox": return new AndroidInstrumentationNonEmptyNavigator(browser,elements)
                 default:
                     if( browser.driver.capabilities.getCapability("platformName") == "IOS" ){
                         return new IosInstrumentationNonEmptyNavigator(browser,elements)
                     }
+
                     throw new NotImplementedException("IOS not implemented yet")
             }
         }

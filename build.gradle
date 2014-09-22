@@ -2,7 +2,7 @@ apply plugin: 'groovy'
 apply plugin: 'maven'
 apply plugin: 'idea'
 
-group = 'org.mueke'
+group = 'jumio.oss'
 version = '0.1-SNAPSHOT'
 
 ext.gebVersion = '0.9.3'
@@ -201,6 +201,28 @@ tasks.withType(Test){ task->
     }
 }
 
+
+
+ext.saucelabsUser = System.getProperty("saucelabsUser", System.getenv("SAUCE_USERNAME"))
+ext.saucelabsKey  = System.getProperty("saucelabsKey", System.getenv("SAUCE_ACCESS_KEY"))
+
+ext.saucelabsUrl  = "http://${saucelabsUser}:${saucelabsKey}@ondemand.saucelabs.com:80/wd/hub"
+
+
+task checkoutDemoOnSauceLabsAndroid(type: Test) {
+    systemProperty "framework","appium"
+    systemProperty "appium_app","sauce-storage:selendroid-test-app-0.9.0.apk"
+    systemProperty "selenium.url", saucelabsUrl
+    systemProperty "appium_platformName","Android"
+    systemProperty "appium_deviceName","LG Nexus 4 Emulator"
+    systemProperty "appium_platformVersion","4.4"
+    systemProperty "appium_appium-version","1.0"
+    include '**/GebMobileAutomationTestWithPagesSpec.*'
+}
+
+task uploadApk2Saucelabs{
+    "curl -u $saucelabsUser:$saucelabsKey -X POST 'http://saucelabs.com/rest/v1/storage/$saucelabsUser/selendroid-test-app-0.9.0.apk?overwrite=true' -H 'Content-Type: application/octet-stream' --data-binary @${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk".execute()
+}
 
 
 

@@ -2,6 +2,18 @@
 # Geb Mobile Extension for Appium, Selendroid and IosDriver
 ---
 
+## Under Development 
+---
+
+## Goal 
++ Support Geb for Android over Appium and Selendroid
++ Support Geb for Ios over Appium and Iosdriver
++ Support Geb for MobileSafari over Appium
+ 
+## Actual working
++  Android over Appium and Selendroid
+
+
 ## Motivation
 + Geb is cool [See here](http://www.gebish.org/)
 + Spock is awesome [See here](http://docs.spockframework.org/en/latest/)
@@ -29,17 +41,16 @@
 4. if you start your servers yourself, the append a '-DskipServer=true' to the commandline 
 5. Appium on Mac is tricky, see notes at the end
 
+
 ## Get Started
 1. Plugin a mobile device or start a virtual device 
 2. check with 'adb devices', that your device or emulator is registered
 3. start with './gradlew -i runSeleniumTests' if you have an android devices with API-Level < 17 
 4. for API-Level > 17 you can also try './gradlew -i runAppiumTests' 
-5. The selendroid or appium server 
+5. The selendroid or appium server starts for you, if everything works as designed
 
-## Actual supported stuff
 
 ## TODO 
-+ Different Dependency Managment for Appium and Selendroid, cause latest Appium Client needs a selenium version that breaks the selendroid server
 + Test the iosdriver on mac with the UIMountain or UICatalog app
 + Improve performance, when checking the attributes or property of a WebElement 
  
