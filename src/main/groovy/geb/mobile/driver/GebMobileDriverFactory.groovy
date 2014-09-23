@@ -112,18 +112,18 @@ class GebMobileDriverFactory {
 
             new RemoteWebDriver(getURL("http://localhost:5555/wd/hub/"), capa)
 
-        } else if (System.properties.framework == "firefox") {
+        } else if (System.properties.framework == "selenium") {
             DesiredCapabilities capa = DesiredCapabilities.firefox()
             System.properties.each { String k, v ->
-                def m = k =~ /^firefox_(.*)$/
+                def m = k =~ /^selenium_(.*)$/
                 if (m.matches()) {
                     log.info "setting ios property: $k , $v"
                     capa.setCapability(m[0][1], v)
                 }
             }
-            def firefox = new RemoteWebDriver(capa)
-            firefox.setFileDetector(new LocalFileDetector())
-            return firefox
+            def selenium = new RemoteWebDriver(getURL("http://localhost:4444/wd/hub/"),capa)
+            selenium.setFileDetector(new LocalFileDetector())
+            return selenium
         } else {
             throw new Exception("Set Systemproperty 'framework' to selendroid or appium")
         }

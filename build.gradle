@@ -128,7 +128,7 @@ task stopServers(group:'Server') << {
     }
 }
 
-task runSelendroidTests(group:'Selendroid',type: Test, dependsOn: [startSelendroid]) {
+task runSelendroidTests(group:'Android',type: Test, dependsOn: [startSelendroid]) {
 
     systemProperty "framework", "selendroid"
     systemProperty "appUT_absolutePath", "${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk"
@@ -138,9 +138,7 @@ task runSelendroidTests(group:'Selendroid',type: Test, dependsOn: [startSelendro
     include '**/GebMobileAutomationTestWithPagesSpec.*'
 }
 
-stopServers.mustRunAfter runSelendroidTests
-
-task runAppiumTests(group:'Appium',type: Test, dependsOn: [startAppium]) {
+task runAppiumTests(group:'Android',type: Test, dependsOn: [startAppium]) {
     systemProperty "framework", "appium"
 
     systemProperty "appUT.package", "io.selendroid.testapp"
@@ -154,20 +152,16 @@ task runAppiumTests(group:'Appium',type: Test, dependsOn: [startAppium]) {
     include '**/UIAutomatorNavigatorTestWithPagesSpec.*'
 }
 
-stopServers.mustRunAfter runAppiumTests
-
-task runAppiumTestsWithSelendroidDriver(group:'Appium', type: Test, dependsOn: [startAppium]) {
+task runAppiumTestsWithSelendroidDriver(group:'Android', type: Test, dependsOn: [startAppium]) {
     systemProperty "framework", "appium"
-
     systemProperty "appUT.package", "io.selendroid.testapp"
     systemProperty "appium_app", "${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk"
     systemProperty "appium_automationName", "selendroid"
+
     include '**/GebMobileAutomationTestWithPagesSpec.*'
 }
 
-stopServers.mustRunAfter runAppiumTestsWithSelendroidDriver
-
-task runAppiumTestsWithOldDevice(group:'Appium', type: Test, dependsOn: [startAppium]) {
+task runAppiumTestsWithOldDevice(group:'Android', type: Test, dependsOn: [startAppium]) {
     systemProperty "framework", "appium"
     systemProperty "appUT.package", "io.selendroid.testapp"
     systemProperty "appium_app", "${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk"
@@ -175,19 +169,17 @@ task runAppiumTestsWithOldDevice(group:'Appium', type: Test, dependsOn: [startAp
     include '**/GebMobileAutomationTestWithPagesSpec.*'
 }
 
-stopServers.mustRunAfter runAppiumTestsWithOldDevice
-
-task runIosdriverTests(group: 'IosDriver', type: Test, dependsOn: [startIosdriver] ) {
+task runIosdriverTests(group: 'Ios', type: Test, dependsOn: [startIosdriver] ) {
     systemProperty "appUT.package", "UICatalog"
     systemProperty "iosdriver_app" , ""
     include '**/UICatalogAppSpec.*'
 }
 
-task runIosdriverInitTests(group:'IosDriver', type:Test, dependsOn: [startIosdriver]){
+task runIosdriverInitTests(group:'Ios', type:Test, dependsOn: [startIosdriver]){
     include '**/SimpleIosMobileTest.*'
 }
 
-task runIosdriverInitTestsReal(group:'IosDriver', type:Test, dependsOn: [startIosdriver]){
+task runIosdriverInitTestsReal(group:'Ios', type:Test, dependsOn: [startIosdriver]){
     include '**/SimpleIosMobileTest.*'
 }
 
