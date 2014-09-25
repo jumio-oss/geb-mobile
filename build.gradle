@@ -202,7 +202,7 @@ ext.saucelabsKey  = System.getProperty("saucelabsKey", System.getenv("SAUCE_ACCE
 ext.saucelabsUrl  = "http://${saucelabsUser}:${saucelabsKey}@ondemand.saucelabs.com:80/wd/hub"
 
 
-task checkoutDemoOnSauceLabsAndroid(type: Test) {
+task appiumOnSauceLabs(type: Test) {
     systemProperty "framework","appium"
     systemProperty "appium_app","sauce-storage:selendroid-test-app-0.9.0.apk"
     systemProperty "selenium.url", saucelabsUrl
@@ -213,10 +213,23 @@ task checkoutDemoOnSauceLabsAndroid(type: Test) {
     include '**/GebMobileAutomationTestWithPagesSpec.*'
 }
 
-task uploadApk2Saucelabs{
-    "curl -u $saucelabsUser:$saucelabsKey -X POST 'http://saucelabs.com/rest/v1/storage/$saucelabsUser/selendroid-test-app-0.9.0.apk?overwrite=true' -H 'Content-Type: application/octet-stream' --data-binary @${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk".execute()
+task uploadApk2Saucelabs(type:Exec){
+    commandLine = ['curl', '-u', "$saucelabsUser:$saucelabsKey", '-X', 'POST', "http://saucelabs.com/rest/v1/storage/$saucelabsUser/selendroid-test-app-0.9.0.apk?overwrite=true", '-H', 'Content-Type: application/octet-stream', '--data-binary', "@${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk" ]
 }
 
+ext.testobjectApiKey = System.getProperty("testobjectApiKey", System.getenv("TESTOBJECT_APIKEY"))
+ext.testobjectUrl = System.getProperty("testobjectUrl", 'https://app.testobject.com:443/api/appium/wd/hub')
+
+task appiumOnTestObjects(type: Test) {
+    systemProperty "framework", "appium"
+    systemProperty "selenium.url", testobjectUrl
+    systemProperty "appium_appPackage" , "io.selendroid.testapp"       //important for testobject test, cause this value is not yet set on there side
+    systemProperty 'appium_testobject_api_key', testobjectApiKey
+    systemProperty 'appium_testobject_project', 'selendroid-test-app'
+    systemProperty 'appium_testobject_app_id', '1'
+    systemProperty 'appium_testobject_device', 'LG_Nexus_4_E960_real'
+    include '**/GebMobileAutomationTestWithPagesSpec.*'
+}
 
 
 

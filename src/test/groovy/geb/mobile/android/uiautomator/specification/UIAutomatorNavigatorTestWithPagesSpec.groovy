@@ -13,16 +13,16 @@ import spock.lang.Stepwise
 @Stepwise
 class UIAutomatorNavigatorTestWithPagesSpec extends GebMobileBaseSpec {
 
-   // Remove comments, when you want to run from inside an IDE or set the SystemProperties with -D on the Run-Configuration
-    static{
-        System.setProperty("appUT.package","io.selendroid.testapp")
-        System.setProperty("appium_app", new File(ClassLoader.getSystemResource("testapk/selendroid-test-app-0.9.0.apk").toURI()).absolutePath)
-        System.setProperty("appium_deviceName" , "Android")
-        //To run the test on a specific device
-        //System.setProperty("appium_udid","<your device id from 'adb devices'> ")
-        //Use Appium
-        System.setProperty("framework","appium")
-    }
+    // Remove comments, when you want to run from inside an IDE or set the SystemProperties with -D on the Run-Configuration
+//    static{
+//        System.setProperty("appUT.package","io.selendroid.testapp")
+//        System.setProperty("appium_app", new File(ClassLoader.getSystemResource("testapk/selendroid-test-app-0.9.0.apk").toURI()).absolutePath)
+//        System.setProperty("appium_deviceName" , "Android")
+//        //To run the test on a specific device
+//        //System.setProperty("appium_udid","<your device id from 'adb devices'> ")
+//        //Use Appium
+//        System.setProperty("framework","appium")
+//    }
 
     def "open test-app and enter text "() {
         given:
@@ -51,7 +51,7 @@ class UIAutomatorNavigatorTestWithPagesSpec extends GebMobileBaseSpec {
         }
     }
 
-    def "register a new User"(){
+    def "register a new User"() {
         when:
         at HomeScreenActivity
         startUserRegistrationButton.click()
@@ -61,8 +61,8 @@ class UIAutomatorNavigatorTestWithPagesSpec extends GebMobileBaseSpec {
         when:
         username = "blablub"
         password = "mysecret"
-        name     = "Bla Blub"
-        email    = "blabal@blublu.com"
+        name = "Bla Blub"
+        email = "blabal@blublu.com"
         preferedProgrammingLanguage = "Java"
         adds = "true"
         registerUserButton.click()
