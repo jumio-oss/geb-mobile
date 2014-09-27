@@ -172,6 +172,7 @@ task runAppiumTestsWithOldDevice(group:'Android', type: Test, dependsOn: [startA
 task runIosdriverTests(group: 'Ios', type: Test, dependsOn: [startIosdriver] ) {
     systemProperty "appUT.package", "UICatalog"
     systemProperty "iosdriver_app" , ""
+    systemProperty "framework" , "iosdriver"
     include '**/UICatalogAppSpec.*'
 }
 
@@ -191,6 +192,14 @@ tasks.withType(Test){ task->
     outputs.upToDateWhen{ false }
     doLast{
         stopServers.execute()
+    }
+}
+
+task checkenv << {
+    if( System.properties.'os.name'.toLowerCase().startsWith("mac") ){
+        println "MAC ... "
+        println "check appium installation: "+ 'appium -v'.execute().text
+
     }
 }
 
