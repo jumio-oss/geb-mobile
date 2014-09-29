@@ -15,9 +15,34 @@ import org.openqa.selenium.Capabilities
 import org.openqa.selenium.Platform
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.remote.RemoteWebDriver
+import org.uiautomation.ios.client.uiamodels.impl.RemoteIOSDriver
 import sun.reflect.generics.reflectiveObjects.NotImplementedException
 
 /**
+ * This Factory decides, which NonEmptyNavigator will be created for the WebElements from the Driver
+ * This is not always clear, cause
+ *
+ * AppiumDriver could case 3 different implementations:
+ * Android:
+ *  Native-Apps:
+ *  APILevel > 16 --> AndroidUIAutomator
+ *  APILevel < 16 --> InstrumentationFramework
+ *
+ *  Mobile Site:
+ *      Instrumentation Framework
+ *
+ *  Hybrid Apps or Apps where you call the Camera or other stuff:
+ *      both   AndroidUIAutomator and InstrumentationFramework
+ *
+ * IOS:
+ *   IosInstrumentation
+ *
+ * Selendroid:
+ *    InstrumentationFramework
+ *
+ * IosDriver:
+ *   IosInstrumentation
+ *
  *
  *
  * Created by gmueksch on 23.06.14.
@@ -36,7 +61,7 @@ class GebMobileInnerNavigatorFactory implements InnerNavigatorFactory {
 
     static Map<Browser, Class> _innerNavigators = [:]
 
-    private Navigator figureCorrectInnerNavigator(browser, elements) {
+    private Class figureCorrectInnerNavigator(browser) {
         def clazz = _innerNavigators[browser]
         if (!clazz) {
 
@@ -48,9 +73,11 @@ class GebMobileInnerNavigatorFactory implements InnerNavigatorFactory {
                 if (browser.driver instanceof SelendroidDriver) {
                     //if (browserName == "android") clazz = NonEmptyNavigator else
                     clazz = AndroidInstrumentationNonEmptyNavigator
+                } else if (browser.driver instanceof RemoteIOSDriver) {
+                    clazz = IosInstrumentationNonEmptyNavigator
                 } else if (browser.driver instanceof AppiumDriver) {
                     if (platformName == "Android" || platform == Platform.ANDROID) {
-                        if (browserName in ['Browser', 'Chromium', 'chrome']) {
+                        if (browserName.toLowerCase() in ['browser', 'chromium', 'chrome']) {
                             clazz = AndroidInstrumentationNonEmptyNavigator
                         } else {
                             clazz = AndroidUIAutomatorNonEmptyNavigator
@@ -71,7 +98,7 @@ class GebMobileInnerNavigatorFactory implements InnerNavigatorFactory {
 
             }
         }
-        return clazz.newInstance(browser, elements)
+        return clazz
     }
 
     /**
@@ -82,37 +109,7 @@ class GebMobileInnerNavigatorFactory implements InnerNavigatorFactory {
      */
     Navigator createNavigator(Browser browser, List<WebElement> elements) {
         if (!elements) return new EmptyNavigator(browser)
-        return figureCorrectInnerNavigator(browser, elements)
-//        String browserName = browser.driver.capabilities.getCapability("browserName")
-//
-//        //if SelendroidDriver we return always the Instrumentation Impl
-//        if (browser.driver instanceof SelendroidDriver) {
-//            if (browserName == "android") return new NonEmptyNavigator(browser, elements)
-//            else return new AndroidInstrumentationNonEmptyNavigator(browser, elements)
-//        } else if (browser.driver instanceof AppiumDriver) {
-//            if (browser.driver.capabilities.getCapability("platformName") == "Android" || browser.driver.capabilities.getCapability("platform") == Platform.ANDROID) {
-//                if (browserName == 'Browser' || browserName == 'Chromium' || browserName == 'chrome')
-//                    return new AndroidInstrumentationNonEmptyNavigator(browser, elements)
-//                else
-//                    return new AndroidUIAutomatorNonEmptyNavigator(browser, elements)
-//            }
-//            //else if(browser.driver.capabilities.getCapability("browserName") == "safari" )
-//            //    return new NonEmptyNavigator( browser, elements )
-//            else
-//                return new IosInstrumentationNonEmptyNavigator(browser, elements)
-//        } else {
-//            switch (browserName.toLowerCase()) {
-//                case "selendroid": return new AndroidInstrumentationNonEmptyNavigator(browser, elements)
-//                case "android": return new AndroidUIAutomatorNonEmptyNavigator(browser, elements)
-//                case "firefox": return new AndroidInstrumentationNonEmptyNavigator(browser, elements)
-//                default:
-//                    if (browser.driver.capabilities.getCapability("platformName") == "IOS") {
-//                        return new IosInstrumentationNonEmptyNavigator(browser, elements)
-//                    }
-//
-//                    throw new NotImplementedException("IOS not implemented yet")
-//            }
-//        }
+        return figureCorrectInnerNavigator(browser).newInstance(browser, elements)
     }
 
 }

@@ -28,13 +28,19 @@ class AppiumPageSourceConverter {
         driver.quit()
     }
 
+    public static String getPackageName(driver){
+        def hierarchy = new XmlSlurper().parseText(driver.pageSource)
+        hierarchy.'android.widget.FrameLayout'.@package.text()
+    }
+
     public static writeActivityContent(RemoteWebDriver driver, String moduleName) {
 
         def xml = new XmlSlurper().parseText(driver.pageSource)
         def currAct = driver.currentActivity()
         def activityName = currAct.startsWith(".") ? currAct.substring(1) : currAct
-        def pkg = "${driver.capabilities.getCapability("appPackage")}.activities"
-        def modulePkg = "${driver.capabilities.getCapability("appPackage")}.modules"
+        def packageName =  getPackageName(driver)
+        def pkg = "${packageName}.activities"
+        def modulePkg = "${packageName}.modules"
         def pkgDir = new File("qa-sdk/src/test/groovy/${pkg.replace('.', '/')}")
         def modulePkgDir = new File("qa-sdk/src/test/groovy/${modulePkg.replace('.', '/')}")
         if (!pkgDir.exists()) pkgDir.mkdirs()

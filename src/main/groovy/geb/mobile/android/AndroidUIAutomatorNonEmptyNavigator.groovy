@@ -1,25 +1,13 @@
 package geb.mobile.android
 
 import geb.Browser
-import geb.Page
-import geb.error.UndefinedAtCheckerException
-import geb.error.UnexpectedPageException
 import geb.mobile.AbstractMobileNonEmptyNavigator
-import geb.navigator.AbstractNavigator
-import geb.navigator.EmptyNavigator
 import geb.navigator.Navigator
-import geb.textmatching.TextMatcher
-import geb.waiting.WaitTimeoutException
 import groovy.util.logging.Slf4j
 import io.appium.java_client.AppiumDriver
 import io.appium.java_client.MobileElement
 import org.openqa.selenium.By
 import org.openqa.selenium.WebElement
-import sun.reflect.generics.reflectiveObjects.NotImplementedException
-
-import java.util.regex.Pattern
-
-import static java.util.Collections.EMPTY_LIST
 
 /**
  * Created by gmueksch on 23.06.14.
@@ -43,14 +31,12 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
             return navigatorFor(driver.findElements(By.xpath(selectorString)))
         }
 
-//        if (selectorString.startsWith("./") ) {
-//            //log.debug("Page: ${getBrowser().getPage()} ")
-//            return navigatorFor(driver.findElements(By.xpath(selectorString.substring(1))))
-//        }
-
         if (selectorString.startsWith("#")) {
             String value = selectorString.substring(1)
             return navigatorFor(driver.findElementsByAndroidUIAutomator("resourceId(\"$appPackage:id/$value\")"))
+        } else if( selectorString.startsWith(".") ){
+            //This works only on WEB_VIEW
+            return navigatorFor(driver.findElementsByCssSelector(selectorString) )
         } else {
             selectorString = selectorString.replaceAll("'", '\"')
             log.debug "Using UIAutomator with: $selectorString"
@@ -142,6 +128,7 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
         }
 
     }
+
 
 
 
