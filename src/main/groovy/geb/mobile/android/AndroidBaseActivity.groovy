@@ -1,6 +1,7 @@
 package geb.mobile.android
 
 import geb.Page
+import geb.mobile.android.device.VendorSpecific
 import io.appium.java_client.AndroidKeyCode
 import io.appium.java_client.AppiumDriver
 import io.selendroid.SelendroidDriver
