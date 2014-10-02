@@ -43,7 +43,7 @@ class IosInstrumentationNonEmptyNavigator extends AbstractNavigator {
         browser.navigatorFactory.createFromWebElements(contextElements)
     }
 
-    static def pat = ~/(\w+)='?([\w ]+)'?/
+    static def pat = ~/(\w+)='?([\w,\- ]+)'?/
 
     @Override
     Navigator find(String selectorString) {
@@ -710,7 +710,7 @@ class IosInstrumentationNonEmptyNavigator extends AbstractNavigator {
 
     @Override
     boolean isDisabled() {
-        def dis = firstElement().getAttribute("disabled")
+        def dis = firstElement().properties.enabled
         if( dis == null ){
             dis = firstElement().properties.disabled
         }

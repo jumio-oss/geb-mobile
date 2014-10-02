@@ -26,19 +26,20 @@ class GebMobileBaseSpec extends GebSpec {
         ImageIO.read(new ByteArrayInputStream(((SelendroidDriver) driver).getScreenshotAs(OutputType.BYTES)))
     }
 
-    def tapAt(int x, int y) {
-
+    public boolean takePicture(){
+        withNativeApp {
+            String pkg = getPackage()
+            try {
+                String clName = "${pkg}.CameraActivity"
+                geb.Page p = Class.forName(clName)
+                at p
+            } catch (e) {
+                log.error("")
+            }
+        }
     }
 
     /**************** APPIUM Specific Stuff ********************/
-
-    public boolean performTap(x,y){
-        if( driver instanceof AppiumDriver)
-            new io.appium.java_client.TouchAction(driver).tap(x.intValue(), y.intValue()).perform()
-        else if ( driver instanceof SelendroidDriver )
-            driver.getTouch().down(x.intValue(), y.intValue())
-    }
-
 
     public GebMobileNavigatorFactory getMobileNavigatorFactory() {
         return browser.getNavigatorFactory()
@@ -79,14 +80,6 @@ class GebMobileBaseSpec extends GebSpec {
         hierarchy.'android.widget.FrameLayout'.@package.text()
     }
 
-
-    public boolean takePicture() {
-        if (driver instanceof AppiumDriver) {
-            withNativeApp {
-                VendorSpecific.cameraVendorMapping[getPackage()].call(driver)
-            }
-        }
-    }
 
 
 }

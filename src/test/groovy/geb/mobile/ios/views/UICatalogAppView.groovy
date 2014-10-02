@@ -7,10 +7,12 @@ import geb.mobile.ios.IosBaseView
  */
 class UICatalogAppView extends IosBaseView {
 
-    static at = { true }
+    static at = { textFields.isEnabled() }
 
     static content = {
         mytitle { $("#title") }
+        buttons{ $("name='Buttons, Various uses of UIButton'")[0] }
+        textFields{ $("name='TextFields, Uses of UITextField'")[0] }
     }
 
 }

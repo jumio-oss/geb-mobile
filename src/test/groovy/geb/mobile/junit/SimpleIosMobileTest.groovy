@@ -8,15 +8,20 @@ class SimpleIosMobileTest {
 
     @Test
     public void runIosUICatalog(){
-        GebMobileDriverFactory.setIosDriver('appUT.package':'Safari' , 'language':'en' )//, 'locale': 'en_GB')
-        Browser.drive(new Browser(driver: GebMobileDriverFactory.createMobileDriverInstance() )){ Browser browser->
-            browser.driver.get("http://www.google.com")
-            go "http://www.google.com"
+
+        GebMobileDriverFactory.setAppiumIos('appUT.package': 'UICatalog')
+        Browser.drive{ browser ->
+            println $("//*")
             //println $("#title")
             //at UICatalogAppView
             //mytitle == "UICatalog"
-            println browser.driver.pageSource
+            new File("UICatalog.xml").withWriter{ wr->
+                wr.write browser.driver.pageSource
+            }
+
         }
     }
+
+
 
 }

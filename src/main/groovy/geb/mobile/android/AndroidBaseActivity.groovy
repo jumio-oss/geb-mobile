@@ -5,6 +5,7 @@ import io.appium.java_client.AndroidKeyCode
 import io.appium.java_client.AppiumDriver
 import io.selendroid.SelendroidDriver
 import io.selendroid.SelendroidKeys
+import org.openqa.selenium.Dimension
 import org.openqa.selenium.interactions.Actions
 
 /**
@@ -53,6 +54,22 @@ abstract class AndroidBaseActivity extends Page {
             def currUrl = driver.currentUrl
             return currUrl.startsWith("and-") ? currUrl.split(/\/\//)[1] : currUrl
         }
+    }
+
+    public Dimension getScreenDimension() {
+        driver.manage().window().getSize()
+    }
+
+    public def getCameraShutterButtonCoordinates() {
+        def dim = getScreenDimension()
+        [dim.width - 100, dim.height / 2]
+    }
+
+    public boolean performTap(x,y){
+        if( driver instanceof AppiumDriver)
+            new io.appium.java_client.TouchAction(driver).tap(x.intValue(), y.intValue()).perform()
+        else if ( driver instanceof SelendroidDriver )
+            driver.getTouch().down(x.intValue(), y.intValue())
     }
 
 

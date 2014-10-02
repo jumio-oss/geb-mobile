@@ -110,7 +110,10 @@ class GebMobileDriverFactory {
                 }
             }
 
-            new RemoteWebDriver(getURL("http://localhost:5555/wd/hub/"), capa)
+            IOSCapabilities iCapa = new IOSCapabilities(capa.asMap())
+
+            new RemoteIOSDriver(getURL("http://localhost:5555/wd/hub/"), iCapa)
+            //new RemoteWebDriver(getURL("http://localhost:5555/wd/hub/"), capa)
 
         } else if (System.properties.framework == "selenium") {
             DesiredCapabilities capa = DesiredCapabilities.firefox()
