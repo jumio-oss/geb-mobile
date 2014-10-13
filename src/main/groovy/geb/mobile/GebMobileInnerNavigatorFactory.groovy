@@ -2,6 +2,7 @@ package geb.mobile
 
 import geb.mobile.android.AndroidInstrumentationNonEmptyNavigator
 import geb.mobile.android.AndroidUIAutomatorNonEmptyNavigator
+import geb.mobile.ios.AppiumIosInstrumentationNonEmptyNavigator
 import geb.mobile.ios.IosInstrumentationNonEmptyNavigator
 import geb.Browser
 import geb.navigator.EmptyNavigator
@@ -55,7 +56,7 @@ class GebMobileInnerNavigatorFactory implements InnerNavigatorFactory {
     static def _defaultNavigators = [selendroid: AndroidInstrumentationNonEmptyNavigator,
                                      android   : AndroidUIAutomatorNonEmptyNavigator,
                                      firefox   : AndroidInstrumentationNonEmptyNavigator,
-                                     ios       : IosInstrumentationNonEmptyNavigator
+                                     ios       : AppiumIosInstrumentationNonEmptyNavigator
     ]
 
 
@@ -83,7 +84,7 @@ class GebMobileInnerNavigatorFactory implements InnerNavigatorFactory {
                             clazz = AndroidUIAutomatorNonEmptyNavigator
                         }
                     } else {
-                        clazz = IosInstrumentationNonEmptyNavigator
+                        clazz = AppiumIosInstrumentationNonEmptyNavigator
                     }
                 } else {
                     clazz = _defaultNavigators[browserName.toLowerCase()]
