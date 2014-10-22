@@ -9,10 +9,11 @@ class CameraActivity extends AndroidBaseActivity{
 
 
     static content = {
-        save(required:false) { $('text("Save")') }
-        ok(required:false){ $('text("OK")')}
+        save(required:false) { $('#save') }
+        ok(required:false){ $('#discard')}
 
         takePicture {
+            sleep( 1000 )
             shutter()
             waitFor{ save.isEnabled() }
             save.click() || ok.click()

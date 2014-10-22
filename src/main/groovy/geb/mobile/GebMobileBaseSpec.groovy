@@ -22,15 +22,39 @@ class GebMobileBaseSpec extends GebSpec {
         ImageIO.read(new ByteArrayInputStream(((SelendroidDriver) driver).getScreenshotAs(OutputType.BYTES)))
     }
 
-    public boolean doCameraFlow() {
+    /**
+     * expects that something before startet a camera app
+     * switches to native context
+     * looks up a camera activity class
+     * if your camera-activity is not working, see at the findPage desc
+     * your camera activity should have a
+     *   static = {
+     *      takePicture{ //do something here }
+     *   }
+     * @return the return value of takePicture
+     */
+    public def doCameraFlow() {
 
         withNativeApp {
-            isAt( owner._findCameraPage() )
+            isAt( owner.findPage() )
             takePicture
         }
     }
 
-    def _findCameraPage(){
+    /**
+     * Takes the appPackage, checks if it exists as Class ( it's wierd, but the appPackes inside the pageSource
+     * is sometimes a ClassName
+     * if only a package, the <pkgName>.CameraActivity is looked up with Class.forName
+     *
+     * to use this functionality:
+     *   - check the packageName from the pageSource
+     *   - create a class with that package name and/or .CameraActivity
+     *   - make a good at checker see geb documentation
+     *
+     *
+     * @return
+     */
+    def findPage(){
         String pkg = getPackage()
         def parts = pkg.split(/\./)
         def page
@@ -66,9 +90,21 @@ class GebMobileBaseSpec extends GebSpec {
     public static String CONTEXT_WEBVIEW = "WEBVIEW_1"
 
     public boolean isContextAvailable(String contextName) {
-        ((AppiumDriver) driver).getContextHandles().contains(contextName)
+        if( driver instanceof AppiumDriver )
+            driver.getContextHandles().contains(contextName)
+        else
+            false
     }
 
+    /**
+     * switch appium driver into the given context, if not already set
+     * executes the closure
+     * switches the context back to what it was before
+     * ! if not appium return false
+     * @param newContext
+     * @param block
+     * @return the return value of the closure, or false if not appium or given context not available
+     */
     public def withContext(String newContext, Closure block) {
         if (!isContextAvailable(newContext)) {
             log.warn "Context $newContext not available, skipping block execution"
@@ -76,20 +112,34 @@ class GebMobileBaseSpec extends GebSpec {
         }
         def oldContext = ((AppiumDriver) driver).getContext()
         if (newContext != oldContext) driver.context(newContext)
+        def ret
         try {
             //TODO: wait that the new context is ready: how to check with waitFor
             sleep(1000)
-            block.call()
+            ret = block.call()
         } catch (e) {
             log.error("Error calling block: $e.message", e)
         }
         driver.context(oldContext)
+        return ret
     }
 
+    /**
+     * Run closure in the native mode,
+     * switches the appium driver before into the NATIVE_APP context if not already there
+     * @param closure
+     * @return
+     */
     public def withNativeApp(Closure closure) {
         withContext(CONTEXT_NATIVE_APP, closure)
     }
 
+    /**
+     * Run closure in the webView Mode
+     * switches the appium driver into the WEBVIEW_1 context
+     * @param closure
+     * @return
+     */
     public def withWebView(Closure closure) {
         withContext(CONTEXT_WEBVIEW, closure)
     }
