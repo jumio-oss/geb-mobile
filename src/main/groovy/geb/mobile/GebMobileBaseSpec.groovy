@@ -1,15 +1,11 @@
 package geb.mobile
 
-import geb.mobile.android.device.VendorSpecific
+import geb.Page
 import geb.spock.GebSpec
-import groovy.transform.Trait
 import groovy.util.logging.Slf4j
 import io.appium.java_client.AppiumDriver
 import io.selendroid.SelendroidDriver
-import io.selendroid.SelendroidKeys
-import org.openqa.selenium.Dimension
 import org.openqa.selenium.OutputType
-import org.openqa.selenium.interactions.Actions
 import spock.lang.Ignore
 
 import javax.imageio.ImageIO
@@ -26,17 +22,38 @@ class GebMobileBaseSpec extends GebSpec {
         ImageIO.read(new ByteArrayInputStream(((SelendroidDriver) driver).getScreenshotAs(OutputType.BYTES)))
     }
 
-    public boolean takePicture(){
+    public boolean doCameraFlow() {
+
         withNativeApp {
-            String pkg = getPackage()
-            try {
-                String clName = "${pkg}.CameraActivity"
-                geb.Page p = Class.forName(clName)
-                at p
-            } catch (e) {
-                log.error("")
-            }
+            isAt( owner._findCameraPage() )
+            takePicture
         }
+    }
+
+    def _findCameraPage(){
+        String pkg = getPackage()
+        def parts = pkg.split(/\./)
+        def page
+        if( parts[-1].charAt(0).isUpperCase() )
+            page =  _getPageForClass(pkg)
+        if( !page ){
+            page = _getPageForClass(parts[0..-1].join('.')+'.CameraActivity')
+        }
+        if( !page ){
+            throw new Exception("CameraActivity not found with $pkg")
+        }
+        return page
+
+    }
+
+    def _getPageForClass(String className){
+        try {
+            log.debug("Checking for $className")
+            return Class.forName(className)
+        }catch(e){
+            log.debug("Class $className not found")
+        }
+
     }
 
     /**************** APPIUM Specific Stuff ********************/
@@ -57,9 +74,11 @@ class GebMobileBaseSpec extends GebSpec {
             log.warn "Context $newContext not available, skipping block execution"
             return false
         }
-        def oldContext = driver.context()
+        def oldContext = ((AppiumDriver) driver).getContext()
         if (newContext != oldContext) driver.context(newContext)
         try {
+            //TODO: wait that the new context is ready: how to check with waitFor
+            sleep(1000)
             block.call()
         } catch (e) {
             log.error("Error calling block: $e.message", e)
@@ -79,7 +98,6 @@ class GebMobileBaseSpec extends GebSpec {
         def hierarchy = new XmlSlurper().parseText(driver.pageSource)
         hierarchy.'android.widget.FrameLayout'.@package.text()
     }
-
 
 
 }

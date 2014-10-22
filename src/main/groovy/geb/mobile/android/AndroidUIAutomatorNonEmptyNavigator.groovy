@@ -25,7 +25,7 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
 
     @Override
     Navigator find(String selectorString) {
-        //log.debug "Selector: $selectorString"
+        log.debug "Selector: $selectorString"
 
         if (selectorString.startsWith("//")) {
             return navigatorFor(driver.findElements(By.xpath(selectorString)))
@@ -33,7 +33,10 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
 
         if (selectorString.startsWith("#")) {
             String value = selectorString.substring(1)
-            return navigatorFor(driver.findElementsByAndroidUIAutomator("resourceId(\"$appPackage:id/$value\")"))
+            if( value.indexOf(':') )
+                return navigatorFor(driver.findElementsByAndroidUIAutomator("resourceId(\"$value\")"))
+            else
+                return navigatorFor(driver.findElementsByAndroidUIAutomator("resourceId(\"$appPackage:id/$value\")"))
         } else if( selectorString.startsWith(".") ){
             //This works only on WEB_VIEW
             return navigatorFor(driver.findElementsByCssSelector(selectorString) )

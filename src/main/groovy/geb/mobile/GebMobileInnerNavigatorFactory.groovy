@@ -1,23 +1,19 @@
 package geb.mobile
 
+import geb.Browser
 import geb.mobile.android.AndroidInstrumentationNonEmptyNavigator
 import geb.mobile.android.AndroidUIAutomatorNonEmptyNavigator
 import geb.mobile.ios.AppiumIosInstrumentationNonEmptyNavigator
 import geb.mobile.ios.IosInstrumentationNonEmptyNavigator
-import geb.Browser
 import geb.navigator.EmptyNavigator
 import geb.navigator.Navigator
-import geb.navigator.NonEmptyNavigator
 import geb.navigator.factory.InnerNavigatorFactory
 import groovy.util.logging.Slf4j
 import io.appium.java_client.AppiumDriver
 import io.selendroid.SelendroidDriver
-import org.openqa.selenium.Capabilities
 import org.openqa.selenium.Platform
 import org.openqa.selenium.WebElement
-import org.openqa.selenium.remote.RemoteWebDriver
 import org.uiautomation.ios.client.uiamodels.impl.RemoteIOSDriver
-import sun.reflect.generics.reflectiveObjects.NotImplementedException
 
 /**
  * This Factory decides, which NonEmptyNavigator will be created for the WebElements from the Driver
@@ -53,30 +49,46 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException
 class GebMobileInnerNavigatorFactory implements InnerNavigatorFactory {
 
 
-    static def _defaultNavigators = [selendroid: AndroidInstrumentationNonEmptyNavigator,
-                                     android   : AndroidUIAutomatorNonEmptyNavigator,
-                                     firefox   : AndroidInstrumentationNonEmptyNavigator,
-                                     ios       : AppiumIosInstrumentationNonEmptyNavigator
+    static Map<String, Class> _defaultNavigators = [selendroid         : AndroidInstrumentationNonEmptyNavigator,
+                                                    android            : AndroidUIAutomatorNonEmptyNavigator,
+                                                    firefox            : AndroidInstrumentationNonEmptyNavigator,
+                                                    ios                : AppiumIosInstrumentationNonEmptyNavigator,
+                                                    'appium:NATIVE_APP': AndroidUIAutomatorNonEmptyNavigator,
+                                                    'appium:WEB_VIEW_1': AndroidInstrumentationNonEmptyNavigator
     ]
 
 
     static Map<Browser, Class> _innerNavigators = [:]
 
-    private Class figureCorrectInnerNavigator(browser) {
-        def clazz = _innerNavigators[browser]
-        if (!clazz) {
+    GebMobileNavigatorFactory navigatorFactory
 
+    private Class figureCorrectInnerNavigator(browser) {
+        def driver = browser.driver
+
+        def clazz
+        //Set class null, when a context change was done
+        if (driver instanceof AppiumDriver && navigatorFactory.context) {
+            String ctx = driver.getContext()
+            if (navigatorFactory.context != ctx) {
+                clazz = _defaultNavigators["appium:$ctx"]
+            }
+        }
+
+        if (!clazz)
+            clazz = _innerNavigators[browser]
+
+        if (!clazz) {
             synchronized (_innerNavigators) {
-                String browserName = browser.driver.capabilities.getCapability("browserName")
-                String platformName = browser.driver.capabilities.getCapability("platformName")
-                Platform platform = browser.driver.capabilities.getCapability("platform")
+                String browserName = driver.capabilities.getCapability("browserName")
+                String platformName = driver.capabilities.getCapability("platformName")
+                Platform platform = driver.capabilities.getCapability("platform")
                 log.debug("trying to figure out correct Navigator for $browserName, $platformName, ${platform.name()}")
-                if (browser.driver instanceof SelendroidDriver) {
+                if (driver instanceof SelendroidDriver) {
                     //if (browserName == "android") clazz = NonEmptyNavigator else
                     clazz = AndroidInstrumentationNonEmptyNavigator
-                } else if (browser.driver instanceof RemoteIOSDriver) {
+                } else if (driver instanceof RemoteIOSDriver) {
                     clazz = IosInstrumentationNonEmptyNavigator
-                } else if (browser.driver instanceof AppiumDriver) {
+                } else if (driver instanceof AppiumDriver) {
                     if (platformName == "Android" || platform == Platform.ANDROID) {
                         if (browserName.toLowerCase() in ['browser', 'chromium', 'chrome']) {
                             clazz = AndroidInstrumentationNonEmptyNavigator
@@ -86,6 +98,7 @@ class GebMobileInnerNavigatorFactory implements InnerNavigatorFactory {
                     } else {
                         clazz = AppiumIosInstrumentationNonEmptyNavigator
                     }
+                    navigatorFactory.context = driver.getContext()
                 } else {
                     clazz = _defaultNavigators[browserName.toLowerCase()]
                     if (!clazz) clazz = _defaultNavigators[platformName.toLowerCase()]

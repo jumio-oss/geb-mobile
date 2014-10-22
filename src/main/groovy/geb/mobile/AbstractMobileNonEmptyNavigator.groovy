@@ -686,4 +686,6 @@ abstract class AbstractMobileNonEmptyNavigator<T> extends AbstractNavigator {
     boolean isEditable() {
         return true
     }
+
+
 }

@@ -1,11 +1,8 @@
-package com.android.camera2
+package com.google.android
 
 import geb.mobile.android.AndroidBaseActivity
 
-/**
- * Nexus 4 Camera
- */
-class CameraActivity extends AndroidBaseActivity{
+class GoogleCamera extends AndroidBaseActivity{
 
     static content = {
         shutter{ $("#com.android.camera2:id/shutter_button")}
@@ -16,11 +13,9 @@ class CameraActivity extends AndroidBaseActivity{
             done.click()
         }
     }
-
     @Override
     String getActivityName() {
         null
     }
-
 
 }

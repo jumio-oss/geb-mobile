@@ -17,4 +17,9 @@ class CameraActivity extends AndroidBaseActivity {
             performTap(dim.width - 100, dim.height / 2)
         }
     }
+    @Override
+    String getActivityName() {
+        null
+    }
+
 }

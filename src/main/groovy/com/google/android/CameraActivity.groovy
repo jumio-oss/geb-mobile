@@ -13,6 +13,10 @@ class CameraActivity extends AndroidBaseActivity{
         }
     }
 
+    @Override
+    String getActivityName() {
+        null
+    }
 
 
 }
