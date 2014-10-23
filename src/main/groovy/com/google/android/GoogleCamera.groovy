@@ -2,20 +2,7 @@ package com.google.android
 
 import geb.mobile.android.AndroidBaseActivity
 
-class GoogleCamera extends AndroidBaseActivity{
+class GoogleCamera extends com.android.camera2.CameraActivity{
 
-    static content = {
-        shutter{ $("#com.android.camera2:id/shutter_button")}
-        done{ $("#com.android.camera2:id/done_button")}
-
-        takePicture {
-            shutter.click()
-            done.click()
-        }
-    }
-    @Override
-    String getActivityName() {
-        null
-    }
 
 }

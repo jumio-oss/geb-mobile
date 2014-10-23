@@ -2,10 +2,11 @@
 # Geb Mobile Extension for Appium, Selendroid and IosDriver
 ---
 
-## Under Development 
+## Under Development
++ This project is still under development and is used in our automation. So all functions are implemented
 ---
 
-## Goal 
+## Goal
 + Write mobile selenium based tests with all the features of Geb/Spock
 + Reuse Test for Mobile and normal Web
 + Support Geb for Android over Appium and Selendroid

@@ -9,12 +9,15 @@ class CameraActivity extends AndroidBaseActivity{
 
     static content = {
         shutter{ $("#com.android.camera2:id/shutter_button")}
-        done{ $("#com.android.camera2:id/done_button")}
+        done(required:false){ $("#com.android.camera2:id/done_button")}
 
         takePicture {
             shutter.click()
-            done.click()
+            if(!done.isDisplayed() ) back()
+            else done.click()
         }
+
+
     }
 
     @Override
