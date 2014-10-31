@@ -15,6 +15,11 @@ import org.uiautomation.ios.communication.device.DeviceType
 
 /**
  * Created by gmueksch on 12.08.14.
+ * Based on the your System property settings this class creates the remote driver impl
+ * to connect to your selenium server
+ * is used in the GebConfig.groovy by geb or directly if you prefere writing old style unit tests
+ * TODO: automatically figure out what type of server is running, could be done with json requests
+ * TODO: refactor the if/then construct
  */
 @Slf4j
 class GebMobileDriverFactory {
@@ -83,6 +88,7 @@ class GebMobileDriverFactory {
                 log.info("Driver created: $driver.capabilities")
                 return driver
             } catch (e) {
+                //
                 log.error("eXC: $e.message", e)
                 if (e.message =~ /Android devices must be of API level 17 or higher/) {
                     capa.setCapability("automationName", "selendroid")

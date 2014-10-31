@@ -1,7 +1,6 @@
 package geb.mobile.android
 
 import geb.Page
-import geb.mobile.android.device.VendorSpecific
 import io.appium.java_client.AndroidKeyCode
 import io.appium.java_client.AppiumDriver
 import io.selendroid.SelendroidDriver
@@ -10,7 +9,12 @@ import org.openqa.selenium.Dimension
 import org.openqa.selenium.interactions.Actions
 
 /**
- * Created by gmueksch on 26.06.14.
+ * Base for AndroidActivities
+ * - Provides auto at checker with the currentActivity
+ * - back, menu and home action
+ * - performTap
+ * - differs between appium and selendroid driver
+ * TODO: get rid of the 'instanceof', use mixin or traits, i'm still in the java-thinkin-way...
  *
  */
 abstract class AndroidBaseActivity extends Page {
