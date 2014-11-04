@@ -107,7 +107,8 @@ def stopServer = { server ->
     }
 }
 
-task startSelendroid(group:'Server') << {
+task startSelendroid(group:'Server', type: Task) << {
+    description 'Start the selendroid server on port 4444 with the testapp, use -DwaitForServer=true, when you run only the server'
     startServer( "SERVER_SELENDROID" , "java -cp ${configurations.selendroid.files.toList().join(":")} io.selendroid.SelendroidLauncher -port 4444 -aut ${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk")
 }
 

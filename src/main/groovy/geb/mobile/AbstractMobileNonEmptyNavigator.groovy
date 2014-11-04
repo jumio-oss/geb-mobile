@@ -300,7 +300,7 @@ abstract class AbstractMobileNonEmptyNavigator<T> extends AbstractNavigator {
 
     @Override
     boolean isDisplayed() {
-        firstElement()?.displayed ?: false
+        _props.displayed ?: false
     }
 
     @Override
@@ -667,7 +667,7 @@ abstract class AbstractMobileNonEmptyNavigator<T> extends AbstractNavigator {
     boolean isDisabled() {
         def dis = firstElement().getAttribute("disabled")
         if( dis == null ){
-            dis = firstElement().properties.disabled
+            dis = !firstElement().properties.enabled
         }
         return dis
     }

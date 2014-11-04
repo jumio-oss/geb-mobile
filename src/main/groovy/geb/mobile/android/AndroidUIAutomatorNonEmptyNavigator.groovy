@@ -2,6 +2,7 @@ package geb.mobile.android
 
 import geb.Browser
 import geb.mobile.AbstractMobileNonEmptyNavigator
+import geb.navigator.EmptyNavigator
 import geb.navigator.Navigator
 import groovy.util.logging.Slf4j
 import io.appium.java_client.AppiumDriver
@@ -33,10 +34,23 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
 
         if (selectorString.startsWith("#")) {
             String value = selectorString.substring(1)
-            if( value.indexOf(':') )
-                return navigatorFor(driver.findElementsByAndroidUIAutomator("resourceId(\"$value\")"))
-            else
-                return navigatorFor(driver.findElementsByAndroidUIAutomator("resourceId(\"$appPackage:id/$value\")"))
+            if( value.indexOf(':')>0 ) {
+                try{
+                    return navigatorFor(driver.findElementsByAndroidUIAutomator("resourceId(\"$value\")"))
+                }catch(e){
+                    log.warn("Selector $selectorString: findElementsByAndroidUIAutomator resourceId(\"$value\") : $e.message")
+                    return new EmptyNavigator()
+                }
+            }else {
+                def apk = getAppPackage()
+                if( !apk ) log.warn("for Selector $selectorString : AppPackage is emtpy, result may not be correct ")
+                try {
+                    return navigatorFor(driver.findElementsByAndroidUIAutomator("resourceId(\"$appPackage:id/$value\")"))
+                }catch(e){
+                    log.warn("Selector $selectorString: findElementsByAndroidUIAutomator resourceId(\"$appPackage:id/$value\") ")
+                    return new EmptyNavigator()
+                }
+            }
         } else if( selectorString.startsWith(".") ){
             //This works only on WEB_VIEW
             return navigatorFor(driver.findElementsByCssSelector(selectorString) )
