@@ -1,12 +1,20 @@
 package geb.mobile
 
 import geb.Page
+import geb.mobile.helper.GebMobileScreenshotRule
 import geb.spock.GebSpec
 import groovy.util.logging.Slf4j
 import io.appium.java_client.AppiumDriver
 import io.selendroid.SelendroidDriver
+import org.junit.Rule
+import org.junit.rules.MethodRule
+import org.junit.rules.TestRule
+import org.junit.runner.Description
+import org.junit.runners.model.FrameworkMethod
+import org.junit.runners.model.Statement
 import org.openqa.selenium.OutputType
 import spock.lang.Ignore
+import spock.lang.Shared
 
 import javax.imageio.ImageIO
 import java.awt.image.BufferedImage
@@ -18,8 +26,15 @@ import java.awt.image.BufferedImage
 @Slf4j
 class GebMobileBaseSpec extends GebSpec {
 
+    @Rule
+    public GebMobileScreenshotRule screenShotRule = new GebMobileScreenshotRule(baseSpec:this)
+
+//    def setup(){
+//        screenShotRule.baseSpec = this
+//    }
+
     BufferedImage getScreenShotAsImage() {
-        ImageIO.read(new ByteArrayInputStream(((SelendroidDriver) driver).getScreenshotAs(OutputType.BYTES)))
+        ImageIO.read(new ByteArrayInputStream(driver.getScreenshotAs(OutputType.BYTES)))
     }
 
     /**
@@ -64,6 +79,7 @@ class GebMobileBaseSpec extends GebSpec {
             page = _getPageForClass(parts[0..-1].join('.')+'.CameraActivity')
         }
         if( !page ){
+            driver.getPageSource()
             throw new Exception("CameraActivity not found with $pkg")
         }
         return page
