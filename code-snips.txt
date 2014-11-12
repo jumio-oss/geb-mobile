@@ -1,0 +1,6 @@
+// get all attributes
+getAppiumDriver().findElementsByXPath(".//*").collect{ return "$it.id : $it.tagName: $it.text : ${it.getAttribute("name")} : ${it.getAttribute("className")}"}
+
+
+// IOS-Driver pagesource is a recursive map
+driver.execute("getPageSource").tree
