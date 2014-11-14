@@ -28,10 +28,18 @@ class GebMobileScreenshotRule implements MethodRule{
                     if( baseSpec ) {
                         log.warn("Caugth $ex.message --> take screenshot")
                         def img = baseSpec.getScreenShotAsImage()
+                        def fName = method.getName().replaceAll(/[ ,\._\-:]/, "_")
                         try {
-                            ImageIO.write(img, "png", new File(method.getName().replaceAll(/[ ,\._\-:]/, "_") + '.png'))
+                            ImageIO.write(img, "png", new File( fName+ '.png'))
                         } catch (e1) {
                             log.warn "error writing image: $e1.message"
+                        }
+                        try{
+                            new File( fName+'_pageSource.xml' ).withWriter { wr->
+                                wr.write(baseSpec.getDriver().getPageSource())
+                            }
+                        }catch(e){
+                            log.warn("problem creating pageSource: $e.message")
                         }
                     }
                     throw ex

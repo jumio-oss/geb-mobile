@@ -168,8 +168,9 @@ class GebMobileDriverFactory {
     public static void setFrameWork(String framework, def map = null) {
         System.setProperty("framework", framework)
         map?.each { k, v ->
+            def key = "${framework}_${k}"
             if (k in ['appUT.package', 'appUT.version']) System.setProperty(k, v)
-            else System.setProperty("${framework}_${k}", v)
+            else if(System.getProperty(key,null)==null) System.setProperty(key, v)
         }
     }
 
