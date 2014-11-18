@@ -28,19 +28,31 @@ abstract class AbstractMobileNonEmptyNavigator<T> extends AbstractNavigator {
 
     protected final List<WebElement> contextElements
 
-    protected Map _props
+    private Map _props = [:] as Map
 
     T driver
 
     AbstractMobileNonEmptyNavigator(Browser browser, Collection<? extends WebElement> contextElements) {
         super(browser)
         this.contextElements = contextElements.toList().asImmutable()
-        this._props = firstElement().properties
+        //this._props = firstElement().properties
         this.driver = (T)browser.driver
     }
 
     protected Navigator navigatorFor(Collection<WebElement> contextElements) {
         browser.navigatorFactory.createFromWebElements(contextElements)
+    }
+
+    public Map getProps(){
+       if( _props.size()>0 ) return _props
+        synchronized ( _props ){
+            _props.putAll(firstElement().properties)
+        }
+        return _props
+    }
+
+    public String getPropsByName(name){
+        getProps()[name]
     }
 
     @Override
@@ -300,7 +312,7 @@ abstract class AbstractMobileNonEmptyNavigator<T> extends AbstractNavigator {
 
     @Override
     boolean isDisplayed() {
-        _props.displayed ?: false
+        getProps().displayed ?: false
     }
 
     @Override
@@ -314,12 +326,16 @@ abstract class AbstractMobileNonEmptyNavigator<T> extends AbstractNavigator {
 
     @Override
     String getAttribute(String name) {
-        def attribute = firstElement().getAttribute(name)
-        if (attribute == 'false' && name in BOOLEAN_ATTRIBUTES) {
-            attribute = null
-        }
 
-        attribute == null ? "" : attribute
+        try {
+            def attribute = firstElement().getAttribute(name)
+            if( attribute != null ) return attribute
+        }catch(e){
+            log.warn("Error getting Attribute [$name] on ${firstElement()} : $e.message")
+        }
+        log.debug("Looking for Attribute $name in Properties")
+        return getPropsByName(name)
+
     }
 
     @Override
@@ -665,16 +681,17 @@ abstract class AbstractMobileNonEmptyNavigator<T> extends AbstractNavigator {
 
     @Override
     boolean isDisabled() {
-        def dis = firstElement().getAttribute("disabled")
+        def dis =  getAttribute('disabled')
         if( dis == null ){
-            dis = !firstElement().properties.enabled
+            dis = !getAttribute('enabled')
         }
         return dis
     }
 
     @Override
     boolean isEnabled() {
-        return !isDisabled()
+        def ena = getAttribute('enabled')
+        return ena!=null? Boolean.valueOf(ena): Boolean.valueOf(getAttribute('disabled'))
     }
 
     @Override
@@ -686,6 +703,7 @@ abstract class AbstractMobileNonEmptyNavigator<T> extends AbstractNavigator {
     boolean isEditable() {
         return true
     }
+
 
 
 }

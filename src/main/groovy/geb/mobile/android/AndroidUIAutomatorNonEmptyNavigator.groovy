@@ -64,12 +64,12 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
 
     @Override
     String tag() {
-        _props.tagName ?: firstElement().getAttribute("tagName")
+        getAttribute("tagName")
     }
 
     @Override
     String text() {
-        firstElement().text ?: firstElement().getAttribute("name")
+        firstElement().text ?: getAttribute("name")
     }
 
     @Override

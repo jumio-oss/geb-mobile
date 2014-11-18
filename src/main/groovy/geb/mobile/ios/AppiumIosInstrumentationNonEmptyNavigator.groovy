@@ -114,15 +114,6 @@ class AppiumIosInstrumentationNonEmptyNavigator extends AbstractMobileNonEmptyNa
 
 
     @Override
-    boolean isDisabled() {
-        def dis = _props.enabled
-        if( dis == null ){
-            dis = _props.disabled
-        }
-        return dis
-    }
-
-    @Override
     Navigator unique() {
         new AppiumIosInstrumentationNonEmptyNavigator(browser, contextElements.unique(false))
     }
