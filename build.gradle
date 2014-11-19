@@ -10,7 +10,7 @@ ext.seleniumVersion = '2.42.2'
 ext.spockVersion = '0.7-groovy-2.0'
 ext.groovyVersion = '2.3.4'
 ext.selendroidVersion = '0.11.0'
-ext.appiumClientVersion = '1.6.2'
+ext.appiumClientVersion = '2.1.0'
 ext.iosClientVersion =  '0.6+'
 
 repositories {
@@ -132,20 +132,20 @@ task stopServers(group:'Server') << {
 
 task runSelendroidTests(group:'Android',type: Test, dependsOn: [startSelendroid]) {
 
-    systemProperty "framework", "selendroid"
-    systemProperty "appUT_absolutePath", "${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk"
-    systemProperty "appUT.package", "io.selendroid.testapp"
-    systemProperty "appUT.version", "0.10.0"
-    systemProperty "appUT_cap_Emulator", "false"
+    systemProperties.put "framework", "selendroid"
+    systemProperties.put "appUT_absolutePath", "${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk"
+    systemProperties.put "appUT.package", "io.selendroid.testapp"
+    systemProperties.put "appUT.version", "0.10.0"
+    systemProperties.put "appUT_cap_Emulator", "false"
     include '**/GebMobileAutomationTestWithPagesSpec.*'
 }
 
 task runAppiumTests(group:'Android',type: Test, dependsOn: [startAppium]) {
-    systemProperty "framework", "appium"
+    systemProperties.put "framework", "appium"
 
-    systemProperty "appUT.package", "io.selendroid.testapp"
-    systemProperty "appium_app", "${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk"
-    systemProperty "appium_deviceName" , "Android"
+    systemProperties.put "appUT.package", "io.selendroid.testapp"
+    systemProperties.put "appium_app", "${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk"
+    systemProperties.put "appium_deviceName" , "Android"
     //To run the test on a specific device
     //System.setProperty("appium_udid","192.168.56.10:5555")
     //System.setProperty("appium_automationName","selendroid")
@@ -155,26 +155,26 @@ task runAppiumTests(group:'Android',type: Test, dependsOn: [startAppium]) {
 }
 
 task runAppiumTestsWithSelendroidDriver(group:'Android', type: Test, dependsOn: [startAppium]) {
-    systemProperty "framework", "appium"
-    systemProperty "appUT.package", "io.selendroid.testapp"
-    systemProperty "appium_app", "${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk"
-    systemProperty "appium_automationName", "selendroid"
+    systemProperties.put "framework", "appium"
+    systemProperties.put "appUT.package", "io.selendroid.testapp"
+    systemProperties.put "appium_app", "${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk"
+    systemProperties.put "appium_automationName", "selendroid"
 
     include '**/GebMobileAutomationTestWithPagesSpec.*'
 }
 
 task runAppiumTestsWithOldDevice(group:'Android', type: Test, dependsOn: [startAppium]) {
-    systemProperty "framework", "appium"
-    systemProperty "appUT.package", "io.selendroid.testapp"
-    systemProperty "appium_app", "${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk"
+    systemProperties.put "framework", "appium"
+    systemProperties.put "appUT.package", "io.selendroid.testapp"
+    systemProperties.put "appium_app", "${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk"
 
     include '**/GebMobileAutomationTestWithPagesSpec.*'
 }
 
 task runIosdriverTests(group: 'Ios', type: Test, dependsOn: [startIosdriver] ) {
-    systemProperty "appUT.package", "UICatalog"
-    systemProperty "iosdriver_app" , ""
-    systemProperty "framework" , "iosdriver"
+    systemProperties.put "appUT.package", "UICatalog"
+    systemProperties.put "iosdriver_app" , ""
+    systemProperties.put "framework" , "iosdriver"
     include '**/UICatalogAppSpec.*'
 }
 
@@ -190,7 +190,7 @@ task runIosdriverInitTestsReal(group:'Ios', type:Test, dependsOn: [startIosdrive
 tasks.withType(Test){ task->
     onlyIf { !Boolean.getBoolean('skip.tests') }
     ignoreFailures = true
-    systemProperty = System.properties
+    systemProperties.put = System.properties
     outputs.upToDateWhen{ false }
     doLast{
         stopServers.execute()
@@ -214,13 +214,13 @@ ext.saucelabsUrl  = "http://${saucelabsUser}:${saucelabsKey}@ondemand.saucelabs.
 
 
 task appiumOnSauceLabs(type: Test) {
-    systemProperty "framework","appium"
-    systemProperty "appium_app","sauce-storage:selendroid-test-app-0.9.0.apk"
-    systemProperty "selenium.url", saucelabsUrl
-    systemProperty "appium_platformName","Android"
-    systemProperty "appium_deviceName","LG Nexus 4 Emulator"
-    systemProperty "appium_platformVersion","4.4"
-    systemProperty "appium_appium-version","1.0"
+    systemProperties.put "framework","appium"
+    systemProperties.put "appium_app","sauce-storage:selendroid-test-app-0.9.0.apk"
+    systemProperties.put "selenium.url", saucelabsUrl
+    systemProperties.put "appium_platformName","Android"
+    systemProperties.put "appium_deviceName","LG Nexus 4 Emulator"
+    systemProperties.put "appium_platformVersion","4.4"
+    systemProperties.put "appium_appium-version","1.0"
     include '**/GebMobileAutomationTestWithPagesSpec.*'
 }
 
@@ -232,13 +232,13 @@ ext.testobjectApiKey = System.getProperty("testobjectApiKey", System.getenv("TES
 ext.testobjectUrl = System.getProperty("testobjectUrl", 'https://app.testobject.com:443/api/appium/wd/hub')
 
 task appiumOnTestObjects(type: Test) {
-    systemProperty "framework", "appium"
-    systemProperty "selenium.url", testobjectUrl
-    systemProperty "appium_appPackage" , "io.selendroid.testapp"       //important for testobject test, cause this value is not yet set on there side
-    systemProperty 'appium_testobject_api_key', testobjectApiKey
-    systemProperty 'appium_testobject_project', 'selendroid-test-app'
-    systemProperty 'appium_testobject_app_id', '1'
-    systemProperty 'appium_testobject_device', 'LG_Nexus_4_E960_real'
+    systemProperties.put "framework", "appium"
+    systemProperties.put "selenium.url", testobjectUrl
+    systemProperties.put "appium_appPackage" , "io.selendroid.testapp"       //important for testobject test, cause this value is not yet set on there side
+    systemProperties.put 'appium_testobject_api_key', testobjectApiKey
+    systemProperties.put 'appium_testobject_project', 'selendroid-test-app'
+    systemProperties.put 'appium_testobject_app_id', '1'
+    systemProperties.put 'appium_testobject_device', 'LG_Nexus_4_E960_real'
     include '**/GebMobileAutomationTestWithPagesSpec.*'
 }
 
