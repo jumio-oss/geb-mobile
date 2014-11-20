@@ -13,6 +13,7 @@ import geb.textmatching.TextMatcher
 import geb.waiting.WaitTimeoutException
 import groovy.util.logging.Slf4j
 import io.appium.java_client.AppiumDriver
+import io.appium.java_client.ios.IOSDriver
 import org.openqa.selenium.By
 import org.openqa.selenium.WebElement
 import sun.reflect.generics.reflectiveObjects.NotImplementedException
@@ -25,7 +26,7 @@ import static java.util.Collections.EMPTY_LIST
  * Created by gmueksch on 23.06.14.
  */
 @Slf4j
-class AppiumIosInstrumentationNonEmptyNavigator extends AbstractMobileNonEmptyNavigator<AppiumDriver> {
+class AppiumIosInstrumentationNonEmptyNavigator extends AbstractMobileNonEmptyNavigator<IOSDriver> {
 
     AppiumIosInstrumentationNonEmptyNavigator(Browser browser, Collection<? extends WebElement> contextElements) {
         super(browser,contextElements)

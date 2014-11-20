@@ -6,11 +6,14 @@ import geb.navigator.factory.AbstractNavigatorFactory
 import geb.navigator.factory.InnerNavigatorFactory
 import geb.navigator.factory.NavigatorBackedNavigatorFactory
 import geb.navigator.factory.NavigatorFactory
+import groovy.util.logging.Slf4j
+import io.appium.java_client.android.AndroidDriver
 import org.openqa.selenium.WebElement
 
 /**
  * Created by gmueksch on 23.06.14.
  */
+@Slf4j
 class GebMobileNavigatorFactory implements NavigatorFactory {
 
 
@@ -33,7 +36,16 @@ class GebMobileNavigatorFactory implements NavigatorFactory {
     @Override
     Navigator getBase() {
         //xpath works with all selenium implementations...
-        List<WebElement> list = browser.driver.findElementsByXPath("//*") as List
+        log.debug("Create Navigator from Base...")
+        def drv = browser.driver
+        List<WebElement> list
+        if( drv instanceof AndroidDriver ){
+            list = drv.findElementsByAndroidUIAutomator("new UiSelector().className(android.widget.FrameLayout)")
+            log.debug("Loaded from Base 'new UiSelector().className(android.widget.FrameLayout)' with ${list.size()} Elements")
+        }else {
+            list = browser.driver.findElementsByXPath("//*") as List
+            log.debug("Loaded from Base '//*' with ${list.size()} Elements")
+        }
         createFromWebElements(list)
     }
 

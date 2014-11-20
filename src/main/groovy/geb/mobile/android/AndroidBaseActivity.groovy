@@ -1,7 +1,7 @@
 package geb.mobile.android
 
 import geb.Page
-import io.appium.java_client.AndroidKeyCode
+import io.appium.java_client.android.AndroidKeyCode
 import io.appium.java_client.AppiumDriver
 import io.selendroid.SelendroidDriver
 import io.selendroid.SelendroidKeys
@@ -20,9 +20,7 @@ import org.openqa.selenium.interactions.Actions
 abstract class AndroidBaseActivity extends Page {
 
     static at = {
-        waitFor {
-            getActivityName() ? currentActivity == getActivityName() : true
-        }
+        getActivityName() ? currentActivity == getActivityName() : true
     }
 
     void back() {

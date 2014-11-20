@@ -1,20 +1,12 @@
 package geb.mobile
 
-import geb.Page
 import geb.mobile.helper.GebMobileScreenshotRule
 import geb.spock.GebSpec
 import groovy.util.logging.Slf4j
 import io.appium.java_client.AppiumDriver
-import io.selendroid.SelendroidDriver
 import org.junit.Rule
-import org.junit.rules.MethodRule
-import org.junit.rules.TestRule
-import org.junit.runner.Description
-import org.junit.runners.model.FrameworkMethod
-import org.junit.runners.model.Statement
 import org.openqa.selenium.OutputType
 import spock.lang.Ignore
-import spock.lang.Shared
 
 import javax.imageio.ImageIO
 import java.awt.image.BufferedImage

@@ -10,6 +10,8 @@ import geb.navigator.Navigator
 import geb.navigator.factory.InnerNavigatorFactory
 import groovy.util.logging.Slf4j
 import io.appium.java_client.AppiumDriver
+import io.appium.java_client.android.AndroidDriver
+import io.appium.java_client.ios.IOSDriver
 import io.selendroid.SelendroidDriver
 import org.openqa.selenium.Platform
 import org.openqa.selenium.WebElement
@@ -88,15 +90,14 @@ class GebMobileInnerNavigatorFactory implements InnerNavigatorFactory {
                     clazz = AndroidInstrumentationNonEmptyNavigator
                 } else if (driver instanceof RemoteIOSDriver) {
                     clazz = IosInstrumentationNonEmptyNavigator
-                } else if (driver instanceof AppiumDriver) {
-                    if (platformName == "Android" || platform == Platform.ANDROID) {
-                        if (browserName.toLowerCase() in ['browser', 'chromium', 'chrome']) {
-                            clazz = AndroidInstrumentationNonEmptyNavigator
-                        } else {
-                            clazz = AndroidUIAutomatorNonEmptyNavigator
-                        }
+                } else if (driver instanceof IOSDriver){
+                    clazz = AppiumIosInstrumentationNonEmptyNavigator
+                    navigatorFactory.context = driver.getContext()
+                } else if (driver instanceof AndroidDriver) {
+                    if (browserName.toLowerCase() in ['browser', 'chromium', 'chrome']) {
+                        clazz = AndroidInstrumentationNonEmptyNavigator
                     } else {
-                        clazz = AppiumIosInstrumentationNonEmptyNavigator
+                        clazz = AndroidUIAutomatorNonEmptyNavigator
                     }
                     navigatorFactory.context = driver.getContext()
                 } else {

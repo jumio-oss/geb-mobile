@@ -2,6 +2,8 @@ package geb.mobile.driver
 
 import groovy.util.logging.Slf4j
 import io.appium.java_client.AppiumDriver
+import io.appium.java_client.android.AndroidDriver
+import io.appium.java_client.ios.IOSDriver
 import io.selendroid.SelendroidCapabilities
 import io.selendroid.SelendroidDriver
 import org.openqa.selenium.Platform
@@ -58,6 +60,7 @@ class GebMobileDriverFactory {
             return new SelendroidDriver(getURL("http://localhost:4444/wd/hub"), capa)
         } else if (useAppium()) {
             DesiredCapabilities capa = new DesiredCapabilities()
+            //set default platform to android
             capa.setCapability("platformName", "Android");
 
             System.properties.each { String k, v ->
@@ -67,39 +70,50 @@ class GebMobileDriverFactory {
                     capa.setCapability(m[0][1], v)
                 }
             }
+            def driver
+
             if (capa.getCapability("platformName") == "Android") {
                 capa.setCapability("platform", Platform.ANDROID)
                 if( appPackage() ) capa.setCapability("appPackage", appPackage())
                 if (!capa.getCapability("deviceName")) capa.setCapability("deviceName", "Android");
-            }
 
-            def driver
-            if (capa.getCapability("automationName") == "selendroid") {
-                log.info("Create SelendroidDriver for Appium, cause AutomationName is set to selendroid")
-                driver = new SelendroidDriver(getURL("http://localhost:4723/wd/hub"), capa)
-                driver.setFileDetector(new LocalFileDetector())
-                return driver
-            }
-            log.info("Create AppiumDriver ")
-            try {
-                driver = new AppiumDriver(getURL("http://localhost:4723/wd/hub"), capa)
-                driver.setFileDetector(new LocalFileDetector())
-                sleep(1000)
-                log.info("Driver created: $driver.capabilities")
-                return driver
-            } catch (e) {
-                //
-                log.error("eXC: $e.message", e)
-                if (e.message =~ /Android devices must be of API level 17 or higher/) {
-                    capa.setCapability("automationName", "selendroid")
-                    try {
-                        driver = new SelendroidDriver(getURL("http://localhost:4723/wd/hub"), capa)
-                        driver.setFileDetector(new LocalFileDetector())
-                    } catch (ex) {
-                        log.error("Error:", ex)
+                if (capa.getCapability("automationName") == "selendroid") {
+                    log.info("Create SelendroidDriver for Appium, cause AutomationName is set to selendroid")
+                    driver = new SelendroidDriver(getURL("http://localhost:4723/wd/hub"), capa)
+                    driver.setFileDetector(new LocalFileDetector())
+                    return driver
+                }
+
+                log.info("Create AppiumDriver ")
+                try {
+                    driver = new AndroidDriver(getURL("http://localhost:4723/wd/hub"), capa)
+                    driver.setFileDetector(new LocalFileDetector())
+                    sleep(1000)
+                    log.info("Driver created: $driver.capabilities")
+                    return driver
+                } catch (e) {
+                    //
+                    log.error("eXC: $e.message", e)
+                    if (e.message =~ /Android devices must be of API level 17 or higher/) {
+                        capa.setCapability("automationName", "selendroid")
+                        try {
+                            driver = new SelendroidDriver(getURL("http://localhost:4723/wd/hub"), capa)
+                            driver.setFileDetector(new LocalFileDetector())
+                        } catch (ex) {
+                            log.error("Error:", ex)
+                        }
                     }
                 }
+            }else{
+                log.info("Create IosDriver ")
+                driver = new IOSDriver(getURL("http://localhost:4723/wd/hub"), capa)
+                driver.setFileDetector(new LocalFileDetector())
+                return driver
+
             }
+
+
+
             if (!driver) throw new RuntimeException("Appiumdriver could not be started")
         } else if (useIosDriver()) {
             DesiredCapabilities capa = new DesiredCapabilities()

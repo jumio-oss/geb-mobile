@@ -312,17 +312,19 @@ abstract class AbstractMobileNonEmptyNavigator<T> extends AbstractNavigator {
 
     @Override
     boolean isDisplayed() {
-        getProps().displayed ?: false
+        getAttribute('displayed') ?: false
     }
 
     @Override
     String tag() {
-        firstElement().tagName    }
+        firstElement().getTagName()
+    }
 
     @Override
     String text() {
-        firstElement().text
+        firstElement().text ?: getAttribute("name")
     }
+
 
     @Override
     String getAttribute(String name) {
@@ -331,7 +333,7 @@ abstract class AbstractMobileNonEmptyNavigator<T> extends AbstractNavigator {
             def attribute = firstElement().getAttribute(name)
             if( attribute != null ) return attribute
         }catch(e){
-            log.warn("Error getting Attribute [$name] on ${firstElement()} : $e.message")
+            log.warn("Attribute[$name]on ${firstElement()} : $e.message")
         }
         log.debug("Looking for Attribute $name in Properties")
         return getPropsByName(name)

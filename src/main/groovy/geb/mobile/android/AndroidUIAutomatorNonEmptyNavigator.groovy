@@ -62,15 +62,6 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
 
     }
 
-    @Override
-    String tag() {
-        getAttribute("tagName")
-    }
-
-    @Override
-    String text() {
-        firstElement().text ?: getAttribute("name")
-    }
 
     @Override
     Navigator unique() {
