@@ -95,7 +95,7 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
                 setSpinnerValueWithScrollTo(input, value)
             }
         } else if (tagName in ["android.widget.CheckBox", "android.widget.RadioButton"]) {
-            boolean checked = input.getAttribute("checked")
+            def checked = input.getAttribute("checked")?.toBoolean()
             if ( !checked && value) {
                 input.click()
             } else if (checked && !value ) {
