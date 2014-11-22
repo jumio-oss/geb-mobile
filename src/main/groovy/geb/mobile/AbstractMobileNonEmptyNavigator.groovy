@@ -550,26 +550,17 @@ abstract class AbstractMobileNonEmptyNavigator<T> extends AbstractNavigator {
     }
 
     protected getInputValue(WebElement input) {
-        def value = null
-        def type = input.getAttribute("type")
-        if (input.tagName == "select") {
-            def select = new SelectFactory().createSelectFor(input)
-            if (select.multiple) {
-                value = select.allSelectedOptions.collect { getValue(it) }
-            } else {
-                value = getValue(select.firstSelectedOption)
-            }
-        } else if (type in ["checkbox", "radio"]) {
-            if (input.isSelected()) {
-                value = getValue(input)
-            } else {
-                if (type == "checkbox") {
-                    value = false
-                }
-            }
+        def value
+        def tagName = tag()
+
+        if (tagName == "android.widget.Spinner") {
+            value = input?.findElementByAndroidUIAutomator("new UiSelector().enabled(true)").getText()
+        } else if (tagName == "android.widget.CheckBox") {
+            value = input.getAttribute("checked")
         } else {
-            value = getValue(input)
+            value = input.getText()
         }
+        log.debug("inputValue for $tagName : $value ")
         value
     }
 

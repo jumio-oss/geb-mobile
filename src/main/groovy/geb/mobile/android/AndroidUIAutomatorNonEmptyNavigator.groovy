@@ -8,6 +8,7 @@ import groovy.util.logging.Slf4j
 import io.appium.java_client.AppiumDriver
 import io.appium.java_client.MobileElement
 import org.openqa.selenium.By
+import org.openqa.selenium.Keys
 import org.openqa.selenium.WebElement
 
 /**
@@ -68,7 +69,8 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
         new AndroidUIAutomatorNonEmptyNavigator(browser, contextElements.unique(false))
     }
 
-    protected getInputValue(MobileElement input) {
+    @Override
+    protected getInputValue(WebElement input) {
         def value
         def tagName = tag()
 
@@ -102,7 +104,8 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
                 input.click()
             }
         } else {
-            input.clear()
+            //input.clear()
+            //input.sendKeys(Keys.HOME,Keys.chord(Keys.SHIFT,Keys.END),value);
             input.sendKeys value as String
         }
     }
