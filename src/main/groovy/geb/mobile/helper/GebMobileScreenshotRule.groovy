@@ -30,7 +30,7 @@ class GebMobileScreenshotRule implements MethodRule{
                         def img = baseSpec.getScreenShotAsImage()
                         def fName = method.getName().replaceAll(/[ ,\._\-:]/, "_")
                         try {
-                            ImageIO.write(img, "png", new File( fName+ '.png'))
+                            ImageIO.write(img, "png", new File( 'build', fName+ '.png'))
                         } catch (e1) {
                             log.warn "error writing image: $e1.message"
                         }
