@@ -35,7 +35,7 @@ class GebMobileScreenshotRule implements MethodRule{
                             log.warn "error writing image: $e1.message"
                         }
                         try{
-                            new File( fName+'_pageSource.xml' ).withWriter { wr->
+                            new File( 'build', fName+'_pageSource.xml' ).withWriter { wr->
                                 wr.write(baseSpec.getDriver().getPageSource())
                             }
                         }catch(e){
