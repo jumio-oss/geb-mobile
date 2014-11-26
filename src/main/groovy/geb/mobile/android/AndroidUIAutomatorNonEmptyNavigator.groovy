@@ -92,9 +92,9 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
         log.debug("setInputValue: $input, $tagName")
         if (tagName == "android.widget.Spinner") {
             if (getInputValue(input) == value) return
-            setSpinnerValueWithScrollToExact(input,value)
+            setSpinnerValueWithUISelector(input,value)
             if( getInputValue(input) != value ) {
-                setSpinnerValueWithScrollTo(input, value)
+                setSpinnerValueWithUISelector(input,value)
             }
         } else if (tagName in ["android.widget.CheckBox", "android.widget.RadioButton"]) {
             def checked = input.getAttribute("checked")?.toBoolean()
@@ -122,7 +122,7 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
     private void setSpinnerValueWithScrollToExact(MobileElement input, value) {
         try {
             input.click()
-            driver.scrollToExact(value?.toString())?.click()
+            driver.scrollTo(value?.toString())?.click()
         } catch (e) {
             log.warn("Could not set $value to $input.tagName : $e.message")
         }
@@ -133,7 +133,7 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
             input.click()
             input.findElementByAndroidUIAutomator("new UiSelector().text(\"$value\")")?.click()
             if (getInputValue(input) == value) return
-            input.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().className(\"${input.tagName}\")).getChildByText(new UiSelector().enabled(true), \"${value}\")")
+            input.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().className(\"${input.tagName}\")).getChildByText(new UiSelector().enabled(true), \"${value}\")").click()
         } catch (e) {
             log.warn("Error selecting with UiAutomator: $e.message")
         }
