@@ -1,32 +1,20 @@
 package geb.mobile.ios
 
 import geb.Browser
-import geb.Page
-import geb.error.UndefinedAtCheckerException
-import geb.error.UnexpectedPageException
 import geb.mobile.AbstractMobileNonEmptyNavigator
-import geb.navigator.AbstractNavigator
 import geb.navigator.EmptyNavigator
 import geb.navigator.Navigator
 import geb.navigator.SelectFactory
-import geb.textmatching.TextMatcher
-import geb.waiting.WaitTimeoutException
 import groovy.util.logging.Slf4j
 import io.appium.java_client.AppiumDriver
-import io.appium.java_client.ios.IOSDriver
 import org.openqa.selenium.By
 import org.openqa.selenium.WebElement
-import sun.reflect.generics.reflectiveObjects.NotImplementedException
-
-import java.util.regex.Pattern
-
-import static java.util.Collections.EMPTY_LIST
 
 /**
  * Created by gmueksch on 23.06.14.
  */
 @Slf4j
-class AppiumIosInstrumentationNonEmptyNavigator extends AbstractMobileNonEmptyNavigator<IOSDriver> {
+class AppiumIosInstrumentationNonEmptyNavigator extends AbstractMobileNonEmptyNavigator<AppiumDriver> {
 
     AppiumIosInstrumentationNonEmptyNavigator(Browser browser, Collection<? extends WebElement> contextElements) {
         super(browser,contextElements)
@@ -64,8 +52,8 @@ class AppiumIosInstrumentationNonEmptyNavigator extends AbstractMobileNonEmptyNa
     @Override
     protected getInputValue(WebElement input) {
         def value = null
-        def type = input.getAttribute("type")
-        if (input.tagName == "select") {
+        def type = input.getTagName()
+        if (type == "select") {
             def select = new SelectFactory().createSelectFor(input)
             if (select.multiple) {
                 value = select.allSelectedOptions.collect { getValue(it) }
@@ -88,7 +76,7 @@ class AppiumIosInstrumentationNonEmptyNavigator extends AbstractMobileNonEmptyNa
 
     @Override
     void setInputValue(WebElement input, value) {
-        def attrType = input.getAttribute("type")
+        def attrType = input.getTagName()
         if (attrType == "UIASelect") {
             setSelectValue(input, value)
         } else if (attrType == "UIACheckbox") {
@@ -110,9 +98,18 @@ class AppiumIosInstrumentationNonEmptyNavigator extends AbstractMobileNonEmptyNa
     }
 
     protected getValue(WebElement input) {
-        input?.getAttribute("value")
+        input?.getText()
     }
 
+    @Override
+    boolean isEnabled() {
+        return firstElement().enabled
+    }
+
+    @Override
+    boolean isDisplayed() {
+        return firstElement().displayed
+    }
 
     @Override
     Navigator unique() {

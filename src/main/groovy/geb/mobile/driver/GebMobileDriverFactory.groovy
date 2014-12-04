@@ -204,6 +204,11 @@ class GebMobileDriverFactory {
         setFrameWork(FRAMEWORK_APPIUM, map)
     }
 
+    public static void setAppiumAndroid(def map = []){
+        map.platformName = map.platformName ?: 'Android'
+        setAppium(map)
+    }
+
     /**
      * Convinient Method to set Framework and Capabilities for ...
      * @param map
@@ -211,7 +216,7 @@ class GebMobileDriverFactory {
     public static void setAppiumIos(def map) {
         if (!map) map = []
         map.platformName = map.platformName ?: 'iOS'
-        map.deviceName = map.deviceName ?: 'iPhone'
+        map.deviceName = map.deviceName ?: 'iPhone 6'
         setFrameWork(FRAMEWORK_APPIUM, map)
     }
 
