@@ -105,7 +105,7 @@ class GebMobileDriverFactory {
                     }
                 }
             }else{
-                log.info("Create IosDriver ")
+                log.info("Create Appium IOSDriver ")
                 driver = new IOSDriver(getURL("http://localhost:4723/wd/hub"), capa)
                 driver.setFileDetector(new LocalFileDetector())
                 return driver
