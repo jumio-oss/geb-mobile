@@ -7,6 +7,7 @@ import geb.navigator.Navigator
 import groovy.util.logging.Slf4j
 import io.appium.java_client.AppiumDriver
 import io.appium.java_client.MobileElement
+import io.appium.java_client.android.AndroidDriver
 import org.openqa.selenium.By
 import org.openqa.selenium.Keys
 import org.openqa.selenium.WebElement
@@ -15,7 +16,7 @@ import org.openqa.selenium.WebElement
  * Created by gmueksch on 23.06.14.
  */
 @Slf4j
-class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigator<AppiumDriver> {
+class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigator<AndroidDriver> {
 
     AndroidUIAutomatorNonEmptyNavigator(Browser browser, Collection<? extends MobileElement> contextElements) {
         super(browser,contextElements)
@@ -75,7 +76,7 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
         def tagName = tag()
 
         if (tagName == "android.widget.Spinner") {
-            value = input?.findElementByAndroidUIAutomator("new UiSelector().enabled(true)").getText()
+            value = input.findElementByAndroidUIAutomator("fromParent(new UiSelector())").getText()
         } else if (tagName == "android.widget.CheckBox") {
             value = input.getAttribute("checked")
         } else {
@@ -93,9 +94,7 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
         if (tagName == "android.widget.Spinner") {
             if (getInputValue(input) == value) return
             setSpinnerValueWithUISelector(input,value)
-            if( getInputValue(input) != value ) {
-                setSpinnerValueWithUISelector(input,value)
-            }
+
         } else if (tagName in ["android.widget.CheckBox", "android.widget.RadioButton"]) {
             def checked = input.getAttribute("checked")?.toBoolean()
             if ( !checked && value) {
@@ -131,9 +130,12 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
     private void setSpinnerValueWithUISelector(MobileElement input, value) {
         try {
             input.click()
-            input.findElementByAndroidUIAutomator("new UiSelector().text(\"$value\")")?.click()
+            //input.properties
+            driver.findElementByAndroidUIAutomator("text(\"$value\")").click()
+            //input.findElementByAndroidUIAutomator("fromParent(new UiSelector().text(\"$value\"))")?.click()
             if (getInputValue(input) == value) return
-            input.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().className(\"${input.tagName}\")).getChildByText(new UiSelector().enabled(true), \"${value}\")").click()
+            driver.findElementByAndroidUIAutomator("text(\"$value\")").click()
+            //input.findElementByAndroidUIAutomator("fromParent(new UiSelector().text(\"$value\"))")?.click()
         } catch (e) {
             log.warn("Error selecting with UiAutomator: $e.message")
         }
