@@ -1,6 +1,7 @@
 package geb.mobile.android
 
 import geb.Page
+import io.appium.java_client.android.AndroidDriver
 import io.appium.java_client.android.AndroidKeyCode
 import io.appium.java_client.AppiumDriver
 import io.selendroid.SelendroidDriver
@@ -24,16 +25,16 @@ abstract class AndroidBaseActivity extends Page {
     }
 
     void back() {
-        if (driver instanceof AppiumDriver) driver.sendKeyEvent(AndroidKeyCode.BACK)
+        if (driver instanceof AndroidDriver) driver.sendKeyEvent(AndroidKeyCode.BACK)
         else new Actions(driver).sendKeys(SelendroidKeys.BACK).perform()
     }
     void menu() {
-        if( driver instanceof AppiumDriver ) driver.sendKeyEvent(AndroidKeyCode.MENU)
+        if( driver instanceof AndroidDriver ) driver.sendKeyEvent(AndroidKeyCode.MENU)
         else new Actions(driver).sendKeys(SelendroidKeys.MENU).perform()
 
     }
     void home() {
-        if( driver instanceof AppiumDriver ) driver.sendKeyEvent(AndroidKeyCode.HOME)
+        if( driver instanceof AndroidDriver ) driver.sendKeyEvent(AndroidKeyCode.HOME)
         else new Actions(driver).sendKeys(SelendroidKeys.ANDROID_HOME).perform()
 
     }
@@ -50,9 +51,10 @@ abstract class AndroidBaseActivity extends Page {
      * @return
      */
     public String getCurrentActivity() {
-        if (driver instanceof AppiumDriver) {
-            def currAct = driver.currentActivity()
-            return currAct.startsWith(".") ? currAct.substring(1) : currAct
+        if (driver instanceof AndroidDriver) {
+            def currAct = driver?.currentActivity()
+            if( !currAct ) return ''
+            return currAct?.startsWith(".") ? currAct.substring(1) : currAct
         } else {
             def currUrl = driver.currentUrl
             return currUrl.startsWith("and-") ? currUrl.split(/\/\//)[1] : currUrl
@@ -69,7 +71,7 @@ abstract class AndroidBaseActivity extends Page {
     }
 
     public boolean performTap(x,y){
-        if( driver instanceof AppiumDriver)
+        if( driver instanceof AndroidDriver)
             new io.appium.java_client.TouchAction(driver).tap(x.intValue(), y.intValue()).perform()
         else if ( driver instanceof SelendroidDriver )
             driver.getTouch().down(x.intValue(), y.intValue())
