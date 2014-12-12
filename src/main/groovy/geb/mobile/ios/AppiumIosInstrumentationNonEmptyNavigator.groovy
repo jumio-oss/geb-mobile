@@ -7,6 +7,7 @@ import geb.navigator.Navigator
 import geb.navigator.SelectFactory
 import groovy.util.logging.Slf4j
 import io.appium.java_client.AppiumDriver
+import io.appium.java_client.ios.IOSDriver
 import org.openqa.selenium.By
 import org.openqa.selenium.WebElement
 
@@ -14,7 +15,7 @@ import org.openqa.selenium.WebElement
  * Created by gmueksch on 23.06.14.
  */
 @Slf4j
-class AppiumIosInstrumentationNonEmptyNavigator extends AbstractMobileNonEmptyNavigator<AppiumDriver> {
+class AppiumIosInstrumentationNonEmptyNavigator extends AbstractMobileNonEmptyNavigator<IOSDriver> {
 
     AppiumIosInstrumentationNonEmptyNavigator(Browser browser, Collection<? extends WebElement> contextElements) {
         super(browser,contextElements)
@@ -42,7 +43,10 @@ class AppiumIosInstrumentationNonEmptyNavigator extends AbstractMobileNonEmptyNa
         }
         if( key && value ) {
             log.debug("Key:$key , Value: $value")
-            navigatorFor browser.driver.findElements(By."$key"(value))
+            navigatorFor driver.findElements(By."$key"(value))
+        }else if(selectorString) {
+            log.debug("using uiautomator: $selectorString")
+            navigatorFor driver.findElementsByIosUIAutomation(selectorString)
         }else{
             log.warn("Ether key '$key' or value '$value' is not filled")
             new EmptyNavigator()
@@ -53,18 +57,14 @@ class AppiumIosInstrumentationNonEmptyNavigator extends AbstractMobileNonEmptyNa
     protected getInputValue(WebElement input) {
         def value = null
         def type = input.getTagName()
-        if (type == "select") {
-            def select = new SelectFactory().createSelectFor(input)
-            if (select.multiple) {
-                value = select.allSelectedOptions.collect { getValue(it) }
-            } else {
-                value = getValue(select.firstSelectedOption)
-            }
-        } else if (type in ["checkbox", "radio"]) {
+        if (type == "UIASelect") {
+            log.warn("Select not yet implemented, using fallback")
+            value = getValue(input)
+        } else if (type in ["UIACheckbox", "UIARadio"]) {
             if (input.isSelected()) {
                 value = getValue(input)
             } else {
-                if (type == "checkbox") {
+                if (type == "UIACheckbox") {
                     value = false
                 }
             }
@@ -98,8 +98,9 @@ class AppiumIosInstrumentationNonEmptyNavigator extends AbstractMobileNonEmptyNa
     }
 
     protected getValue(WebElement input) {
-        input?.getText()
+        input?.getAttribute("value")
     }
+
 
     @Override
     boolean isEnabled() {
