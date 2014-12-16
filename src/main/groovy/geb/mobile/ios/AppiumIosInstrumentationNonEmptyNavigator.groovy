@@ -91,6 +91,11 @@ class AppiumIosInstrumentationNonEmptyNavigator extends AbstractMobileNonEmptyNa
             if (getValue(input) == value.toString() || labelFor(input) == value.toString()) {
                 input.click()
             }
+        } else if( attrType == 'UIASwitch' ){
+            String val = Boolean.valueOf(value) ? '1' : '0'
+            if( getValue(input).toString() != val  ){
+                input.click()
+            }
         } else {
             input.clear()
             input.sendKeys value as String
