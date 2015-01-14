@@ -9,13 +9,14 @@ import org.junit.runners.model.Statement
 import javax.imageio.ImageIO
 
 /**
- * Created by gmueksch on 11.11.14.
+ * Add the screenshots dir to the jenkins archive artifacts post build plugin
  */
 @Slf4j
 class GebMobileScreenshotRule implements MethodRule{
 
     public File getSnapshotDir(){
-        def dir = getJenkinsWorkspace()?:'snapshots'
+        def dir = new File( getJenkinsWorkspace()?: '.', 'screenshots' )
+
         if( !dir.exists() ){
             dir.mkdirs()
         }
