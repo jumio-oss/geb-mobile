@@ -8,8 +8,8 @@ import geb.mobile.android.AndroidBaseActivity
 class CameraActivity extends AndroidBaseActivity{
 
     static content = {
-        shutter{ $("#com.android.camera2:id/shutter_button")}
-        done(required:false){ $("#com.android.camera2:id/done_button")}
+        shutter(required:false,wait:true){ $("#com.android.camera2:id/shutter_button")}
+        done(required:false,wait:true){ $("#com.android.camera2:id/done_button")}
 
         takePicture {
             shutter.click()

@@ -29,6 +29,7 @@ class GebMobileDriverFactory {
     public static String FRAMEWORK_APPIUM = "appium"
     public static String FRAMEWORK_SELENDRIOD = "selendroid"
     public static String FRAMEWORK_IOSDRIVER = "iosdriver"
+    public static String FRAMEWORK_SELENIUM = "selenium"
 
     public static URL getURL(String url) {
         String seleniumUrl = System.getProperty("selenium.url")
@@ -135,7 +136,7 @@ class GebMobileDriverFactory {
             new RemoteIOSDriver(getURL("http://localhost:5555/wd/hub/"), iCapa)
             //new RemoteWebDriver(getURL("http://localhost:5555/wd/hub/"), capa)
 
-        } else if (System.properties.framework == "selenium") {
+        } else if (System.properties.framework == FRAMEWORK_SELENIUM) {
             DesiredCapabilities capa = DesiredCapabilities.firefox()
             System.properties.each { String k, v ->
                 def m = k =~ /^selenium_(.*)$/

@@ -21,9 +21,6 @@ class GebMobileBaseSpec extends GebSpec {
     @Rule
     public GebMobileScreenshotRule screenShotRule = new GebMobileScreenshotRule(baseSpec:this)
 
-//    def setup(){
-//        screenShotRule.baseSpec = this
-//    }
 
     BufferedImage getScreenShotAsImage() {
         ImageIO.read(new ByteArrayInputStream(driver.getScreenshotAs(OutputType.BYTES)))
