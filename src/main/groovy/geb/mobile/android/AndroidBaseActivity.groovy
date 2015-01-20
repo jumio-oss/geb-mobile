@@ -1,6 +1,7 @@
 package geb.mobile.android
 
 import geb.Page
+import io.appium.java_client.MobileElement
 import io.appium.java_client.android.AndroidDriver
 import io.appium.java_client.android.AndroidKeyCode
 import io.appium.java_client.AppiumDriver
@@ -77,5 +78,11 @@ abstract class AndroidBaseActivity extends Page {
             driver.getTouch().down(x.intValue(), y.intValue())
     }
 
+    public MobileElement scrollTo(String text){
+        if( driver instanceof AndroidDriver ){
+            return driver.scrollTo(text)
+        }
+        null
+    }
 
 }
