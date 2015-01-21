@@ -60,7 +60,7 @@ class GebMobileInnerNavigatorFactory implements InnerNavigatorFactory {
     ]
 
 
-    static Map<Browser, Class> _innerNavigators = [:]
+    Map<Browser, Class> _innerNavigators = [:]
 
     GebMobileNavigatorFactory navigatorFactory
 
