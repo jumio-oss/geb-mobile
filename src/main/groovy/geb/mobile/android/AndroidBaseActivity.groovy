@@ -85,4 +85,8 @@ abstract class AndroidBaseActivity extends Page {
         null
     }
 
+    public String getMessage(){
+        $("#android:id/message").text()
+    }
+
 }

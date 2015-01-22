@@ -24,4 +24,8 @@ class AndroidHelper {
         else new Actions(driver).sendKeys(SelendroidKeys.ANDROID_HOME).perform()
 
     }
+
+    public String getMessage(){
+        $("#android:id/message").text()
+    }
 }
