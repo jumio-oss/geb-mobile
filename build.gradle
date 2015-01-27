@@ -3,7 +3,7 @@ apply plugin: 'maven'
 apply plugin: 'idea'
 
 group = 'jumio.oss'
-version = '0.1-SNAPSHOT'
+version = '1.0-SNAPSHOT'
 
 ext.gebVersion = '0.9.3'
 ext.seleniumVersion = '2.42.2'
