@@ -53,7 +53,5 @@ class AndroidHelper {
         }else if( msg == "No internet connection available"){
             systemRetry()
         }
-        true
-
     }
 }
