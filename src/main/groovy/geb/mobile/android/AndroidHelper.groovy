@@ -50,6 +50,8 @@ class AndroidHelper {
         def msg = getMessage()
         if( msg == "We have encountered a network communication problem" ) {
             systemRetry()
+        }else if( msg == "No internet connection available"){
+            systemRetry()
         }
         true
 
