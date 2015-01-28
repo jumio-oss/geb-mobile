@@ -1,9 +1,21 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        maven { url 'https://artifactory.int.jumio.com/artifactory/jumio' }
+    }
+    dependencies {
+        classpath group: 'com.jumio.gradle', name: 'jumio-gradle-plugin', version: '1.3.2'
+    }
+}
+
 apply plugin: 'groovy'
 apply plugin: 'maven'
 apply plugin: 'idea'
 
 group = 'jumio.oss'
 version = '1.0-SNAPSHOT'
+
+apply plugin: 'jumio'
 
 ext.gebVersion = '0.9.3'
 ext.seleniumVersion = '2.42.2'
