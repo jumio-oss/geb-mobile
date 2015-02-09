@@ -52,6 +52,8 @@ class AndroidHelper {
             systemRetry()
         }else if( msg == "No internet connection available"){
             systemRetry()
+        }else if( msg =~ /previous crashes/ ){
+            systemRetry()
         }
     }
 }
