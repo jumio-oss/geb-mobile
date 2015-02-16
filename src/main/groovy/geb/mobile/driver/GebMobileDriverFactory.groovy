@@ -207,6 +207,7 @@ class GebMobileDriverFactory {
 
     public static void setAppiumAndroid(def map = []){
         map.platformName = map.platformName ?: 'Android'
+        map.appActivity = map.appActivity ?: "MainActivity"
         setAppium(map)
     }
 
