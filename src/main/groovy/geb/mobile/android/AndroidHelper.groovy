@@ -2,6 +2,7 @@ package geb.mobile.android
 
 import geb.Browser
 import groovy.transform.Trait
+import io.appium.java_client.AppiumDriver
 import io.appium.java_client.android.AndroidDriver
 import io.appium.java_client.android.AndroidKeyCode
 import io.selendroid.SelendroidKeys
@@ -55,5 +56,42 @@ class AndroidHelper {
         }else if( msg =~ /previous crashes/ ){
             systemRetry()
         }
+    }
+
+    public boolean swipeToLeft() {
+
+        if (driver instanceof AppiumDriver) {
+            def dim = driver.manage().window().size
+            int startX = dim.width - 5
+            int startY = dim.height / 2
+            int endX = 5
+            int endY = dim.height / 2
+            try {
+                driver.swipe(startX, startY, endX, endY, 200)
+                return true
+            } catch (e) {
+                log.warn("Error on left swipe($startX, $startY, $endX, $endY, 200) : $e.message")
+            }
+        }
+        false
+
+    }
+
+    public boolean swipeToRight() {
+        if (driver instanceof AppiumDriver) {
+
+            def dim = driver.manage().window().size
+            int startX = 5
+            int startY = dim.height / 2
+            int endX = dim.width - 5
+            int endY = dim.height / 2
+            try {
+                driver.swipe(startX, startY, endX, endY, 200)
+                return true
+            } catch (e) {
+                log.warn("Error on right swipe($startX, $startY, $endX, $endY, 200) : $e.message")
+            }
+        }
+        false
     }
 }

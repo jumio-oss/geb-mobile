@@ -21,8 +21,18 @@ import org.openqa.selenium.interactions.Actions
  */
 abstract class AndroidBaseActivity extends Page {
 
+
+    private AndroidHelper helper
+
     static at = {
         getActivityName() ? currentActivity == getActivityName() : true
+    }
+
+    public AndroidHelper getHelper(){
+        if( helper == null )
+            helper = new AndroidHelper(browser:getBrowser())
+
+        return helper
     }
 
     void back() {
