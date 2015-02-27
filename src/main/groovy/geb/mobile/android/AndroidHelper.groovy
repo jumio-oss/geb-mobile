@@ -2,6 +2,7 @@ package geb.mobile.android
 
 import geb.Browser
 import groovy.transform.Trait
+import groovy.util.logging.Slf4j
 import io.appium.java_client.AppiumDriver
 import io.appium.java_client.android.AndroidDriver
 import io.appium.java_client.android.AndroidKeyCode
@@ -10,8 +11,10 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.interactions.Actions
 
 /**
+ * Provides some basic Androrid
  * Created by gmueksch on 21/01/15.
  */
+@Slf4j
 class AndroidHelper {
 
     private Browser browser
@@ -37,27 +40,66 @@ class AndroidHelper {
 
     public String getMessage(){
         browser.find("#android:id/message").text()
+
     }
 
+    /**
+     * Click the Retry on the modal system message dialogo
+     * first looks for resource-id button1, than for retry with caseinsesitivenes
+     * @return
+     */
     public def systemRetry(){
-        browser.find("#android:id/button1").click()
+        def button = browser.find("#android:id/button1")
+        if( button.size()==0 )
+            button = browser.find("#textMatches('(?i:retry)')")
+        if( button.size()==0 )
+            button = browser.find("#textMatches('(?i:try again)')")
+
+        button.click()
+
     }
 
+    /**
+     * Click the Retry on the modal system message dialogo
+     * first looks for resource-id button2, than for cancel with caseinsesitivenes
+     * @return
+     */
     public def systemCancel(){
-        browser.find("#android:id/button2").click()
+        def button = browser.find("#android:id/button2")
+        if( button.size()==0 )
+            button = browser.find("#textMatches('(?i:cancel)')")
+
+        button.click()
     }
 
-    public void handleSystemMessage(){
+    /**
+     * Handles a system message modal dialog
+     * Reads the message, then presses retry(default) or cancel if available
+     * @param retry defaults to true
+     * @return the system message
+     */
+    public String handleSystemMessage(def retry = true ){
         def msg = getMessage()
-        if( msg == "We have encountered a network communication problem" ) {
-            systemRetry()
-        }else if( msg == "No internet connection available"){
-            systemRetry()
-        }else if( msg =~ /previous crashes/ ){
-            systemRetry()
-        }
-    }
+        if( msg )
+            log.info("Got System Message popup: '$msg' ")
+        else
+            return null
 
+        if( msg == "We have encountered a network communication problem" ) {
+            retry ? systemRetry() : systemCancel()
+        }else if( msg == "No internet connection available"){
+            retry ? systemRetry() : systemCancel()
+        }else if( msg =~ /previous crashes/ ){
+            retry ? systemRetry() : systemCancel()
+        }
+
+        return msg
+    }
+    /**
+     * Swipe the screen to left, scrollable object should be visible
+     * uses window().size to figure the start and end points
+     * @return
+     */
     public boolean swipeToLeft() {
 
         if (driver instanceof AppiumDriver) {
@@ -77,6 +119,11 @@ class AndroidHelper {
 
     }
 
+    /**
+     * Swipe the screen to right, scrollable object should be visible
+     * uses window().size to figure the start and end points
+     * @return
+     */
     public boolean swipeToRight() {
         if (driver instanceof AppiumDriver) {
 
