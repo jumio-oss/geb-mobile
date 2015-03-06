@@ -116,7 +116,11 @@ class GebMobileBaseSpec extends GebSpec {
             return false
         }
         def oldContext = ((AppiumDriver) driver).getContext()
-        if (newContext != oldContext) driver.context(newContext)
+        if (newContext != oldContext) {
+            driver.context(newContext)
+            resetBrowser()
+        }
+
         def ret
         try {
             //TODO: wait that the new context is ready: how to check with waitFor
@@ -126,6 +130,9 @@ class GebMobileBaseSpec extends GebSpec {
             log.error("Error calling block: $e.message", e)
         }
         driver.context(oldContext)
+        if (newContext != oldContext) {
+            resetBrowser()
+        }
         return ret
     }
 

@@ -7,6 +7,7 @@ import geb.navigator.factory.InnerNavigatorFactory
 import geb.navigator.factory.NavigatorBackedNavigatorFactory
 import geb.navigator.factory.NavigatorFactory
 import groovy.util.logging.Slf4j
+import io.appium.java_client.AppiumDriver
 import io.appium.java_client.android.AndroidDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.remote.RemoteWebElement
@@ -27,7 +28,6 @@ class GebMobileNavigatorFactory implements NavigatorFactory {
 
     GebMobileNavigatorFactory(Browser browser) {
         this(browser, new GebMobileInnerNavigatorFactory() )
-
     }
 
     GebMobileNavigatorFactory(Browser browser, GebMobileInnerNavigatorFactory innerNavigatorFactory) {

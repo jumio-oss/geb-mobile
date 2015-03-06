@@ -7,14 +7,18 @@ import geb.mobile.ios.AppiumIosInstrumentationNonEmptyNavigator
 import geb.mobile.ios.IosInstrumentationNonEmptyNavigator
 import geb.navigator.EmptyNavigator
 import geb.navigator.Navigator
+import geb.navigator.NonEmptyNavigator
 import geb.navigator.factory.InnerNavigatorFactory
 import groovy.util.logging.Slf4j
 import io.appium.java_client.AppiumDriver
 import io.appium.java_client.android.AndroidDriver
 import io.appium.java_client.ios.IOSDriver
 import io.selendroid.SelendroidDriver
+import org.openqa.selenium.Capabilities
 import org.openqa.selenium.Platform
 import org.openqa.selenium.WebElement
+import org.openqa.selenium.remote.CapabilityType
+import org.openqa.selenium.remote.DesiredCapabilities
 import org.uiautomation.ios.client.uiamodels.impl.RemoteIOSDriver
 
 /**
@@ -50,13 +54,14 @@ import org.uiautomation.ios.client.uiamodels.impl.RemoteIOSDriver
 @Slf4j
 class GebMobileInnerNavigatorFactory implements InnerNavigatorFactory {
 
+    private static String NAV_PREFIX = 'appium'
 
     static Map<String, Class> _defaultNavigators = [selendroid         : AndroidInstrumentationNonEmptyNavigator,
                                                     android            : AndroidUIAutomatorNonEmptyNavigator,
                                                     firefox            : AndroidInstrumentationNonEmptyNavigator,
                                                     ios                : AppiumIosInstrumentationNonEmptyNavigator,
                                                     'appium:NATIVE_APP': AndroidUIAutomatorNonEmptyNavigator,
-                                                    'appium:WEB_VIEW_1': AndroidInstrumentationNonEmptyNavigator
+                                                    'appium:WEBVIEW_1': AndroidInstrumentationNonEmptyNavigator
     ]
 
 
@@ -72,7 +77,7 @@ class GebMobileInnerNavigatorFactory implements InnerNavigatorFactory {
         if (driver instanceof AppiumDriver && navigatorFactory.context) {
             String ctx = driver.getContext()
             if (navigatorFactory.context != ctx) {
-                clazz = _defaultNavigators["appium:$ctx"]
+                clazz = _defaultNavigators["$NAV_PREFIX:$ctx"]
             }
         }
 
@@ -81,9 +86,9 @@ class GebMobileInnerNavigatorFactory implements InnerNavigatorFactory {
 
         if (!clazz) {
             synchronized (_innerNavigators) {
-                String browserName = driver.capabilities.getCapability("browserName")
+                String browserName = driver.capabilities.getCapability(CapabilityType.BROWSER_NAME)
                 String platformName = driver.capabilities.getCapability("platformName")
-                Platform platform = driver.capabilities.getCapability("platform")
+                Platform platform = driver.capabilities.getCapability(CapabilityType.PLATFORM)
                 log.debug("trying to figure out correct Navigator for $browserName, $platformName, ${platform.name()}")
                 if (driver instanceof SelendroidDriver) {
                     //if (browserName == "android") clazz = NonEmptyNavigator else
@@ -94,12 +99,13 @@ class GebMobileInnerNavigatorFactory implements InnerNavigatorFactory {
                     clazz = AppiumIosInstrumentationNonEmptyNavigator
                     navigatorFactory.context = driver.getContext()
                 } else if (driver instanceof AndroidDriver) {
-                    if (browserName.toLowerCase() in ['browser', 'chromium', 'chrome']) {
-                        clazz = AndroidInstrumentationNonEmptyNavigator
-                    } else {
-                        clazz = AndroidUIAutomatorNonEmptyNavigator
-                    }
                     navigatorFactory.context = driver.getContext()
+//                    if (browserName.toLowerCase() in ['browser', 'chromium', 'chrome'] ) {
+//                        clazz = AndroidInstrumentationNonEmptyNavigator
+//                    } else {
+//                        clazz = AndroidUIAutomatorNonEmptyNavigator
+//                    }
+                      clazz = _defaultNavigators["$NAV_PREFIX:$navigatorFactory.context"]
                 } else {
                     clazz = _defaultNavigators[browserName.toLowerCase()]
                     if (!clazz) clazz = _defaultNavigators[platformName.toLowerCase()]
