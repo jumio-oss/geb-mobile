@@ -8,6 +8,11 @@ buildscript {
     }
 }
 
+plugins {
+    id "com.github.samueltbrown.cucumber" version "0.8"
+}
+
+
 apply plugin: 'groovy'
 apply plugin: 'maven'
 apply plugin: 'idea'
@@ -25,6 +30,7 @@ ext.selendroidVersion = '0.11.0'
 ext.appiumClientVersion = '2.1.0'
 ext.iosClientVersion =  '0.6+'
 
+
 repositories {
     mavenLocal()
     mavenCentral()
@@ -33,6 +39,24 @@ repositories {
 configurations {
     selendroid
     iosdriver
+    cucumberCompile
+}
+
+cucumber {
+    formats = ['pretty','json:build/cucumber.json','junit:build/cucumber.xml']
+    glueDirs = ['src/test/resources/env',
+                'src/test/resources/support',
+                'src/test/resources/step_definitions']
+    featureDirs = ['src/test/resources/features']
+    //tags = ['@billing', '@important']
+    monochrome = false
+    strict = false
+    dryRun = false
+
+    jvmOptions {
+        maxHeapSize = '512m'
+        environment 'ENV', 'staging'
+    }
 }
 
 dependencies {
@@ -64,6 +88,8 @@ dependencies {
         exclude module: "groovy-all"
     }
 
+    cucumberCompile 'info.cukes:cucumber-groovy:1.1.6'
+    compile 'info.cukes:cucumber-groovy:1.1.6'
 
     compile "io.selendroid:selendroid-standalone:$selendroidVersion"
     compile "io.selendroid:selendroid-client:$selendroidVersion"
