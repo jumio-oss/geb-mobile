@@ -10,6 +10,9 @@ import org.openqa.selenium.remote.RemoteWebDriver
 import static javax.swing.JFrame.EXIT_ON_CLOSE
 import java.awt.*
 
+/**
+ * Created by thomaskastenhofer on 02.10.14.
+ */
 class UITester {
     static {
         //GebMobileDriverFactory.setAppiumIos('appUT.package': 'UICatalog')//,simulator:'true', language:'en')

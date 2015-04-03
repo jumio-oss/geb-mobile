@@ -103,6 +103,8 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
                 input.click()
             }
         } else {
+            //TODO: hideKeyboard after sendKeys
+            //TODO: clear Copy/Paste 
 //            input.clear()
             //input.sendKeys(Keys.HOME,Keys.chord(Keys.SHIFT,Keys.END),value);
             input.sendKeys value as String
@@ -134,6 +136,7 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
             driver.findElementByAndroidUIAutomator("text(\"$value\")").click()
             //input.findElementByAndroidUIAutomator("fromParent(new UiSelector().text(\"$value\"))")?.click()
             if (getInputValue(input) == value) return
+            driver.scrollTo(value);
             driver.findElementByAndroidUIAutomator("text(\"$value\")").click()
             //input.findElementByAndroidUIAutomator("fromParent(new UiSelector().text(\"$value\"))")?.click()
         } catch (e) {
