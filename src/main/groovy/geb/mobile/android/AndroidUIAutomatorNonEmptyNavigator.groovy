@@ -94,6 +94,7 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
         if (tagName == "android.widget.Spinner") {
             if (getInputValue(input) == value) return
             setSpinnerValueWithUISelector(input,value)
+            //if( driver.findElementByXPath("//android.widget.FrameLayout/android.widget.ListView").size()==1 )
 
         } else if (tagName in ["android.widget.CheckBox", "android.widget.RadioButton"]) {
             def checked = input.getAttribute("checked")?.toBoolean()
@@ -108,6 +109,11 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
 //            input.clear()
             //input.sendKeys(Keys.HOME,Keys.chord(Keys.SHIFT,Keys.END),value);
             input.sendKeys value as String
+            try{
+                driver.hideKeyboard()
+            }catch(e){
+                log.warn("Hiding keyboard propably worked, but has thrown exc: $e.message")
+            }
         }
     }
 
@@ -136,7 +142,6 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
             driver.findElementByAndroidUIAutomator("text(\"$value\")").click()
             //input.findElementByAndroidUIAutomator("fromParent(new UiSelector().text(\"$value\"))")?.click()
             if (getInputValue(input) == value) return
-            driver.scrollTo(value);
             driver.findElementByAndroidUIAutomator("text(\"$value\")").click()
             //input.findElementByAndroidUIAutomator("fromParent(new UiSelector().text(\"$value\"))")?.click()
         } catch (e) {
