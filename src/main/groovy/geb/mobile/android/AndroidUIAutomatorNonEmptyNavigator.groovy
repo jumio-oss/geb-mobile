@@ -5,11 +5,9 @@ import geb.mobile.AbstractMobileNonEmptyNavigator
 import geb.navigator.EmptyNavigator
 import geb.navigator.Navigator
 import groovy.util.logging.Slf4j
-import io.appium.java_client.AppiumDriver
 import io.appium.java_client.MobileElement
 import io.appium.java_client.android.AndroidDriver
 import org.openqa.selenium.By
-import org.openqa.selenium.Keys
 import org.openqa.selenium.WebElement
 
 /**
@@ -76,8 +74,11 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
         def tagName = tag()
 
         if (tagName == "android.widget.Spinner") {
-            value = input.findElementByAndroidUIAutomator("fromParent(new UiSelector())").getText()
-        } else if (tagName == "android.widget.CheckBox") {
+            if( AndroidHelper.isOnListView(driver) )
+                value = input.findElementByAndroidUIAutomator("fromParent(new UiSelector().checked(true))").getText()
+            else
+                value = input.findElementByAndroidUIAutomator("fromParent(new UiSelector())").getText()
+        } else if (tagName in ['android.widget.CheckBox','android.widget.Switch']) {
             value = input.getAttribute("checked")
         } else {
             value = input.getText()
@@ -93,22 +94,23 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
         log.debug("setInputValue: $input, $tagName")
         if (tagName == "android.widget.Spinner") {
             if (getInputValue(input) == value) return
-            setSpinnerValueWithUISelector(input,value)
-            //if( driver.findElementByXPath("//android.widget.FrameLayout/android.widget.ListView").size()==1 )
+            setSpinnerValue(input,value)
+            AndroidHelper.closeListView(driver)
 
-        } else if (tagName in ["android.widget.CheckBox", "android.widget.RadioButton"]) {
+        } else if (tagName in ['android.widget.CheckBox', 'android.widget.RadioButton' ,'android.widget.Switch']) {
             def checked = input.getAttribute("checked")?.toBoolean()
             if ( !checked && value) {
                 input.click()
             } else if (checked && !value ) {
                 input.click()
             }
-        } else {
+        }else {
             //TODO: hideKeyboard after sendKeys
             //TODO: clear Copy/Paste 
 //            input.clear()
             //input.sendKeys(Keys.HOME,Keys.chord(Keys.SHIFT,Keys.END),value);
             input.sendKeys value as String
+
             try{
                 driver.hideKeyboard()
             }catch(e){
@@ -135,14 +137,20 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
         }
     }
 
-    private void setSpinnerValueWithUISelector(MobileElement input, value) {
+    private void setSpinnerValue(MobileElement input, value) {
         try {
+            def currVal = getInputValue(input)
+            log.debug("Setting $value to Spinner: currentVal: ${currVal}")
             input.click()
             //input.properties
             driver.findElementByAndroidUIAutomator("text(\"$value\")").click()
             //input.findElementByAndroidUIAutomator("fromParent(new UiSelector().text(\"$value\"))")?.click()
             if (getInputValue(input) == value) return
-            driver.findElementByAndroidUIAutomator("text(\"$value\")").click()
+            if( AndroidHelper.isOnListView(driver) ) {
+                log.debug("Value not set and on ListView: Scrolling to $value")
+                browser.driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().className(\"android.widget.ListView\")).flingBackward();")
+                driver.findElementByAndroidUIAutomator("text(\"$value\")").click()
+            }
             //input.findElementByAndroidUIAutomator("fromParent(new UiSelector().text(\"$value\"))")?.click()
         } catch (e) {
             log.warn("Error selecting with UiAutomator: $e.message")
@@ -150,7 +158,9 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
 
     }
 
-
+    private void flingBack(){
+        driver.ex ("new UiScrollable(new UiSelector().className('android.widget.ListView')).flingBackward();")
+    }
 
 
 }

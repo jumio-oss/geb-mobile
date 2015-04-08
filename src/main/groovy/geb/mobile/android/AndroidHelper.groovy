@@ -1,7 +1,6 @@
 package geb.mobile.android
 
 import geb.Browser
-import groovy.transform.Trait
 import groovy.util.logging.Slf4j
 import io.appium.java_client.AppiumDriver
 import io.appium.java_client.android.AndroidDriver
@@ -24,18 +23,24 @@ class AndroidHelper {
     }
 
     void back() {
-        if (driver instanceof AndroidDriver) driver.sendKeyEvent(AndroidKeyCode.BACK)
+        if (driver instanceof AndroidDriver) androidDriverBackButton(driver)
         else new Actions(driver).sendKeys(SelendroidKeys.BACK).perform()
     }
     void menu() {
         if( driver instanceof AndroidDriver ) driver.sendKeyEvent(AndroidKeyCode.MENU)
         else new Actions(driver).sendKeys(SelendroidKeys.MENU).perform()
-
     }
     void home() {
         if( driver instanceof AndroidDriver ) driver.sendKeyEvent(AndroidKeyCode.HOME)
         else new Actions(driver).sendKeys(SelendroidKeys.ANDROID_HOME).perform()
+    }
 
+    /**
+     * static method for usage in Navigator
+     * @param driver
+     */
+    public static void androidDriverBackButton(AndroidDriver driver){
+        driver.sendKeyEvent(AndroidKeyCode.BACK)
     }
 
     public String getMessage(){
@@ -141,4 +146,14 @@ class AndroidHelper {
         }
         false
     }
+
+    public static boolean isOnListView(AndroidDriver driver){
+        driver.findElementsByXPath("//android.widget.FrameLayout/android.widget.ListView").size()==1
+    }
+
+    public static boolean closeListView(AndroidDriver driver){
+        if( isOnListView(driver) )
+            androidDriverBackButton(driver)
+    }
+
 }

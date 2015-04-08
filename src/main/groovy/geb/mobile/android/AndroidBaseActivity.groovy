@@ -21,7 +21,7 @@ import org.openqa.selenium.interactions.Actions
  */
 abstract class AndroidBaseActivity extends Page {
 
-
+    //@Delegate(includes = ['back','menu','home'] )
     private AndroidHelper helper
 
     static at = {
@@ -36,18 +36,13 @@ abstract class AndroidBaseActivity extends Page {
     }
 
     void back() {
-        if (driver instanceof AndroidDriver) driver.sendKeyEvent(AndroidKeyCode.BACK)
-        else new Actions(driver).sendKeys(SelendroidKeys.BACK).perform()
+        helper.back()
     }
     void menu() {
-        if( driver instanceof AndroidDriver ) driver.sendKeyEvent(AndroidKeyCode.MENU)
-        else new Actions(driver).sendKeys(SelendroidKeys.MENU).perform()
-
+        helper.menu()
     }
     void home() {
-        if( driver instanceof AndroidDriver ) driver.sendKeyEvent(AndroidKeyCode.HOME)
-        else new Actions(driver).sendKeys(SelendroidKeys.ANDROID_HOME).perform()
-
+        helper.home()
     }
 
     /**
@@ -98,5 +93,8 @@ abstract class AndroidBaseActivity extends Page {
     public String getMessage(){
         $("#android:id/message").text()
     }
+
+
+
 
 }
