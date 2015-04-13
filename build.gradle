@@ -280,4 +280,15 @@ task appiumOnTestObjects(type: Test) {
     include '**/GebMobileAutomationTestWithPagesSpec.*'
 }
 
+task jumioLoginTest(type: Test){
+    systemProperties.put "framework", "appium"
+    systemProperties.put "selenium.url", testobjectUrl
+    systemProperties.put "appium_appPackage" , "com.example.jumiologin"       //important for testobject test, cause this value is not yet set on there side
+    systemProperties.put 'appium_testobject_api_key', 'EDB76E8F0C9245BBBBBD34F9C4B79EE4'
+    systemProperties.put 'appium_testobject_project', 'jumiologin'
+    systemProperties.put 'appium_testobject_app_id', '1'
+    systemProperties.put 'appium_testobject_appium_version', '1.3.5'
+    systemProperties.put 'appium_testobject_device', 'LG_Nexus_5_real'
+    include '**/JumioLoginTest.*'
+}
 
