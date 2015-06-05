@@ -22,17 +22,17 @@ import org.openqa.selenium.interactions.Actions
 abstract class AndroidBaseActivity extends Page {
 
     //@Delegate(includes = ['back','menu','home'] )
-    private AndroidHelper helper
+    private AndroidHelper _helper
 
     static at = {
         getActivityName() ? currentActivity == getActivityName() : true
     }
 
     public AndroidHelper getHelper(){
-        if( helper == null )
-            helper = new AndroidHelper(browser:getBrowser())
+        if( _helper == null )
+            _helper = new AndroidHelper(browser:getBrowser())
 
-        return helper
+        return _helper
     }
 
     void back() {
