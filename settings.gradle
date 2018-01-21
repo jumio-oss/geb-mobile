@@ -1,1 +1,2 @@
 rootProject.name='geb-mobile-extension'
+include 'geb-mobile', 'geb-mobile-test-cucumber', 'geb-mobile-test-spock', 'geb-mobile-example'

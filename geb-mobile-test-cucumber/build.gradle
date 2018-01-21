@@ -1,0 +1,44 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}
+
+plugins {
+    id "com.github.samueltbrown.cucumber" version "0.8"
+}
+
+
+apply plugin: 'groovy'
+apply plugin: 'idea'
+
+configurations {
+    cucumberCompile
+}
+
+cucumber {
+    formats = ['pretty','json:build/cucumber.json','junit:build/cucumber.xml']
+    glueDirs = ['src/test/resources/env',
+                'src/test/resources/support',
+                'src/test/resources/step_definitions']
+    featureDirs = ['src/test/resources/features']
+    //tags = ['@billing', '@important']
+    monochrome = false
+    strict = false
+    dryRun = false
+
+    jvmOptions {
+        maxHeapSize = '512m'
+        environment 'ENV', 'staging'
+    }
+}
+
+dependencies {
+    project(':geb-mobile')
+}
+
+
+
+
+
