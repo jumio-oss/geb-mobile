@@ -1,9 +1,9 @@
-ext.gebVersion = '2.0'
-ext.seleniumVersion = '3.8.1'
+ext.gebVersion = '0.9.3'
+ext.seleniumVersion = '2.53.1'
 ext.spockVersion = '1.0-groovy-2.4'
 ext.groovyVersion = '2.4.4'
-ext.selendroidVersion = '0.11.0'
-ext.appiumClientVersion = '5.0.4'
+ext.selendroidVersion = '0.17.0'
+ext.appiumClientVersion = '4.1.2'
 ext.iosClientVersion = '0.6.5'
 ext.junitVersion = '4.12'
 
@@ -66,7 +66,20 @@ subprojects {
 
     }
 
-
+    idea.module.iml {
+        withXml {  provider ->
+            provider.node.component.find { it.@name == 'NewModuleRootManager' }.content.sourceFolder.each{ sf ->
+                if(sf.@url =~ /.*src\/test\/resources.*/){
+                    sf.@type = "java-test-resource"
+                    logger.info("Modified $project 's iml to set src/test/resource as java-test-resource")
+                }
+                if(sf.@url =~ /.*src\/main\/resources.*/){
+                    sf.@type = "java-resource"
+                    logger.info("Modified $project 's iml to set src/main/resource as java-resource")
+                }
+            }
+        }
+    }
 }
 
 def startServer = { server, command ->
