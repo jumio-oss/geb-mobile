@@ -7,3 +7,4 @@ resigned-selendroid-test-app-0.9.0.apk
 *.iml
 *.ipr
 *.iws
+out/
