@@ -1,1 +1,1 @@
-include 'geb-mobile', 'geb-mobile-test-cucumber', 'geb-mobile-test-junit', 'geb-mobile-test-spock', 'geb-mobile-example'
+include 'geb-mobile', 'geb-mobile-test-cucumber', 'geb-mobile-test-spock', 'geb-mobile-example'
