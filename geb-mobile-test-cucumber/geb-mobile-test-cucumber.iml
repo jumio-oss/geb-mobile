@@ -11,31 +11,11 @@
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/codehaus/groovy/groovy-all/2.4.4/groovy-all-2.4.4.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.2/b316e9737eea25e9ddd6d88eaeee76878045c6b2/logback-classic-1.1.2.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/cucumber-groovy/1.1.6/4be1a586b19f7e0921b462d8e9eb6031be486e01/cucumber-groovy-1.1.6.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.2/decd76e2c461157804473468bbdc6b8eb6d6121b/logback-classic-1.1.2-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.6/562424e36df3d2327e8e9301a76027fca17d54ea/slf4j-api-1.7.6.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.6/97bb93c1badeae97a3d37e3c902df2985ee3de34/slf4j-api-1.7.6-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/cucumber-groovy/1.1.6/c74223d2691458953c5e7a9b42f91b4e32c5d21d/cucumber-groovy-1.1.6-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -64,11 +44,55 @@
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.appium/java-client/4.1.2/d6cd75553b08a9f4bf478842e3b005d9339c2bea/java-client-4.1.2.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.uiautomation/ios-client/0.6.5/dc989fffce696e8a2da4b44865fd1ecfe8464189/ios-client-0.6.5.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.appium/java-client/4.1.2/6505c7dcf5af12fbf649daaed85653790712e12a/java-client-4.1.2-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.uiautomation/ios-client/0.6.5/d05d08355879d2908ae538d45a36ab1da14bfb2/ios-client-0.6.5-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.appium/java-client/2.1.0/4f196997275225055c6f36a297f0b596cd266e63/java-client-2.1.0.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.appium/java-client/2.1.0/cc72ed1ffe4affcb364af2edeb10c9872c553ba5/java-client-2.1.0-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.codehaus.groovy/groovy-all/2.3.4/63573270662a8d2bdea1f75b2291e667c7d972a7/groovy-all-2.3.4.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.codehaus.groovy/groovy-all/2.3.4/d54780d90adc7ba182be6e1e15fb1f17c7a0be70/groovy-all-2.3.4-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.2/b316e9737eea25e9ddd6d88eaeee76878045c6b2/logback-classic-1.1.2.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.2/decd76e2c461157804473468bbdc6b8eb6d6121b/logback-classic-1.1.2-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.6/562424e36df3d2327e8e9301a76027fca17d54ea/slf4j-api-1.7.6.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.6/97bb93c1badeae97a3d37e3c902df2985ee3de34/slf4j-api-1.7.6-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -95,7 +119,7 @@
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/junit/junit/4.12/junit-4.12.jar!/"/>
+          <root url="jar:///Users/gmueksch/.m2/repository/junit/junit/4.11/junit-4.11.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES/>
@@ -115,7 +139,7 @@
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/spockframework/spock-core/1.0-groovy-2.4/spock-core-1.0-groovy-2.4.jar!/"/>
+          <root url="jar:///Users/gmueksch/.m2/repository/org/spockframework/spock-core/0.7-groovy-2.0/spock-core-0.7-groovy-2.0.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES/>
@@ -124,22 +148,108 @@
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.uiautomation/ios-client/0.6.5/dc989fffce696e8a2da4b44865fd1ecfe8464189/ios-client-0.6.5.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/cucumber-core/1.1.6/9d0a98ab1faccf1103a765a14d21e1fd3685a8d1/cucumber-core-1.1.6.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.uiautomation/ios-client/0.6.5/d05d08355879d2908ae538d45a36ab1da14bfb2/ios-client-0.6.5-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/cucumber-core/1.1.6/eafa5e29e4e99856fe0c8878aec148a7474ea98f/cucumber-core-1.1.6-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.2/2d23694879c2c12f125dac5076bdfd5d771cc4cb/logback-core-1.1.2.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/cucumber-jvm-deps/1.0.3/cccdeff234db8b12e91ae2529812f1240b4d5603/cucumber-jvm-deps-1.0.3.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.2/502e1c764542fe747896c1dc04f023acfe0e5cbc/logback-core-1.1.2-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/cucumber-jvm-deps/1.0.3/87b05affa19061ce6ff8e2fa20fa86741570b094/cucumber-jvm-deps-1.0.3-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/gherkin/2.12.2/17138631fa20fd0e44a13e50d6b7be59cee1a94/gherkin-2.12.2.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/gherkin/2.12.2/fc117e217134f99f3b67b7ac10ca277dab596adf/gherkin-2.12.2-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="file:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/selendroid-server/0.11.0/6cc6599f73d2e0b6a09ec74096aa2dffdddd1a47/selendroid-server-0.11.0.apk"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/selendroid-server/0.11.0/745071273187d066c3e6a486215d6b3b5f598d88/selendroid-server-0.11.0-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/selendroid-server-common/0.11.0/be9552b8d797f964d16c0747580014ab6e503bd2/selendroid-server-common-0.11.0.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/selendroid-server-common/0.11.0/85d53e6873d771a501b7042338a0157ecc60d7ed/selendroid-server-common-0.11.0-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="file:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/android-driver-app/0.11.0/5d08d64ae1d0c1d0ac718441263e540cccb660b1/android-driver-app-0.11.0.apk"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/android-driver-app/0.11.0/8af7814dbcb1b2aa1bf8be9fcdc4fcdff79f690e/android-driver-app-0.11.0-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/htmlunit-driver/2.21/4c19c164835580db1d46887b43392dae0c255d50/htmlunit-driver-2.21.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/htmlunit-driver/2.21/a7259caf50a95600721f98f4b9cf2a78b22af82a/htmlunit-driver-2.21-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/net.sourceforge.htmlunit/htmlunit/2.21/3e752dae0006ad516bf6f4138316db7b262912d0/htmlunit-2.21.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/net.sourceforge.htmlunit/htmlunit/2.21/d208f5ef7bf2f7a6da0a35950c890bc34a66900f/htmlunit-2.21-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.m2/repository/org/apache/httpcomponents/httpmime/4.5.2/httpmime-4.5.2.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.uiautomation/ios-common/0.6.5/20aadfe5dfad2f01a1d8c0b47560a2064196510e/ios-common-0.6.5.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.uiautomation/ios-common/0.6.5/6b2f706d9cd3db2f8d3a826e7e3278a4995188df/ios-common-0.6.5-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -162,17 +272,6 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-edge-driver/2.53.1/2644dd628e4d6b70365a8c86512ee69b6368667c/selenium-edge-driver-2.53.1-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/htmlunit-driver/2.21/4c19c164835580db1d46887b43392dae0c255d50/htmlunit-driver-2.21.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/htmlunit-driver/2.21/a7259caf50a95600721f98f4b9cf2a78b22af82a/htmlunit-driver-2.21-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -228,90 +327,6 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-leg-rc/2.53.1/e4e46bc8f88eca8918044fea81c8b1b2b31d1eb2/selenium-leg-rc-2.53.1-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-core/0.9.3/1e5f26de2eb8fbe9b50223710ad7939172cf8ec8/geb-core-0.9.3.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-core/0.9.3/4823454438d101069e56fc73ad5e05b19c723748/geb-core-0.9.3-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="file:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/selendroid-server/0.11.0/6cc6599f73d2e0b6a09ec74096aa2dffdddd1a47/selendroid-server-0.11.0.apk"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/selendroid-server/0.11.0/745071273187d066c3e6a486215d6b3b5f598d88/selendroid-server-0.11.0-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/selendroid-server-common/0.11.0/be9552b8d797f964d16c0747580014ab6e503bd2/selendroid-server-common-0.11.0.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/selendroid-server-common/0.11.0/85d53e6873d771a501b7042338a0157ecc60d7ed/selendroid-server-common-0.11.0-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="file:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/android-driver-app/0.11.0/5d08d64ae1d0c1d0ac718441263e540cccb660b1/android-driver-app-0.11.0.apk"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/android-driver-app/0.11.0/8af7814dbcb1b2aa1bf8be9fcdc4fcdff79f690e/android-driver-app-0.11.0-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/net.sourceforge.htmlunit/htmlunit/2.21/3e752dae0006ad516bf6f4138316db7b262912d0/htmlunit-2.21.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/net.sourceforge.htmlunit/htmlunit/2.21/d208f5ef7bf2f7a6da0a35950c890bc34a66900f/htmlunit-2.21-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/apache/httpcomponents/httpmime/4.5.2/httpmime-4.5.2.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.uiautomation/ios-common/0.6.5/20aadfe5dfad2f01a1d8c0b47560a2064196510e/ios-common-0.6.5.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.uiautomation/ios-common/0.6.5/6b2f706d9cd3db2f8d3a826e7e3278a4995188df/ios-common-0.6.5-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -416,12 +431,10 @@
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/751f548c85fa49f330cecbb1875893f971b33c4e/gson-2.7.jar!/"/>
+          <root url="jar:///Users/gmueksch/.m2/repository/com/google/code/gson/gson/2.3.1/gson-2.3.1.jar!/"/>
         </CLASSES>
         <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/bbb63ca253b483da8ee53a50374593923e3de2e2/gson-2.7-sources.jar!/"/>
-        </SOURCES>
+        <SOURCES/>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
@@ -447,29 +460,29 @@
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/commons-validator/commons-validator/1.5.1/86d05a46e8f064b300657f751b5a98c62807e2a0/commons-validator-1.5.1.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/cglib/cglib/3.1/1f1cb6c7a7479e0c7fd7987109e503914bebe84a/cglib-3.1.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/commons-validator/commons-validator/1.5.1/1779e91e01dc506f388c350a8684f77c43943a08/commons-validator-1.5.1-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/cglib/cglib/3.1/e651cbd93cb1c2155afdea6675c50e567f7ce91e/cglib-3.1-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/cglib/cglib-nodep/3.2.4/42c972dee25a436b32c6027e848287ff47ed6750/cglib-nodep-3.2.4.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.2/2d23694879c2c12f125dac5076bdfd5d771cc4cb/logback-core-1.1.2.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/cglib/cglib-nodep/3.2.4/98ac1b2a994ce4ae64b5160812bfee21c92709c7/cglib-nodep-3.2.4-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.2/502e1c764542fe747896c1dc04f023acfe0e5cbc/logback-core-1.1.2-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/springframework/spring-context/4.3.2.RELEASE/spring-context-4.3.2.RELEASE.jar!/"/>
+          <root url="jar:///Users/gmueksch/.m2/repository/junit/junit-dep/4.10/junit-dep-4.10.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES/>
@@ -478,33 +491,31 @@
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjweaver/1.8.9/db28774f477f07220eac18d5ec9c4e01f48589d7/aspectjweaver-1.8.9.jar!/"/>
+          <root url="jar:///Users/gmueksch/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-core/0.9.3/1e5f26de2eb8fbe9b50223710ad7939172cf8ec8/geb-core-0.9.3.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjweaver/1.8.9/9a10b6740c821d03b800a6062284b4a99de4fbeb/aspectjweaver-1.8.9-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-core/0.9.3/4823454438d101069e56fc73ad5e05b19c723748/geb-core-0.9.3-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-ast/0.9.3/d8477c24bae67a70a75a3f3720b96ab9e133c01d/geb-ast-0.9.3.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/cucumber-html/0.2.3/624a0c986088e32910336dd77aee5191c04a8201/cucumber-html-0.2.3.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-ast/0.9.3/d1f401b517081e815dc20d64007ae4b001743bf8/geb-ast-0.9.3-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-waiting/0.9.3/310ac09279989c1d150f4e058a0091b666f925fa/geb-waiting-0.9.3.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-waiting/0.9.3/7dece6572e15abc364fa33d64ce40c3bf9da64a5/geb-waiting-0.9.3-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/cucumber-html/0.2.3/27705993aec49a6d4c9210158e3c570ebffa3d0a/cucumber-html-0.2.3-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -562,84 +573,43 @@
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/commons-beanutils/commons-beanutils/1.9.2/commons-beanutils-1.9.2.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/commons-digester/commons-digester/1.8.1/commons-digester-1.8.1.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/springframework/spring-aop/4.3.2.RELEASE/spring-aop-4.3.2.RELEASE.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/springframework/spring-beans/4.3.2.RELEASE/spring-beans-4.3.2.RELEASE.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/springframework/spring-expression/4.3.2.RELEASE/spring-expression-4.3.2.RELEASE.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/springframework/spring-core/4.3.2.RELEASE/spring-core-4.3.2.RELEASE.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-implicit-assertions/0.9.3/eafa2f449b32ed33d7f8e49fbecd2fc93e3c7226/geb-implicit-assertions-0.9.3.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/4.2/4b2c12b92dd045aeabf5b2aeeb3220bf010da9d4/asm-4.2.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-implicit-assertions/0.9.3/b09ba273fcf9309f1d0bf3ef25cd507219053353/geb-implicit-assertions-0.9.3-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/4.2/10735cd06b779a5f172fba69ea6f7b9cdc61a4d/asm-4.2-sources.jar!/"/>
         </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-ast/0.9.3/d8477c24bae67a70a75a3f3720b96ab9e133c01d/geb-ast-0.9.3.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-ast/0.9.3/d1f401b517081e815dc20d64007ae4b001743bf8/geb-ast-0.9.3-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-waiting/0.9.3/310ac09279989c1d150f4e058a0091b666f925fa/geb-waiting-0.9.3.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-waiting/0.9.3/7dece6572e15abc364fa33d64ce40c3bf9da64a5/geb-waiting-0.9.3-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.m2/repository/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
@@ -661,6 +631,17 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-security/7.2.0.v20101020/d70f2e5e81b6a59ff5fcc06d4e979637580d7fe0/jetty-security-7.2.0.v20101020-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-implicit-assertions/0.9.3/eafa2f449b32ed33d7f8e49fbecd2fc93e3c7226/geb-implicit-assertions-0.9.3.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-implicit-assertions/0.9.3/b09ba273fcf9309f1d0bf3ef25cd507219053353/geb-implicit-assertions-0.9.3-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -745,6 +726,15 @@
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
+          <root url="jar:///Users/gmueksch/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
           <root url="jar:///Users/gmueksch/.m2/repository/net/java/dev/jna/jna-platform/4.1.0/jna-platform-4.1.0.jar!/"/>
         </CLASSES>
         <JAVADOC/>
@@ -807,6 +797,15 @@
         <SOURCES>
           <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/net.sourceforge.cssparser/cssparser/0.9.18/30090d7df3b8ab88ae1761f65b7702b6ace07490/cssparser-0.9.18-sources.jar!/"/>
         </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
@@ -866,31 +865,11 @@
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/codehaus/groovy/groovy-all/2.4.4/groovy-all-2.4.4.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.2/b316e9737eea25e9ddd6d88eaeee76878045c6b2/logback-classic-1.1.2.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/cucumber-groovy/1.1.6/4be1a586b19f7e0921b462d8e9eb6031be486e01/cucumber-groovy-1.1.6.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.2/decd76e2c461157804473468bbdc6b8eb6d6121b/logback-classic-1.1.2-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.6/562424e36df3d2327e8e9301a76027fca17d54ea/slf4j-api-1.7.6.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.6/97bb93c1badeae97a3d37e3c902df2985ee3de34/slf4j-api-1.7.6-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/cucumber-groovy/1.1.6/c74223d2691458953c5e7a9b42f91b4e32c5d21d/cucumber-groovy-1.1.6-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -919,11 +898,55 @@
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.appium/java-client/4.1.2/d6cd75553b08a9f4bf478842e3b005d9339c2bea/java-client-4.1.2.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.uiautomation/ios-client/0.6.5/dc989fffce696e8a2da4b44865fd1ecfe8464189/ios-client-0.6.5.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.appium/java-client/4.1.2/6505c7dcf5af12fbf649daaed85653790712e12a/java-client-4.1.2-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.uiautomation/ios-client/0.6.5/d05d08355879d2908ae538d45a36ab1da14bfb2/ios-client-0.6.5-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.appium/java-client/2.1.0/4f196997275225055c6f36a297f0b596cd266e63/java-client-2.1.0.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.appium/java-client/2.1.0/cc72ed1ffe4affcb364af2edeb10c9872c553ba5/java-client-2.1.0-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.codehaus.groovy/groovy-all/2.3.4/63573270662a8d2bdea1f75b2291e667c7d972a7/groovy-all-2.3.4.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.codehaus.groovy/groovy-all/2.3.4/d54780d90adc7ba182be6e1e15fb1f17c7a0be70/groovy-all-2.3.4-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.2/b316e9737eea25e9ddd6d88eaeee76878045c6b2/logback-classic-1.1.2.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.2/decd76e2c461157804473468bbdc6b8eb6d6121b/logback-classic-1.1.2-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.6/562424e36df3d2327e8e9301a76027fca17d54ea/slf4j-api-1.7.6.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.6/97bb93c1badeae97a3d37e3c902df2985ee3de34/slf4j-api-1.7.6-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -950,7 +973,7 @@
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/junit/junit/4.12/junit-4.12.jar!/"/>
+          <root url="jar:///Users/gmueksch/.m2/repository/junit/junit/4.11/junit-4.11.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES/>
@@ -970,7 +993,7 @@
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/spockframework/spock-core/1.0-groovy-2.4/spock-core-1.0-groovy-2.4.jar!/"/>
+          <root url="jar:///Users/gmueksch/.m2/repository/org/spockframework/spock-core/0.7-groovy-2.0/spock-core-0.7-groovy-2.0.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES/>
@@ -979,22 +1002,108 @@
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.uiautomation/ios-client/0.6.5/dc989fffce696e8a2da4b44865fd1ecfe8464189/ios-client-0.6.5.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/cucumber-core/1.1.6/9d0a98ab1faccf1103a765a14d21e1fd3685a8d1/cucumber-core-1.1.6.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.uiautomation/ios-client/0.6.5/d05d08355879d2908ae538d45a36ab1da14bfb2/ios-client-0.6.5-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/cucumber-core/1.1.6/eafa5e29e4e99856fe0c8878aec148a7474ea98f/cucumber-core-1.1.6-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.2/2d23694879c2c12f125dac5076bdfd5d771cc4cb/logback-core-1.1.2.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/cucumber-jvm-deps/1.0.3/cccdeff234db8b12e91ae2529812f1240b4d5603/cucumber-jvm-deps-1.0.3.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.2/502e1c764542fe747896c1dc04f023acfe0e5cbc/logback-core-1.1.2-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/cucumber-jvm-deps/1.0.3/87b05affa19061ce6ff8e2fa20fa86741570b094/cucumber-jvm-deps-1.0.3-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/gherkin/2.12.2/17138631fa20fd0e44a13e50d6b7be59cee1a94/gherkin-2.12.2.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/gherkin/2.12.2/fc117e217134f99f3b67b7ac10ca277dab596adf/gherkin-2.12.2-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="file:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/selendroid-server/0.11.0/6cc6599f73d2e0b6a09ec74096aa2dffdddd1a47/selendroid-server-0.11.0.apk"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/selendroid-server/0.11.0/745071273187d066c3e6a486215d6b3b5f598d88/selendroid-server-0.11.0-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/selendroid-server-common/0.11.0/be9552b8d797f964d16c0747580014ab6e503bd2/selendroid-server-common-0.11.0.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/selendroid-server-common/0.11.0/85d53e6873d771a501b7042338a0157ecc60d7ed/selendroid-server-common-0.11.0-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="file:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/android-driver-app/0.11.0/5d08d64ae1d0c1d0ac718441263e540cccb660b1/android-driver-app-0.11.0.apk"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/android-driver-app/0.11.0/8af7814dbcb1b2aa1bf8be9fcdc4fcdff79f690e/android-driver-app-0.11.0-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/htmlunit-driver/2.21/4c19c164835580db1d46887b43392dae0c255d50/htmlunit-driver-2.21.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/htmlunit-driver/2.21/a7259caf50a95600721f98f4b9cf2a78b22af82a/htmlunit-driver-2.21-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/net.sourceforge.htmlunit/htmlunit/2.21/3e752dae0006ad516bf6f4138316db7b262912d0/htmlunit-2.21.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/net.sourceforge.htmlunit/htmlunit/2.21/d208f5ef7bf2f7a6da0a35950c890bc34a66900f/htmlunit-2.21-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.m2/repository/org/apache/httpcomponents/httpmime/4.5.2/httpmime-4.5.2.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.uiautomation/ios-common/0.6.5/20aadfe5dfad2f01a1d8c0b47560a2064196510e/ios-common-0.6.5.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.uiautomation/ios-common/0.6.5/6b2f706d9cd3db2f8d3a826e7e3278a4995188df/ios-common-0.6.5-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -1017,17 +1126,6 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-edge-driver/2.53.1/2644dd628e4d6b70365a8c86512ee69b6368667c/selenium-edge-driver-2.53.1-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/htmlunit-driver/2.21/4c19c164835580db1d46887b43392dae0c255d50/htmlunit-driver-2.21.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/htmlunit-driver/2.21/a7259caf50a95600721f98f4b9cf2a78b22af82a/htmlunit-driver-2.21-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -1083,90 +1181,6 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-leg-rc/2.53.1/e4e46bc8f88eca8918044fea81c8b1b2b31d1eb2/selenium-leg-rc-2.53.1-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-core/0.9.3/1e5f26de2eb8fbe9b50223710ad7939172cf8ec8/geb-core-0.9.3.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-core/0.9.3/4823454438d101069e56fc73ad5e05b19c723748/geb-core-0.9.3-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="file:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/selendroid-server/0.11.0/6cc6599f73d2e0b6a09ec74096aa2dffdddd1a47/selendroid-server-0.11.0.apk"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/selendroid-server/0.11.0/745071273187d066c3e6a486215d6b3b5f598d88/selendroid-server-0.11.0-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/selendroid-server-common/0.11.0/be9552b8d797f964d16c0747580014ab6e503bd2/selendroid-server-common-0.11.0.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/selendroid-server-common/0.11.0/85d53e6873d771a501b7042338a0157ecc60d7ed/selendroid-server-common-0.11.0-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="file:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/android-driver-app/0.11.0/5d08d64ae1d0c1d0ac718441263e540cccb660b1/android-driver-app-0.11.0.apk"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/android-driver-app/0.11.0/8af7814dbcb1b2aa1bf8be9fcdc4fcdff79f690e/android-driver-app-0.11.0-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/net.sourceforge.htmlunit/htmlunit/2.21/3e752dae0006ad516bf6f4138316db7b262912d0/htmlunit-2.21.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/net.sourceforge.htmlunit/htmlunit/2.21/d208f5ef7bf2f7a6da0a35950c890bc34a66900f/htmlunit-2.21-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/apache/httpcomponents/httpmime/4.5.2/httpmime-4.5.2.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.uiautomation/ios-common/0.6.5/20aadfe5dfad2f01a1d8c0b47560a2064196510e/ios-common-0.6.5.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.uiautomation/ios-common/0.6.5/6b2f706d9cd3db2f8d3a826e7e3278a4995188df/ios-common-0.6.5-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -1271,12 +1285,10 @@
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/751f548c85fa49f330cecbb1875893f971b33c4e/gson-2.7.jar!/"/>
+          <root url="jar:///Users/gmueksch/.m2/repository/com/google/code/gson/gson/2.3.1/gson-2.3.1.jar!/"/>
         </CLASSES>
         <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/bbb63ca253b483da8ee53a50374593923e3de2e2/gson-2.7-sources.jar!/"/>
-        </SOURCES>
+        <SOURCES/>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="RUNTIME">
@@ -1302,29 +1314,29 @@
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/commons-validator/commons-validator/1.5.1/86d05a46e8f064b300657f751b5a98c62807e2a0/commons-validator-1.5.1.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/cglib/cglib/3.1/1f1cb6c7a7479e0c7fd7987109e503914bebe84a/cglib-3.1.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/commons-validator/commons-validator/1.5.1/1779e91e01dc506f388c350a8684f77c43943a08/commons-validator-1.5.1-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/cglib/cglib/3.1/e651cbd93cb1c2155afdea6675c50e567f7ce91e/cglib-3.1-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/cglib/cglib-nodep/3.2.4/42c972dee25a436b32c6027e848287ff47ed6750/cglib-nodep-3.2.4.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.2/2d23694879c2c12f125dac5076bdfd5d771cc4cb/logback-core-1.1.2.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/cglib/cglib-nodep/3.2.4/98ac1b2a994ce4ae64b5160812bfee21c92709c7/cglib-nodep-3.2.4-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.2/502e1c764542fe747896c1dc04f023acfe0e5cbc/logback-core-1.1.2-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/springframework/spring-context/4.3.2.RELEASE/spring-context-4.3.2.RELEASE.jar!/"/>
+          <root url="jar:///Users/gmueksch/.m2/repository/junit/junit-dep/4.10/junit-dep-4.10.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES/>
@@ -1333,33 +1345,31 @@
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjweaver/1.8.9/db28774f477f07220eac18d5ec9c4e01f48589d7/aspectjweaver-1.8.9.jar!/"/>
+          <root url="jar:///Users/gmueksch/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-core/0.9.3/1e5f26de2eb8fbe9b50223710ad7939172cf8ec8/geb-core-0.9.3.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjweaver/1.8.9/9a10b6740c821d03b800a6062284b4a99de4fbeb/aspectjweaver-1.8.9-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-core/0.9.3/4823454438d101069e56fc73ad5e05b19c723748/geb-core-0.9.3-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-ast/0.9.3/d8477c24bae67a70a75a3f3720b96ab9e133c01d/geb-ast-0.9.3.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/cucumber-html/0.2.3/624a0c986088e32910336dd77aee5191c04a8201/cucumber-html-0.2.3.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-ast/0.9.3/d1f401b517081e815dc20d64007ae4b001743bf8/geb-ast-0.9.3-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-waiting/0.9.3/310ac09279989c1d150f4e058a0091b666f925fa/geb-waiting-0.9.3.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-waiting/0.9.3/7dece6572e15abc364fa33d64ce40c3bf9da64a5/geb-waiting-0.9.3-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/cucumber-html/0.2.3/27705993aec49a6d4c9210158e3c570ebffa3d0a/cucumber-html-0.2.3-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -1417,84 +1427,43 @@
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/commons-beanutils/commons-beanutils/1.9.2/commons-beanutils-1.9.2.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/commons-digester/commons-digester/1.8.1/commons-digester-1.8.1.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/springframework/spring-aop/4.3.2.RELEASE/spring-aop-4.3.2.RELEASE.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/springframework/spring-beans/4.3.2.RELEASE/spring-beans-4.3.2.RELEASE.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/springframework/spring-expression/4.3.2.RELEASE/spring-expression-4.3.2.RELEASE.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/springframework/spring-core/4.3.2.RELEASE/spring-core-4.3.2.RELEASE.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-implicit-assertions/0.9.3/eafa2f449b32ed33d7f8e49fbecd2fc93e3c7226/geb-implicit-assertions-0.9.3.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/4.2/4b2c12b92dd045aeabf5b2aeeb3220bf010da9d4/asm-4.2.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-implicit-assertions/0.9.3/b09ba273fcf9309f1d0bf3ef25cd507219053353/geb-implicit-assertions-0.9.3-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/4.2/10735cd06b779a5f172fba69ea6f7b9cdc61a4d/asm-4.2-sources.jar!/"/>
         </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-ast/0.9.3/d8477c24bae67a70a75a3f3720b96ab9e133c01d/geb-ast-0.9.3.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-ast/0.9.3/d1f401b517081e815dc20d64007ae4b001743bf8/geb-ast-0.9.3-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-waiting/0.9.3/310ac09279989c1d150f4e058a0091b666f925fa/geb-waiting-0.9.3.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-waiting/0.9.3/7dece6572e15abc364fa33d64ce40c3bf9da64a5/geb-waiting-0.9.3-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.m2/repository/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="RUNTIME">
@@ -1516,6 +1485,17 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-security/7.2.0.v20101020/d70f2e5e81b6a59ff5fcc06d4e979637580d7fe0/jetty-security-7.2.0.v20101020-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-implicit-assertions/0.9.3/eafa2f449b32ed33d7f8e49fbecd2fc93e3c7226/geb-implicit-assertions-0.9.3.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-implicit-assertions/0.9.3/b09ba273fcf9309f1d0bf3ef25cd507219053353/geb-implicit-assertions-0.9.3-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -1600,6 +1580,15 @@
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
+          <root url="jar:///Users/gmueksch/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
           <root url="jar:///Users/gmueksch/.m2/repository/net/java/dev/jna/jna-platform/4.1.0/jna-platform-4.1.0.jar!/"/>
         </CLASSES>
         <JAVADOC/>
@@ -1662,6 +1651,15 @@
         <SOURCES>
           <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/net.sourceforge.cssparser/cssparser/0.9.18/30090d7df3b8ab88ae1761f65b7702b6ace07490/cssparser-0.9.18-sources.jar!/"/>
         </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="RUNTIME">
@@ -1721,31 +1719,11 @@
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/codehaus/groovy/groovy-all/2.4.4/groovy-all-2.4.4.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.2/b316e9737eea25e9ddd6d88eaeee76878045c6b2/logback-classic-1.1.2.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/cucumber-groovy/1.1.6/4be1a586b19f7e0921b462d8e9eb6031be486e01/cucumber-groovy-1.1.6.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.2/decd76e2c461157804473468bbdc6b8eb6d6121b/logback-classic-1.1.2-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.6/562424e36df3d2327e8e9301a76027fca17d54ea/slf4j-api-1.7.6.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.6/97bb93c1badeae97a3d37e3c902df2985ee3de34/slf4j-api-1.7.6-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/cucumber-groovy/1.1.6/c74223d2691458953c5e7a9b42f91b4e32c5d21d/cucumber-groovy-1.1.6-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -1774,11 +1752,55 @@
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.appium/java-client/4.1.2/d6cd75553b08a9f4bf478842e3b005d9339c2bea/java-client-4.1.2.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.uiautomation/ios-client/0.6.5/dc989fffce696e8a2da4b44865fd1ecfe8464189/ios-client-0.6.5.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.appium/java-client/4.1.2/6505c7dcf5af12fbf649daaed85653790712e12a/java-client-4.1.2-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.uiautomation/ios-client/0.6.5/d05d08355879d2908ae538d45a36ab1da14bfb2/ios-client-0.6.5-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.appium/java-client/2.1.0/4f196997275225055c6f36a297f0b596cd266e63/java-client-2.1.0.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.appium/java-client/2.1.0/cc72ed1ffe4affcb364af2edeb10c9872c553ba5/java-client-2.1.0-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.codehaus.groovy/groovy-all/2.3.4/63573270662a8d2bdea1f75b2291e667c7d972a7/groovy-all-2.3.4.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.codehaus.groovy/groovy-all/2.3.4/d54780d90adc7ba182be6e1e15fb1f17c7a0be70/groovy-all-2.3.4-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.2/b316e9737eea25e9ddd6d88eaeee76878045c6b2/logback-classic-1.1.2.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.2/decd76e2c461157804473468bbdc6b8eb6d6121b/logback-classic-1.1.2-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.6/562424e36df3d2327e8e9301a76027fca17d54ea/slf4j-api-1.7.6.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.6/97bb93c1badeae97a3d37e3c902df2985ee3de34/slf4j-api-1.7.6-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -1805,7 +1827,7 @@
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/junit/junit/4.12/junit-4.12.jar!/"/>
+          <root url="jar:///Users/gmueksch/.m2/repository/junit/junit/4.11/junit-4.11.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES/>
@@ -1825,7 +1847,7 @@
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/spockframework/spock-core/1.0-groovy-2.4/spock-core-1.0-groovy-2.4.jar!/"/>
+          <root url="jar:///Users/gmueksch/.m2/repository/org/spockframework/spock-core/0.7-groovy-2.0/spock-core-0.7-groovy-2.0.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES/>
@@ -1834,22 +1856,108 @@
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.uiautomation/ios-client/0.6.5/dc989fffce696e8a2da4b44865fd1ecfe8464189/ios-client-0.6.5.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/cucumber-core/1.1.6/9d0a98ab1faccf1103a765a14d21e1fd3685a8d1/cucumber-core-1.1.6.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.uiautomation/ios-client/0.6.5/d05d08355879d2908ae538d45a36ab1da14bfb2/ios-client-0.6.5-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/cucumber-core/1.1.6/eafa5e29e4e99856fe0c8878aec148a7474ea98f/cucumber-core-1.1.6-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.2/2d23694879c2c12f125dac5076bdfd5d771cc4cb/logback-core-1.1.2.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/cucumber-jvm-deps/1.0.3/cccdeff234db8b12e91ae2529812f1240b4d5603/cucumber-jvm-deps-1.0.3.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.2/502e1c764542fe747896c1dc04f023acfe0e5cbc/logback-core-1.1.2-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/cucumber-jvm-deps/1.0.3/87b05affa19061ce6ff8e2fa20fa86741570b094/cucumber-jvm-deps-1.0.3-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/gherkin/2.12.2/17138631fa20fd0e44a13e50d6b7be59cee1a94/gherkin-2.12.2.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/gherkin/2.12.2/fc117e217134f99f3b67b7ac10ca277dab596adf/gherkin-2.12.2-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="file:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/selendroid-server/0.11.0/6cc6599f73d2e0b6a09ec74096aa2dffdddd1a47/selendroid-server-0.11.0.apk"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/selendroid-server/0.11.0/745071273187d066c3e6a486215d6b3b5f598d88/selendroid-server-0.11.0-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/selendroid-server-common/0.11.0/be9552b8d797f964d16c0747580014ab6e503bd2/selendroid-server-common-0.11.0.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/selendroid-server-common/0.11.0/85d53e6873d771a501b7042338a0157ecc60d7ed/selendroid-server-common-0.11.0-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="file:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/android-driver-app/0.11.0/5d08d64ae1d0c1d0ac718441263e540cccb660b1/android-driver-app-0.11.0.apk"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/android-driver-app/0.11.0/8af7814dbcb1b2aa1bf8be9fcdc4fcdff79f690e/android-driver-app-0.11.0-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/htmlunit-driver/2.21/4c19c164835580db1d46887b43392dae0c255d50/htmlunit-driver-2.21.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/htmlunit-driver/2.21/a7259caf50a95600721f98f4b9cf2a78b22af82a/htmlunit-driver-2.21-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/net.sourceforge.htmlunit/htmlunit/2.21/3e752dae0006ad516bf6f4138316db7b262912d0/htmlunit-2.21.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/net.sourceforge.htmlunit/htmlunit/2.21/d208f5ef7bf2f7a6da0a35950c890bc34a66900f/htmlunit-2.21-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.m2/repository/org/apache/httpcomponents/httpmime/4.5.2/httpmime-4.5.2.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.uiautomation/ios-common/0.6.5/20aadfe5dfad2f01a1d8c0b47560a2064196510e/ios-common-0.6.5.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.uiautomation/ios-common/0.6.5/6b2f706d9cd3db2f8d3a826e7e3278a4995188df/ios-common-0.6.5-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -1872,17 +1980,6 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-edge-driver/2.53.1/2644dd628e4d6b70365a8c86512ee69b6368667c/selenium-edge-driver-2.53.1-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/htmlunit-driver/2.21/4c19c164835580db1d46887b43392dae0c255d50/htmlunit-driver-2.21.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/htmlunit-driver/2.21/a7259caf50a95600721f98f4b9cf2a78b22af82a/htmlunit-driver-2.21-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -1938,90 +2035,6 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-leg-rc/2.53.1/e4e46bc8f88eca8918044fea81c8b1b2b31d1eb2/selenium-leg-rc-2.53.1-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-core/0.9.3/1e5f26de2eb8fbe9b50223710ad7939172cf8ec8/geb-core-0.9.3.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-core/0.9.3/4823454438d101069e56fc73ad5e05b19c723748/geb-core-0.9.3-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="file:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/selendroid-server/0.11.0/6cc6599f73d2e0b6a09ec74096aa2dffdddd1a47/selendroid-server-0.11.0.apk"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/selendroid-server/0.11.0/745071273187d066c3e6a486215d6b3b5f598d88/selendroid-server-0.11.0-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/selendroid-server-common/0.11.0/be9552b8d797f964d16c0747580014ab6e503bd2/selendroid-server-common-0.11.0.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/selendroid-server-common/0.11.0/85d53e6873d771a501b7042338a0157ecc60d7ed/selendroid-server-common-0.11.0-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="file:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/android-driver-app/0.11.0/5d08d64ae1d0c1d0ac718441263e540cccb660b1/android-driver-app-0.11.0.apk"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/io.selendroid/android-driver-app/0.11.0/8af7814dbcb1b2aa1bf8be9fcdc4fcdff79f690e/android-driver-app-0.11.0-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/net.sourceforge.htmlunit/htmlunit/2.21/3e752dae0006ad516bf6f4138316db7b262912d0/htmlunit-2.21.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/net.sourceforge.htmlunit/htmlunit/2.21/d208f5ef7bf2f7a6da0a35950c890bc34a66900f/htmlunit-2.21-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/apache/httpcomponents/httpmime/4.5.2/httpmime-4.5.2.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.uiautomation/ios-common/0.6.5/20aadfe5dfad2f01a1d8c0b47560a2064196510e/ios-common-0.6.5.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.uiautomation/ios-common/0.6.5/6b2f706d9cd3db2f8d3a826e7e3278a4995188df/ios-common-0.6.5-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -2126,12 +2139,10 @@
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/751f548c85fa49f330cecbb1875893f971b33c4e/gson-2.7.jar!/"/>
+          <root url="jar:///Users/gmueksch/.m2/repository/com/google/code/gson/gson/2.3.1/gson-2.3.1.jar!/"/>
         </CLASSES>
         <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/bbb63ca253b483da8ee53a50374593923e3de2e2/gson-2.7-sources.jar!/"/>
-        </SOURCES>
+        <SOURCES/>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="TEST">
@@ -2157,29 +2168,29 @@
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/commons-validator/commons-validator/1.5.1/86d05a46e8f064b300657f751b5a98c62807e2a0/commons-validator-1.5.1.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/cglib/cglib/3.1/1f1cb6c7a7479e0c7fd7987109e503914bebe84a/cglib-3.1.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/commons-validator/commons-validator/1.5.1/1779e91e01dc506f388c350a8684f77c43943a08/commons-validator-1.5.1-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/cglib/cglib/3.1/e651cbd93cb1c2155afdea6675c50e567f7ce91e/cglib-3.1-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/cglib/cglib-nodep/3.2.4/42c972dee25a436b32c6027e848287ff47ed6750/cglib-nodep-3.2.4.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.2/2d23694879c2c12f125dac5076bdfd5d771cc4cb/logback-core-1.1.2.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/cglib/cglib-nodep/3.2.4/98ac1b2a994ce4ae64b5160812bfee21c92709c7/cglib-nodep-3.2.4-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.2/502e1c764542fe747896c1dc04f023acfe0e5cbc/logback-core-1.1.2-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/springframework/spring-context/4.3.2.RELEASE/spring-context-4.3.2.RELEASE.jar!/"/>
+          <root url="jar:///Users/gmueksch/.m2/repository/junit/junit-dep/4.10/junit-dep-4.10.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES/>
@@ -2188,33 +2199,31 @@
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjweaver/1.8.9/db28774f477f07220eac18d5ec9c4e01f48589d7/aspectjweaver-1.8.9.jar!/"/>
+          <root url="jar:///Users/gmueksch/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-core/0.9.3/1e5f26de2eb8fbe9b50223710ad7939172cf8ec8/geb-core-0.9.3.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjweaver/1.8.9/9a10b6740c821d03b800a6062284b4a99de4fbeb/aspectjweaver-1.8.9-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-core/0.9.3/4823454438d101069e56fc73ad5e05b19c723748/geb-core-0.9.3-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-ast/0.9.3/d8477c24bae67a70a75a3f3720b96ab9e133c01d/geb-ast-0.9.3.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/cucumber-html/0.2.3/624a0c986088e32910336dd77aee5191c04a8201/cucumber-html-0.2.3.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-ast/0.9.3/d1f401b517081e815dc20d64007ae4b001743bf8/geb-ast-0.9.3-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-waiting/0.9.3/310ac09279989c1d150f4e058a0091b666f925fa/geb-waiting-0.9.3.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-waiting/0.9.3/7dece6572e15abc364fa33d64ce40c3bf9da64a5/geb-waiting-0.9.3-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/info.cukes/cucumber-html/0.2.3/27705993aec49a6d4c9210158e3c570ebffa3d0a/cucumber-html-0.2.3-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -2272,84 +2281,43 @@
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/commons-beanutils/commons-beanutils/1.9.2/commons-beanutils-1.9.2.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/commons-digester/commons-digester/1.8.1/commons-digester-1.8.1.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/springframework/spring-aop/4.3.2.RELEASE/spring-aop-4.3.2.RELEASE.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/springframework/spring-beans/4.3.2.RELEASE/spring-beans-4.3.2.RELEASE.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/springframework/spring-expression/4.3.2.RELEASE/spring-expression-4.3.2.RELEASE.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/org/springframework/spring-core/4.3.2.RELEASE/spring-core-4.3.2.RELEASE.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-implicit-assertions/0.9.3/eafa2f449b32ed33d7f8e49fbecd2fc93e3c7226/geb-implicit-assertions-0.9.3.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/4.2/4b2c12b92dd045aeabf5b2aeeb3220bf010da9d4/asm-4.2.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-implicit-assertions/0.9.3/b09ba273fcf9309f1d0bf3ef25cd507219053353/geb-implicit-assertions-0.9.3-sources.jar!/"/>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/4.2/10735cd06b779a5f172fba69ea6f7b9cdc61a4d/asm-4.2-sources.jar!/"/>
         </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-ast/0.9.3/d8477c24bae67a70a75a3f3720b96ab9e133c01d/geb-ast-0.9.3.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-ast/0.9.3/d1f401b517081e815dc20d64007ae4b001743bf8/geb-ast-0.9.3-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-waiting/0.9.3/310ac09279989c1d150f4e058a0091b666f925fa/geb-waiting-0.9.3.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-waiting/0.9.3/7dece6572e15abc364fa33d64ce40c3bf9da64a5/geb-waiting-0.9.3-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.m2/repository/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="TEST">
@@ -2371,6 +2339,17 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-security/7.2.0.v20101020/d70f2e5e81b6a59ff5fcc06d4e979637580d7fe0/jetty-security-7.2.0.v20101020-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-implicit-assertions/0.9.3/eafa2f449b32ed33d7f8e49fbecd2fc93e3c7226/geb-implicit-assertions-0.9.3.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/org.gebish/geb-implicit-assertions/0.9.3/b09ba273fcf9309f1d0bf3ef25cd507219053353/geb-implicit-assertions-0.9.3-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -2455,6 +2434,15 @@
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
+          <root url="jar:///Users/gmueksch/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
           <root url="jar:///Users/gmueksch/.m2/repository/net/java/dev/jna/jna-platform/4.1.0/jna-platform-4.1.0.jar!/"/>
         </CLASSES>
         <JAVADOC/>
@@ -2517,6 +2505,15 @@
         <SOURCES>
           <root url="jar:///Users/gmueksch/.gradle/caches/modules-2/files-2.1/net.sourceforge.cssparser/cssparser/0.9.18/30090d7df3b8ab88ae1761f65b7702b6ace07490/cssparser-0.9.18-sources.jar!/"/>
         </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/gmueksch/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="TEST">
