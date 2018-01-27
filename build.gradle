@@ -4,7 +4,6 @@ buildscript {
         mavenCentral()
     }
 }
-apply plugin: 'groovy'
 apply plugin: 'maven'
 apply plugin: 'idea'
 
@@ -29,27 +28,13 @@ allprojects {
         mavenCentral()
     }
 
-    configurations {
-        selendroid
-        iosdriver
-        cucumberCompile
-    }
-
 }
 
 subprojects {
     apply plugin: 'groovy'
     apply plugin: 'idea'
 
-    configurations {
-        selendroid
-        iosdriver
-    }
-
     dependencies {
-
-        cucumberCompile 'info.cukes:cucumber-groovy:1.1.6'
-        compile 'info.cukes:cucumber-groovy:1.1.6'
 
         compile "io.selendroid:selendroid-standalone:$selendroidVersion"
         compile "io.selendroid:selendroid-client:$selendroidVersion"
