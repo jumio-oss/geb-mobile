@@ -1,6 +1,5 @@
 buildscript {
     repositories {
-        mavenLocal()
         mavenCentral()
     }
 }
@@ -62,59 +61,6 @@ subprojects {
 
 }
 
-def startServer = { server, command ->
-    if (System.properties.'skipServer') {
-        println "Skipping Server $server "; return
-    }
-    println "Starting $server with $command"
-    ProcessBuilder builder = new ProcessBuilder(command.split(' '))
-    builder.redirectErrorStream(true)
-    builder.directory(buildDir)
-    Process process = builder.start()
-    project.ext[server] = process
-    println "$server started : $process"
-    def loggingThread = Thread.start("logging-$server") {
-        FileOutputStream fout = new FileOutputStream(new File(buildDir, "${server}.log"))
-        int bb
-        while ((bb = process.getInputStream().read()) > 0) {
-            fout.write(bb)
-        }
-    }
-    if (System.getProperty("waitForServer")) {
-        println "Joining Server Logging Thread"
-        loggingThread.join()
-    }
-}
-
-def stopServer = { server ->
-    println "Stopping $server"
-    if (project.ext.has(server)) {
-        Process process = ext.get(server)
-        println "send CTRL-C to server"
-        try {
-            process.getOutputStream().write(3)
-            process.getOutputStream().flush()
-        } catch (e) {
-        }
-        process.destroy()
-    } else {
-        println "No Server $server found in process list"
-    }
-}
-
-task startAppium(group: 'Server') {
-    doLast {
-        startServer("SERVER_APPIUM", "appium --command-timeout 90000")
-    }
-}
-
-task stopServers(group: 'Server') {
-    doLast {
-        project.ext.properties.each { k, v ->
-            if (k =~ /^SERVER_/ && project.ext.has(k)) stopServer(k)
-        }
-    }
-}
 
 task checkenv {
     doLast {

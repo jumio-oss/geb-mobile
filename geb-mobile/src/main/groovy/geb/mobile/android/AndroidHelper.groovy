@@ -5,6 +5,7 @@ import groovy.util.logging.Slf4j
 import io.appium.java_client.AppiumDriver
 import io.appium.java_client.android.AndroidDriver
 import io.appium.java_client.android.AndroidKeyCode
+import io.appium.java_client.android.AndroidKeyMetastate
 import io.selendroid.SelendroidKeys
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.interactions.Actions
@@ -40,11 +41,11 @@ class AndroidHelper {
      * @param driver
      */
     public static void androidDriverBackButton(AndroidDriver driver){
-        driver.pressKeyCode(AndroidKeyCode.BACK);
+        driver.sendKeyEvent(AndroidKeyCode.BACK) //  pressKeyCode(AndroidKeyCode.BACK);
     }
 
     public static void androidDriverHomeButton(AndroidDriver driver){
-        driver.pressKeyCode(AndroidKeyCode.HOME)
+        driver.sendKeyEvent(AndroidKeyCode.HOME)
     }
 
     public String getMessage(){
