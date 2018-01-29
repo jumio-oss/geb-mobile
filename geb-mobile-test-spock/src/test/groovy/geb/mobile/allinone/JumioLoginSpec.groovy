@@ -1,4 +1,4 @@
-package geb.mobile.junit
+package geb.mobile.allinone
 
 import geb.mobile.GebMobileBaseSpec
 import geb.mobile.android.AndroidBaseActivity
@@ -34,7 +34,7 @@ class JumioLoginSpec extends GebMobileBaseSpec{
         GebMobileDriverFactory.setAppiumAndroid(
                 appPackage:'com.example.jumiologin',
                 appActivity: 'LoginActivity',
-                testobject_api_key : 'EDB76E8F0C9245BBBBBD34F9C4B79EE4',
+                testobject_api_key : System.getProperty("testobjectApiKey", System.getenv("TESTOBJECT_APIKEY")),
                 testobject_app_id :'1',
                 testobject_device : 'LG_Nexus_5_real',
                 testobject_suite_name : 'Default Appium Suite',
