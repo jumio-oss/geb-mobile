@@ -1,5 +1,9 @@
+
 dependencies {
     compile project(':geb-mobile')
+    runtime(group: 'io.selendroid', name: 'selendroid-test-app', version: '0.17.0') {
+        transitive = false
+    }
 }
 
 tasks.withType(Test) { task ->
@@ -11,11 +15,11 @@ tasks.withType(Test) { task ->
 
 
 
-task runAppiumTests(group: 'Android', type: Test, dependsOn: [parent.tasks.startAppium]) {
+task runAppiumTests(group: 'Android', type: Test, dependsOn:[compileGroovy]) {
     systemProperties.put "framework", "appium"
 
     systemProperties.put "appUT.package", "io.selendroid.testapp"
-    systemProperties.put "appium_app", "${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk"
+    systemProperties.put "appium_app", configurations.runtime.files.find{ it.name =~/selendroid-test-app/}.absolutePath
     systemProperties.put "appium_deviceName", "Android"
     //To run the test on a specific device
     //System.setProperty("appium_udid","192.168.56.10:5555")
@@ -46,7 +50,7 @@ task appiumOnSauceLabs(type: Test, dependsOn: [compileGroovy]) {
 
 
 task uploadApk2Saucelabs(type: Exec) {
-    commandLine = ['curl', '-u', "$saucelabsUser:$saucelabsKey", '-X', 'POST', "http://saucelabs.com/rest/v1/storage/$saucelabsUser/selendroid-test-app-0.9.0.apk?overwrite=true", '-H', 'Content-Type: application/octet-stream', '--data-binary', "@${projectDir}/src/test/resources/testapk/selendroid-test-app-0.9.0.apk"]
+    commandLine = ['curl', '-u', "$saucelabsUser:$saucelabsKey", '-X', 'POST', "http://saucelabs.com/rest/v1/storage/$saucelabsUser/selendroid-test-app-0.9.0.apk?overwrite=true", '-H', 'Content-Type: application/octet-stream', '--data-binary', "@${configurations.runtime.files.find{ it.name =~/selendroid-test-app/}.absolutePath}"]
 }
 
 
