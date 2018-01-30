@@ -31,11 +31,11 @@
 ## Used Stuff
 + Android Debug Bridge 
 + Xcode stuff 
-+ Geb/Spock v0.9.3
-+ Groovy v2.3.4
-+ Gradle v1.9
-+ Appium >= v1.2.1
-+ Appium Java Client v1.6.2
++ Geb/Spock v2.0
++ Groovy v2.3.11
++ Gradle v4.3.1
++ Appium >= v1.7.1
++ Appium Java Client v5.0.4
 + Selendroid v0.11 
 + IosDriver v0.6+
 + 
@@ -48,31 +48,36 @@
 5. Appium on Mac is tricky, see notes at the end
 
 
-## Get Started
-1. Plugin a mobile device or start a virtual device 
+## Get Started with Android ( it is easier and faster than iPhone )
+1. Plugin a mobile device or start a virtual device or use genyMotion 
 2. check with 'adb devices', that your device or emulator is registered
-3. start with './gradlew -i runSeleniumTests' if you have an android devices with API-Level < 17 
-4. for API-Level > 17 you can also try './gradlew -i runAppiumTests' 
-5. The selendroid or appium server starts for you , if everything works as designed
+3. start appium 
+4. run './gradlew -i runAppiumTests' 
 
+# IOS - Appium - Real Device TODO's:
+1. appium brings the facebook-webdriver which works nice ( nicer than before )
+2. Xcode installation hazzard
+3. install ideviceinstaller ( brew install ideviceinstaller )
+4.some params need to be set for WebDriver:
+
+`    
+     "appium_bundleId": "<bundle id>",
+          "appium_platform": "MAC",
+          "appium_platformName": "iOS",
+          "appium_automationName": "XCUITest",
+          "appium_xcodeConfigFile": "<path_2_your_xcodeConfigFile.conf>",
+          "appium_realDeviceLogger": "/usr/local/lib/node_modules/deviceconsole/deviceconsole",
+          "appium_app": "<path_2_your_app.app>",
+          "appium_newCommandTimeout" : "300"
+` 
 
 ## TODO 
-+ Test the iosdriver on mac with the UIMountain or UICatalog app
-+ Merge the NavigatorFactories, a lot common stuff
 + Improve performance, when checking the attributes or property of a WebElement 
-+ Refactoring
 + more Refactoring
 + Write more tests 
 + Find a public jenkins / repository
 
 
-# IOS - Appium - Real Device TODO's:
-- on version 1.2.2 the deviceconsole is not compiled ...
-- cd /usr/local/lib/node_modules/appium/build/deviceconsole/
-- make
-- clone SafariLauncher from github, build it with your dev licence and put it into .../node_module/appium/build/SafariLauncher/ 
-- brew install ios-webkit-debug-proxy
-- run: ios_webkit_debug_proxy -c <your-udid-from-your-device>:27753
 
 
 
