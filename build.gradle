@@ -9,12 +9,11 @@ apply plugin: 'idea'
 group = 'jumio.oss'
 version = '1.0-SNAPSHOT'
 
-ext.gebVersion = '0.9.3'
-ext.seleniumVersion = '2.53.1'
-ext.spockVersion = '0.7-groovy-2.0'
-ext.groovyVersion = '2.3.4'
-ext.selendroidVersion = '0.11.0'
-ext.appiumClientVersion = '2.1.0'
+ext.gebVersion = '2.0'
+ext.seleniumVersion = '3.8.1'
+ext.spockVersion = '1.0-groovy-2.3'
+ext.groovyVersion = '2.3.11'
+ext.appiumClientVersion = '5.0.4'
 ext.iosClientVersion = '0.6+'
 
 
@@ -31,14 +30,12 @@ allprojects {
 
 subprojects {
     apply plugin: 'groovy'
-    apply plugin: 'idea'
 
     dependencies {
 
-        compile "io.selendroid:selendroid-standalone:$selendroidVersion"
-        compile "io.selendroid:selendroid-client:$selendroidVersion"
-        compile "org.uiautomation:ios-client:$iosClientVersion"
         compile("io.appium:java-client:$appiumClientVersion")
+        compile "org.uiautomation:ios-client:$iosClientVersion"
+        compile "org.json:json:20171018"
         compile "org.codehaus.groovy:groovy-all:$groovyVersion"
         compile "org.slf4j:slf4j-api:1.7.6"
         compile 'ch.qos.logback:logback-classic:1.1.2'

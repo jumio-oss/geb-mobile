@@ -6,19 +6,12 @@ import geb.mobile.GebMobileNavigatorFactory
 import geb.mobile.driver.GebMobileDriverFactory
 import groovy.swing.SwingBuilder
 import io.appium.java_client.ios.IOSDriver
-import org.apache.regexp.RE
-import org.apache.xpath.operations.Bool
 import org.openqa.selenium.remote.RemoteWebDriver
 
-import javax.swing.JButton
-import javax.swing.JPanel
-import javax.swing.JTextField
-import javax.swing.Scrollable
-import java.util.regex.Pattern
-
-import static java.awt.Frame.getFrames
-import static javax.swing.JFrame.EXIT_ON_CLOSE
+import javax.swing.*
 import java.awt.*
+
+import static javax.swing.JFrame.EXIT_ON_CLOSE
 
 /**
  * Created by thomaskastenhofer on 02.10.14.

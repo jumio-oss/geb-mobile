@@ -5,7 +5,10 @@ import geb.mobile.AbstractMobileNonEmptyNavigator
 import geb.navigator.EmptyNavigator
 import geb.navigator.Navigator
 import groovy.util.logging.Slf4j
+import io.appium.java_client.MobileElement
 import io.appium.java_client.ios.IOSDriver
+import io.appium.java_client.ios.IOSElement
+import org.apache.commons.lang3.NotImplementedException
 import org.openqa.selenium.By
 import org.openqa.selenium.WebElement
 
@@ -13,9 +16,9 @@ import org.openqa.selenium.WebElement
  * Created by gmueksch on 23.06.14.
  */
 @Slf4j
-class AppiumIosInstrumentationNonEmptyNavigator extends AbstractMobileNonEmptyNavigator<IOSDriver> {
+class AppiumIosInstrumentationNonEmptyNavigator extends AbstractMobileNonEmptyNavigator<IOSDriver<IOSElement>> {
 
-    AppiumIosInstrumentationNonEmptyNavigator(Browser browser, Collection<? extends WebElement> contextElements) {
+    AppiumIosInstrumentationNonEmptyNavigator(Browser browser, Collection<? extends MobileElement> contextElements) {
         super(browser,contextElements)
     }
 
@@ -51,8 +54,7 @@ class AppiumIosInstrumentationNonEmptyNavigator extends AbstractMobileNonEmptyNa
         }
     }
 
-    @Override
-    protected getInputValue(WebElement input) {
+    protected getInputValue(MobileElement input) {
         def value = null
         def type = input.getTagName()
         if (type == "UIASelect") {
@@ -73,7 +75,7 @@ class AppiumIosInstrumentationNonEmptyNavigator extends AbstractMobileNonEmptyNa
     }
 
     @Override
-    void setInputValue(WebElement input, value) {
+    void setInputValue(MobileElement input, value) {
         def attrType = input.getTagName()
         if (attrType == "UIASelect") {
             setSelectValue(input, value)
@@ -123,5 +125,10 @@ class AppiumIosInstrumentationNonEmptyNavigator extends AbstractMobileNonEmptyNa
     @Override
     Navigator unique() {
         new AppiumIosInstrumentationNonEmptyNavigator(browser, contextElements.unique(false))
+    }
+
+    @Override
+    Navigator leftShift(Object value) {
+        throw new NotImplementedException()
     }
 }

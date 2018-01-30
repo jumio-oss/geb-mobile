@@ -3,7 +3,6 @@ package geb.mobile.android
 import geb.Page
 import io.appium.java_client.MobileElement
 import io.appium.java_client.android.AndroidDriver
-import io.selendroid.SelendroidDriver
 import org.openqa.selenium.Dimension
 
 /**
@@ -73,10 +72,7 @@ abstract class AndroidBaseActivity extends Page {
     }
 
     public boolean performTap(x,y){
-        if( driver instanceof AndroidDriver)
-            new io.appium.java_client.TouchAction(driver).tap(x.intValue(), y.intValue()).perform()
-        else if ( driver instanceof SelendroidDriver )
-            driver.getTouch().down(x.intValue(), y.intValue())
+        new io.appium.java_client.TouchAction(driver).tap(x.intValue(), y.intValue()).perform()
     }
 
     public MobileElement scrollTo(String text){
