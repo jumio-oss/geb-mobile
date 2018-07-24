@@ -10,7 +10,7 @@ group = 'jumio.oss'
 version = '1.0-SNAPSHOT'
 
 ext.gebVersion = '2.0'
-ext.seleniumVersion = '3.8.1'
+ext.seleniumVersion = '3.13.0'
 ext.spockVersion = '1.0-groovy-2.3'
 ext.groovyVersion = '2.3.11'
 ext.appiumClientVersion = '5.0.4'
