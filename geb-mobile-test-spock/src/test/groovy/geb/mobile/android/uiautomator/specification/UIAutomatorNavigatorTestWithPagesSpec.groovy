@@ -15,20 +15,20 @@ class UIAutomatorNavigatorTestWithPagesSpec extends GebMobileBaseSpec {
 
     // Remove comments, when you want to run from inside an IDE or set the SystemProperties with -D on the Run-Configuration
     static{
-        System.setProperty("appUT.package","io.selendroid.testapp")
+        //System.setProperty("appUT.package","io.selendroid.testapp")
         //System.setProperty("appium_app", new File(ClassLoader.getSystemResource("testapk/selendroid-test-app-0.9.0.apk").toURI()).absolutePath)
-        System.setProperty("appium_deviceName" , "Android")
+        //System.setProperty("appium_deviceName" , "Android")
         //To run the test on a specific device
         //System.setProperty("appium_udid","<your device id from 'adb devices'> ")
         //Use Appium
-        System.setProperty("framework","appium")
+        //System.setProperty("framework","appium")
     }
 
     def "open test-app and enter text "() {
         given:
         at HomeScreenActivity
         when:
-        myTextField << "selendroid"
+        myTextField = "selendroid"
         then:
         myTextField.text() =~ /[sS]elendroid/
     }

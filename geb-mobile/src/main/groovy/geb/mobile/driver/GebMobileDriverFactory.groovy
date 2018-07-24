@@ -3,9 +3,9 @@ package geb.mobile.driver
 import groovy.util.logging.Slf4j
 import io.appium.java_client.AppiumDriver
 import io.appium.java_client.android.AndroidDriver
+import io.appium.java_client.android.AndroidElement
 import io.appium.java_client.ios.IOSDriver
-import io.selendroid.SelendroidCapabilities
-import io.selendroid.SelendroidDriver
+import io.appium.java_client.ios.IOSElement
 import org.openqa.selenium.Platform
 import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.remote.DesiredCapabilities
@@ -39,27 +39,7 @@ class GebMobileDriverFactory {
 
     public static RemoteWebDriver createMobileDriverInstance() {
         log.info("Create Mobile Driver Instance for Framework ${System.properties.framework} ... ")
-        if (useSelendroid()) {
-            DesiredCapabilities capa
-            if (appPackage() && appVersion())
-                capa = new SelendroidCapabilities("${appPackage()}:${appVersion()}")
-            else
-                capa = DesiredCapabilities.android()
-
-            def p = ~/^selendroid_(\w+)$/
-            System.properties.each { k, v ->
-                def m = p.matcher(k)
-                if (m.matches()) {
-                    try {
-                        log.info("Setting set${m[0][1]}($v)")
-                        capa."set${m[0][1]}"(v)
-                    } catch (e) {
-                        log.info("problem setting value to config: $e.message")
-                    }
-                }
-            }
-            return new SelendroidDriver(getURL("http://localhost:4444/wd/hub"), capa)
-        } else if (useAppium()) {
+        if (useAppium()) {
             DesiredCapabilities capa = new DesiredCapabilities()
             //set default platform to android
             capa.setCapability("platformName", "Android");
@@ -78,36 +58,20 @@ class GebMobileDriverFactory {
                 if( appPackage() ) capa.setCapability("appPackage", appPackage())
                 if (!capa.getCapability("deviceName")) capa.setCapability("deviceName", "Android");
 
-                if (capa.getCapability("automationName") == "selendroid") {
-                    log.info("Create SelendroidDriver for Appium, cause AutomationName is set to selendroid")
-                    driver = new SelendroidDriver(getURL("http://localhost:4723/wd/hub"), capa)
-                    driver.setFileDetector(new LocalFileDetector())
-                    return driver
-                }
-
                 log.info("Create AppiumDriver ")
                 try {
-                    driver = new AndroidDriver(getURL("http://localhost:4723/wd/hub"), capa)
-                    driver.setFileDetector(new LocalFileDetector())
-                    sleep(1000)
+                    driver = new AndroidDriver<AndroidElement>(getURL("http://localhost:4723/wd/hub"), capa)
+                    //driver.setFileDetector(new LocalFileDetector())
+                    //sleep(1000)
                     log.info("Driver created: $driver.capabilities")
                     return driver
                 } catch (e) {
                     //
                     log.error("eXC: $e.message", e)
-                    if (e.message =~ /Android devices must be of API level 17 or higher/) {
-                        capa.setCapability("automationName", "selendroid")
-                        try {
-                            driver = new SelendroidDriver(getURL("http://localhost:4723/wd/hub"), capa)
-                            driver.setFileDetector(new LocalFileDetector())
-                        } catch (ex) {
-                            log.error("Error:", ex)
-                        }
-                    }
                 }
             }else{
                 log.info("Create Appium IOSDriver ")
-                driver = new IOSDriver(getURL("http://localhost:4723/wd/hub"), capa)
+                driver = new IOSDriver<IOSElement>(getURL("http://localhost:4723/wd/hub"), capa)
                 driver.setFileDetector(new LocalFileDetector())
                 return driver
 

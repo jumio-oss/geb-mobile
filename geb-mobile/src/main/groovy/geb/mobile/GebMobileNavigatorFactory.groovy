@@ -1,10 +1,12 @@
 package geb.mobile
 
 import geb.Browser
+import geb.navigator.Locator
 import geb.navigator.Navigator
 import geb.navigator.factory.NavigatorBackedNavigatorFactory
 import geb.navigator.factory.NavigatorFactory
 import groovy.util.logging.Slf4j
+import org.openqa.selenium.By
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.remote.RemoteWebElement
 
@@ -29,10 +31,8 @@ class GebMobileNavigatorFactory implements NavigatorFactory {
 
     @Override
     Navigator getBase() {
-        if( _base == null )
-            _base = createFromWebElements([new RemoteWebElement()])
-
-        return _base
+        if(_base)return _base
+        _base = innerNavigatorFactory.createNavigator(browser,null)
     }
 
     protected Browser getBrowser() {
@@ -47,6 +47,7 @@ class GebMobileNavigatorFactory implements NavigatorFactory {
             }
         }
         innerNavigatorFactory.createNavigator(browser, filtered)
+
     }
 
     Navigator createFromNavigators(Iterable<Navigator> navigators) {
@@ -63,6 +64,8 @@ class GebMobileNavigatorFactory implements NavigatorFactory {
         new NavigatorBackedNavigatorFactory(newBase, innerNavigatorFactory)
     }
 
-
-
+    @Override
+    Locator getLocator() {
+        return getBase()
+    }
 }

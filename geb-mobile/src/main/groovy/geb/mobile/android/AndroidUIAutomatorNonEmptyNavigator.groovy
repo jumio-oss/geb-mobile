@@ -7,6 +7,9 @@ import geb.navigator.Navigator
 import groovy.util.logging.Slf4j
 import io.appium.java_client.MobileElement
 import io.appium.java_client.android.AndroidDriver
+import io.appium.java_client.android.AndroidElement
+import org.apache.commons.lang3.NotImplementedException
+import org.apache.http.MethodNotSupportedException
 import org.openqa.selenium.By
 import org.openqa.selenium.WebElement
 
@@ -14,10 +17,10 @@ import org.openqa.selenium.WebElement
  * Created by gmueksch on 23.06.14.
  */
 @Slf4j
-class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigator<AndroidDriver> {
+class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigator<AndroidDriver<AndroidElement>> {
 
     AndroidUIAutomatorNonEmptyNavigator(Browser browser, Collection<? extends MobileElement> contextElements) {
-        super(browser,contextElements)
+        super(browser, contextElements)
     }
 
     private String getAppPackage() {
@@ -72,10 +75,9 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
         new AndroidUIAutomatorNonEmptyNavigator(browser, contextElements.unique(false))
     }
 
-    @Override
-    protected getInputValue(WebElement input) {
+    protected getInputValue(MobileElement input) {
         def value
-        def tagName = tag()
+        def tagName = input.tagName
 
         if (tagName == "android.widget.Spinner") {
             if( AndroidHelper.isOnListView(driver) )
@@ -92,9 +94,9 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
     }
 
     @Override
-    void setInputValue(WebElement input, Object value) {
+    void setInputValue(MobileElement input, Object value) {
 
-        def tagName = tag()
+        def tagName = input.tagName
         log.debug("setInputValue: $input, $tagName")
         if (tagName == "android.widget.Spinner") {
             if (getInputValue(input) == value) return
@@ -173,4 +175,8 @@ class AndroidUIAutomatorNonEmptyNavigator extends AbstractMobileNonEmptyNavigato
         return !super.isEnabled()
     }
 
+    @Override
+    Navigator leftShift(Object value) {
+        throw new NotImplementedException()
+    }
 }

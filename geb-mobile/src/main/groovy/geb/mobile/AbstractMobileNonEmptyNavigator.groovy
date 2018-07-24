@@ -5,15 +5,17 @@ import geb.Page
 import geb.error.UndefinedAtCheckerException
 import geb.error.UnexpectedPageException
 import geb.navigator.AbstractNavigator
+import geb.navigator.BasicLocator
 import geb.navigator.EmptyNavigator
 import geb.navigator.Navigator
 import geb.navigator.SelectFactory
 import geb.textmatching.TextMatcher
+import geb.waiting.Wait
 import geb.waiting.WaitTimeoutException
 import groovy.util.logging.Slf4j
+import io.appium.java_client.MobileElement
 import org.openqa.selenium.By
 import org.openqa.selenium.WebElement
-import org.openqa.selenium.remote.RemoteWebElement
 import sun.reflect.generics.reflectiveObjects.NotImplementedException
 
 import java.util.regex.Pattern
@@ -26,20 +28,20 @@ import static java.util.Collections.EMPTY_LIST
 @Slf4j
 abstract class AbstractMobileNonEmptyNavigator<T> extends AbstractNavigator {
 
-    protected final List<WebElement> contextElements
+    protected final List<MobileElement> contextElements
 
     private Map _props = [:] as Map
 
     T driver
 
-    AbstractMobileNonEmptyNavigator(Browser browser, Collection<? extends WebElement> contextElements) {
-        super(browser)
+    AbstractMobileNonEmptyNavigator(Browser browser, Collection<? extends MobileElement> contextElements) {
+        super(browser, new AbstractMobileBasicLocator())
         this.contextElements = contextElements.toList().asImmutable()
         //this._props = firstElement().properties
         this.driver = (T)browser.driver
     }
 
-    protected Navigator navigatorFor(Collection<WebElement> contextElements) {
+    protected Navigator navigatorFor(Collection<MobileElement> contextElements) {
         browser.navigatorFactory.createFromWebElements(contextElements)
     }
 
@@ -357,14 +359,6 @@ abstract class AbstractMobileNonEmptyNavigator<T> extends AbstractNavigator {
     }
 
     @Override
-    Navigator leftShift(value) {
-        contextElements.each {
-            it.sendKeys value
-        }
-        this
-    }
-
-    @Override
     Navigator click() {
         contextElements.first().click()
         this
@@ -393,7 +387,7 @@ abstract class AbstractMobileNonEmptyNavigator<T> extends AbstractNavigator {
     }
 
     @Override
-    Navigator click(List<Class<? extends Page>> potentialPageClasses) {
+    Navigator click(List potentialPageClasses) {
         click()
         browser.page(*potentialPageClasses)
         this
@@ -540,7 +534,7 @@ abstract class AbstractMobileNonEmptyNavigator<T> extends AbstractNavigator {
         actualValue.any { matcher.matches(it) }
     }
 
-    protected getInputValues(Collection<WebElement> inputs) {
+    protected getInputValues(Collection<MobileElement> inputs) {
         def values = []
         inputs.each { WebElement input ->
             def value = getInputValue(input)
@@ -549,23 +543,10 @@ abstract class AbstractMobileNonEmptyNavigator<T> extends AbstractNavigator {
         return values.size() < 2 ? values[0] : values
     }
 
-    protected getInputValue(WebElement input) {
-        def value
-        def tagName = tag()
 
-        if (tagName == "android.widget.Spinner") {
-            value = input?.findElementByAndroidUIAutomator("new UiSelector().enabled(true)").getText()
-        } else if (tagName == "android.widget.CheckBox") {
-            value = input.getAttribute("checked")
-        } else {
-            value = input.getText()
-        }
-        log.debug("inputValue for $tagName : $value ")
-        value
-    }
 
-    protected void setInputValues(Collection<WebElement> inputs, value) {
-        inputs.each { WebElement input ->
+    protected void setInputValues(Collection<MobileElement> inputs, value) {
+        inputs.each { MobileElement input ->
             setInputValue(input, value)
         }
     }
@@ -575,9 +556,9 @@ abstract class AbstractMobileNonEmptyNavigator<T> extends AbstractNavigator {
      * @param input
      * @param value
      */
-    abstract void setInputValue(WebElement input, value) ;
+    abstract void setInputValue(MobileElement input, value) ;
 
-    protected getValue(WebElement input) {
+    protected getValue(MobileElement input) {
         input?.getAttribute("value")
     }
 
@@ -672,7 +653,6 @@ abstract class AbstractMobileNonEmptyNavigator<T> extends AbstractNavigator {
         index == -1 ? elements : elements[0..<index]
     }
 
-    @Override
     boolean isDisabled() {
         def dis = null
         try {
@@ -686,22 +666,159 @@ abstract class AbstractMobileNonEmptyNavigator<T> extends AbstractNavigator {
         return Boolean.valueOf(dis)
     }
 
-    @Override
     boolean isEnabled() {
         def ena = getAttribute('enabled')
         return Boolean.valueOf(ena)
     }
 
+
     @Override
-    boolean isReadOnly() {
+    Navigator next(Map<String, Object> attributes) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator next(Map<String, Object> attributes, String selector) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator nextAll(Map<String, Object> attributes) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator nextAll(Map<String, Object> attributes, String selector) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator nextUntil(Map<String, Object> attributes) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator nextUntil(Map<String, Object> attributes, String selector) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator previous(Map<String, Object> attributes) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator previous(Map<String, Object> attributes, String selector) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator prevAll(Map<String, Object> attributes) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator prevAll(Map<String, Object> attributes, String selector) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator prevUntil(Map<String, Object> attributes) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator prevUntil(Map<String, Object> attributes, String selector) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator parent(Map<String, Object> attributes) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator parent(Map<String, Object> attributes, String selector) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator parents(Map<String, Object> attributes) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator parents(Map<String, Object> attributes, String selector) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator parentsUntil(Map<String, Object> attributes) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator parentsUntil(Map<String, Object> attributes, String selector) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator closest(Map<String, Object> attributes) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator closest(Map<String, Object> attributes, String selector) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator children(Map<String, Object> attributes) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator children(Map<String, Object> attributes, String selector) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator siblings(Map<String, Object> attributes) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator siblings(Map<String, Object> attributes, String selector) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator click(Page pageInstance) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator click(Class<? extends Page> pageClass, Wait wait) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator click(Page pageInstance, Wait wait) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator click(List potentialPages, Wait wait) {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    Navigator unique() {
+        throw new NotImplementedException()
+    }
+
+    @Override
+    boolean isFocused() {
         return false
     }
-
-    @Override
-    boolean isEditable() {
-        return true
-    }
-
-
-
 }
