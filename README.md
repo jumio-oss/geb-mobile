@@ -7,18 +7,19 @@
 ---
 
 ## Goal
-+ Write mobile selenium based tests with all the features of Geb/Spock
++ Write mobile selenium based tests with features of Geb/Spock
 + Reuse Test for Mobile and normal Web
-+ Support Geb for Android over Appium and Selendroid
++ Run same test against Android and Ios
++ Support Geb for Android over Appium
 + Support Geb for Ios over Appium and Iosdriver
 + Support Geb for MobileSafari over Appium
 
 ## Actual working
-+  Android over Appium and Selendroid
++  Android over Appium
 +  native iOS apps with Appium 
-+  Safari on iOS-Emulator
++  Safari on iOS-Emulator ( not sure about that )
 +  Safari on Real Device
-+  Mobile Safari over Appium works with Saucelabs
++  Test should work with Cloud Provider like ( saucelabs, testobjects, etc)
 
 ## Motivation
 + Geb is cool [See here](http://www.gebish.org/)
@@ -38,7 +39,7 @@
 + Appium Java Client v5.0.4
 + Selendroid v0.11 
 + IosDriver v0.6+
-+ 
+
 
 
 ## Preconditions
@@ -58,7 +59,7 @@
 1. appium brings the facebook-webdriver which works nice ( nicer than before )
 2. Xcode installation hazzard
 3. install ideviceinstaller ( brew install ideviceinstaller )
-4.some params need to be set for WebDriver:
+4. some params need to be set for WebDriver:
 
 `    
      "appium_bundleId": "<bundle id>",
@@ -74,6 +75,7 @@
 ## TODO 
 + Improve performance, when checking the attributes or property of a WebElement 
 + more Refactoring
+   + use compileStatic as much as possible
 + Write more tests 
 + Find a public jenkins / repository
 
